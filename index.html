@@ -10,14 +10,20 @@
 <style>
 :root{
   --hero-width: 1300px;
-  --bg-default:#0d0d10;
-  --bg-surface:#111114;
-  --fg-default:#fff;
-  --fg-secondary:#a1a1aa;
-  --border-default:rgba(115,115,115,.18);
+  /* exact tokens from tokenterminal.com .theme-dark */
+  --bg-default:#0E0E11;          /* hsl(240 10% 6%)  */
+  --bg-surface:#131217;          /* hsl(252 12% 8%)  */
+  --bg-popover:#131217;          /* hsl(252 12% 8%)  */
+  --fg-default:#FFFFFF;          /* hsl(0 0% 100%)   */
+  --fg-secondary:#9B9FAB;        /* hsl(225 9% 64%)  */
+  --border-default:#202028;
+  --border-hover:#2c2c36;
+  --button-default-bg:#17171C;   /* hsl(240 10% 10%) */
+  --button-default-bg-hover:#1C1C22; /* hsl(240 10% 12%) */
   --border-dashed:#1b1b21;
-  --emerald-fg:#62e0ae;
-  --emerald-bg:#112520;
+  --emerald-fg:#34D399;          /* emerald-400 */
+  --emerald-300:#6EE7B7;
+  --emerald-bg:rgba(52,211,153,.15);
 }
 *{box-sizing:border-box;}
 /* background lives on the root so the z-index:-1 guide rules stay visible above the canvas */
@@ -34,7 +40,7 @@ body{background:transparent;
 
 /* ---------------- dashed guide lines ---------------- */
 .v-rule{
-  position:absolute;top:-500px;bottom:-500px;width:1px;
+  position:absolute;top:-281px;height:1260px;width:1px;
   border-right:1px dashed var(--border-dashed);
   z-index:-1;pointer-events:none;
 }
@@ -58,60 +64,92 @@ body{background:transparent;
 .h-rule.left-seg{grid-column:1 / 5;grid-row:3;top:-10px;margin-left:var(--gutterWidth);}
 .h-rule.right-seg{grid-column:12 / 17;grid-row:4;top:-10px;margin-right:var(--gutterWidth);}
 /* interior vertical rule on the column 11/12 boundary */
-.v-seg{
-  grid-column:12;grid-row:4 / 6;justify-self:start;
-  width:1px;margin-top:-500px;margin-bottom:-500px;margin-left:-13px;
-  border-right:1px dashed var(--border-dashed);
-  position:relative;z-index:-1;pointer-events:none;
-}
+.v-seg{display:none;}
 .v-seg::after{
   content:"";position:absolute;left:-1px;right:0;top:0;bottom:0;width:2px;
   background:linear-gradient(to bottom,var(--bg-default),transparent 45%,transparent 55%,var(--bg-default));
 }
 
 /* ---------------- nav ---------------- */
-.nav{display:flex;align-items:center;justify-content:space-between;padding:14px 29px;}
-.logo{font-size:23px;font-weight:600;letter-spacing:-.02em;}
-.logo i{font-style:normal;color:#34d399;}
-.nav-links{display:flex;gap:30px;}
-.nav-links a{color:var(--fg-default);opacity:.85;text-decoration:none;font-size:14px;font-weight:400;transition:opacity .2s;}
-.nav-links a:hover{opacity:1;}
-.explorer-btn{
-  background:var(--emerald-bg);color:var(--emerald-fg);
-  font-size:14px;font-weight:500;text-decoration:none;
-  padding:0 15px;height:34px;display:inline-flex;align-items:center;border-radius:8px;
-  border:1px solid rgba(52,211,153,.10);transition:background .2s;
+/* ---------------- sticky navbar ----------------
+   transparent at rest; on scroll it fades to bg-surface/75 + 20px blur with a
+   bottom border, over 400ms — exactly as tokenterminal.com does it. */
+.site-nav{
+  position:sticky;top:0;width:100%;z-index:100;
+  background:transparent;backdrop-filter:none;-webkit-backdrop-filter:none;
+  border-bottom:1px solid transparent;
+  transition:background .4s,border-color .4s,backdrop-filter .4s,-webkit-backdrop-filter .4s;
+  margin-bottom:-70px;   /* the spacer shell below keeps the original flow height */
 }
-.explorer-btn:hover{background:#16332b;}
+.site-nav[data-is-scrolled="true"]{
+  background:hsl(252 12% 8% / .75);
+  backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  border-bottom-color:var(--border-default);
+}
+.nav-inner{width:1240px;max-width:100%;margin:0 auto;padding:0 20px;}
+.nav-spacer{height:70px;}
+.nav{display:flex;gap:8px;align-items:center;justify-content:space-between;padding:16px 20px;margin:0 -20px;}
+.logo{flex:1;display:flex;justify-content:flex-start;color:var(--fg-default);text-decoration:none;}
+.logo svg{display:block;height:18px;width:auto;}
+.nav-links{display:flex;gap:32px;align-items:center;padding:8px;}
+.nav-links a{
+  color:var(--fg-secondary);text-decoration:none;font-size:14px;line-height:20px;font-weight:500;
+  transition:color .2s;
+}
+.nav-links a:hover{color:rgba(255,255,255,.9);}
+.nav-right{flex:1;display:flex;gap:8px;align-items:center;justify-content:flex-end;}
+.explorer-btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;white-space:nowrap;
+  background:var(--emerald-bg);color:var(--emerald-300);
+  font-size:14px;line-height:20px;font-weight:500;text-decoration:none;
+  padding:8px 14px;border-radius:8px;
+  border:1px solid rgba(110,231,183,.09);
+  box-shadow:0 1px 2px rgba(0,0,0,.1);
+  transition:background .2s;
+}
+.explorer-btn:hover{background:rgba(52,211,153,.22);}
 
 /* ---------------- announcement ---------------- */
+/* container + row: w-[1240px] px-5  /  flex justify-center items-start gap-2 pt-8 pb-20 */
 .announce-row{
-  display:flex;flex-direction:column;align-items:center;gap:4px;
-  text-align:center;position:relative;z-index:2;margin-bottom:117px;
+  width:1240px;max-width:100%;margin:0 auto;padding:0 20px;
+  position:relative;z-index:2;
 }
+.announce-row .row{
+  display:flex;justify-content:center;align-items:flex-start;gap:8px;
+  width:100%;padding-top:32px;padding-bottom:80px;
+}
+@keyframes fade-in{0%{opacity:0}to{opacity:1}}
+.animate-fade-in{opacity:0;animation:2s ease-in-out forwards fade-in;}
+.announce-link{width:auto;border-radius:16px;outline:none;text-decoration:none;}
+/* .tt-badge[data-size=large][data-variant=muted][data-color=neutral] + rounded-3xl */
 .announce{
-  display:inline-flex;align-items:center;gap:12px;
-  background:#1c1c1e;border:1px solid transparent;
-  border-radius:999px;padding:8px 18px;font-size:14px;color:var(--fg-default);
-  text-decoration:none;transition:background .2s;
+  display:inline-flex;align-items:center;justify-content:center;
+  font-weight:500;font-size:16px;gap:6px;
+  padding:4px 10px;border-radius:16px;
+  color:var(--fg-default);background:#a3a3a333;
 }
-.announce:hover{background:#232326;}
-.announce .sep{width:1px;align-self:stretch;background:rgba(255,255,255,.14);margin:2px 0;}
+.announce > .in{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:4px;}
+.announce .lead{display:flex;align-items:center;gap:8px;}
+.announce .t{font-size:14px;line-height:20px;}
+.announce .msg{font-size:14px;line-height:20px;font-weight:400;}
+.announce .sep{width:1px;align-self:stretch;background:var(--border-default);}
 .announce svg{flex-shrink:0;}
-.announce .arrow{transition:transform .3s;transform:translateX(-1px);}
-.announce:hover .arrow{transform:translateX(1px);}
+.announce .arrow{transform:translateX(-1px);transition:transform .3s;}
+.announce-link:hover .arrow{transform:translateX(1px);}
 
 /* ---------------- pause button ---------------- */
 .pause-wrap{position:absolute;right:-4.5%;top:0;display:none;}
 @media (min-width:1460px){.pause-wrap{display:block;}}
 .pause-btn{
   position:relative;width:38px;height:38px;border-radius:50%;
-  background:transparent;border:none;color:var(--fg-default);cursor:pointer;
+  background:transparent;border:1px solid transparent;color:var(--fg-default);cursor:pointer;
   display:flex;align-items:center;justify-content:center;
   opacity:.25;transition:opacity 200ms;padding:0;
 }
 .pause-btn:hover{opacity:.6;}
-.pause-ring{position:absolute;left:0;top:0;width:100%;height:100%;pointer-events:none;transform:rotate(-90deg);opacity:.25;}
+.pause-ring-wrap{position:absolute;left:0;top:0;width:100%;height:100%;pointer-events:none;}
+.pause-ring{opacity:.25;transform:rotate(-90deg);}
 
 /* ---------------- hero grid ---------------- */
 .hero-grid{
@@ -309,14 +347,18 @@ table.fs th:not(:first-child),table.fs td:not(:first-child){padding-left:22px;}
 
 /* footer */
 .hero-content-section{
-  display:flex;flex-direction:row;align-items:flex-start;justify-content:space-between;
-  gap:2rem;width:100%;padding:24px 8px;
+  display:flex;flex-direction:row;align-items:center;justify-content:space-between;
+  gap:2rem;width:100%;padding:24px 0 24px 8px;margin:4px 0 68px;
 }
-.hero-content-section p{margin:0;max-width:700px;font-size:16px;line-height:1.55;color:var(--fg-secondary);}
+.hero-content-section p{margin:0;max-width:700px;font-size:16px;line-height:24px;color:var(--fg-secondary);}
 .cta{
-  display:inline-flex;align-items:center;gap:8px;white-space:nowrap;
-  color:var(--fg-default);text-decoration:none;font-size:14px;
+  display:inline-flex;align-items:center;justify-content:center;gap:12px;white-space:nowrap;
+  color:var(--fg-secondary);text-decoration:none;
+  font-size:14px;line-height:20px;font-weight:500;
+  padding:12px 20px;border-radius:8px;border:1px solid transparent;flex-shrink:0;
+  transition:background-color .2s;
 }
+.cta:hover{background:rgba(212,212,212,.1);}
 .cta svg{transition:transform .3s;}
 .cta:hover svg{transform:translateX(3px);}
 
@@ -336,48 +378,488 @@ table.fs th:not(:first-child),table.fs td:not(:first-child){padding-left:22px;}
   .nav-links{display:none;}
   .hero-content-section{flex-direction:column;align-items:flex-start;padding:32px 0;}
 }
+
+/* ================= Trusted by + full-stack platform sections ================= */
+/* container mirrors the source: w-[1240px] max-w-full mx-auto px-5 */
+.container-1240{width:1240px;max-width:100%;margin:0 auto;padding:0 20px;}
+
+@keyframes fade-in-up{
+  0%{opacity:0;transform:translateY(50px)}
+  to{opacity:1;transform:translateY(0)}
+}
+.animate-fade-in-up{opacity:0;animation:1s cubic-bezier(.27,.01,0,1) forwards fade-in-up;}
+
+/* ---- Trusted by ---- */
+.trusted{display:flex;flex-direction:column;gap:8px;align-items:center;padding:64px 0;}
+.trusted-label{color:var(--fg-secondary);font-size:16px;line-height:1.5;margin-bottom:24px;max-width:490px;}
+.logo-grid{
+  display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;
+  align-items:center;justify-content:center;justify-items:center;width:100%;
+}
+.logo-grid img{width:100%;height:120px;color:transparent;}
+
+/* ---- A full stack onchain data platform ---- */
+.platform{padding:128px 0;}
+.platform-inner{display:flex;flex-direction:column;gap:64px;}
+.platform-head{display:flex;flex-direction:row;align-items:flex-start;justify-content:space-between;gap:16px;}
+.platform-head-copy{display:flex;flex-direction:column;gap:16px;max-width:48rem;}
+.platform-title{
+  font-weight:500;color:var(--fg-default);letter-spacing:-.05em;
+  font-size:48px;line-height:1.1;
+}
+.platform-sub{margin:0;color:var(--fg-secondary);font-size:16px;line-height:1.625;text-wrap:balance;}
+.platform-link{
+  display:inline-flex;align-items:center;justify-content:center;gap:12px;
+  padding:12px 20px;border-radius:8px;border:1px solid transparent;background:transparent;
+  font-size:14px;font-weight:500;white-space:nowrap;text-decoration:none;
+  color:var(--fg-secondary);flex-shrink:0;transition:background-color .2s;
+}
+.platform-link:hover{background:rgba(212,212,212,.1);}
+.platform-link svg{flex-shrink:0;transition:transform .3s;}
+.platform-link:hover svg{transform:translateX(3px);}
+
+.platform-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px;}
+.platform-card{display:flex;flex-direction:column;gap:16px;transition:opacity .3s;}
+.card-illu-box{
+  width:100%;border-radius:12px;border:1px solid var(--border-default);
+  background:rgba(19,18,23,.3);overflow:hidden;
+  display:flex;align-items:center;justify-content:center;
+}
+.card-illu{color:var(--fg-secondary);opacity:.4;}
+.card-illu-fluid{width:100%;height:auto;color:var(--fg-secondary);opacity:.4;}
+.platform-card-copy{display:flex;flex-direction:column;gap:8px;}
+.platform-card-copy h3{
+  margin:0;font-size:20px;line-height:1.4;font-weight:500;letter-spacing:-.025em;color:var(--fg-default);
+}
+.platform-card-copy p{margin:0;font-size:14px;line-height:1.625;color:var(--fg-secondary);}
+
+@media (max-width:1023px){
+  .platform{padding:96px 0;}
+  .platform-title{font-size:36px;}
+  .platform-grid{gap:24px;}
+  .platform-inner{gap:64px;}
+}
+@media (max-width:767px){
+  .platform{padding:64px 0;}
+  .platform-title{font-size:30px;}
+  .platform-head{flex-direction:column;}
+  .platform-link{display:none;}
+  .platform-grid{grid-template-columns:minmax(0,1fr);gap:32px;}
+  .platform-inner{gap:48px;}
+  .platform-card-copy h3{font-size:18px;}
+  .logo-grid{grid-template-columns:repeat(3,minmax(0,1fr));}
+  .trusted-label{margin-bottom:16px;}
+}
+@media (max-width:639px){
+  .logo-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
+}
+
+/* ======================= Onchain fundamentals ======================= */
+:root{
+  --fg-muted:#71717a;
+}
+.fund-wrap{width:100%;overflow:hidden;padding:80px 0;}
+.fund-title{
+  font-weight:500;color:var(--fg-default);letter-spacing:-.05em;text-align:center;
+  font-size:40px;line-height:.9em;max-width:550px;margin:0 auto 48px;
+}
+.fund-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;}
+.fund-span2{grid-column:span 2 / span 2;}
+
+.fcard{
+  position:relative;display:flex;flex-direction:column;gap:24px;
+  background:var(--bg-surface);border:1px solid var(--border-default);border-radius:12px;
+  padding:24px 0 0 24px;overflow:hidden;text-decoration:none;
+  transition:background-color .2s,border-color .2s;
+}
+.fcard:hover{background:rgba(38,38,38,.5);border-color:var(--border-hover);}
+.fcard.row1{height:450px;}
+.fcard.row2{height:500px;}
+.fcard.wide{flex-direction:row;}
+.fcard-head{flex-shrink:0;display:flex;flex-direction:column;}
+.fcard.wide .fcard-head{width:40%;}
+.ficon{
+  display:flex;align-items:center;justify-content:center;width:40px;height:40px;
+  border-radius:8px;border:1px solid var(--border-default);margin-bottom:16px;
+  color:var(--fg-default);font-size:20px;
+}
+.fkicker{
+  font-family:"Geist Mono",ui-monospace,monospace;font-size:12px;text-transform:uppercase;
+  letter-spacing:.05em;color:var(--fg-secondary);margin-bottom:4px;display:block;
+}
+.fcard h4{margin:0 0 12px;font-size:20px;line-height:1.3;font-weight:500;letter-spacing:-.025em;color:var(--fg-default);}
+.fcard p.fdesc{margin:0;font-size:14px;line-height:1.625;color:var(--fg-secondary);max-width:350px;text-wrap:balance;}
+.fcard-vis{position:relative;flex:1;min-height:0;}
+.fcard.wide .fcard-vis{margin-top:20px;}
+.fmask{
+  overflow:hidden;height:100%;
+  mask-image:linear-gradient(to bottom, black, transparent), radial-gradient(circle at top left, black 70%, rgba(0,0,0,.8));
+  -webkit-mask-image:linear-gradient(to bottom, black, transparent), radial-gradient(circle at top left, black 70%, rgba(0,0,0,.8));
+  mask-composite:intersect;-webkit-mask-composite:source-in;
+}
+.fpanel{
+  background:var(--bg-surface);border:1px solid var(--border-default);
+  border-top-left-radius:12px;padding:20px;
+}
+.fpanel.w800{width:800px;}
+.fpanel-title{margin:0;font-size:14px;font-weight:500;color:var(--fg-default);}
+
+/* -- chart -- */
+.chart-legend{display:flex;align-items:center;gap:16px;font-size:12px;color:var(--fg-secondary);margin:10px 0 6px;white-space:nowrap;}
+.chart-legend .lg{display:inline-flex;align-items:center;gap:6px;color:var(--fg-default);}
+.chart-legend .sw{width:11px;height:11px;border-radius:2px;display:inline-block;}
+.chart-axis-label{font-size:11px;color:var(--fg-secondary);}
+.chart-area{display:flex;height:420px;padding-top:8px;}
+.chart-yaxis{
+  display:flex;flex-direction:column;justify-content:space-between;
+  width:96px;text-align:right;padding-right:12px;font-size:12px;color:var(--fg-secondary);
+  padding-bottom:0;
+}
+.chart-rot{
+  writing-mode:vertical-rl;transform:rotate(180deg);font-size:12px;color:var(--fg-secondary);
+  align-self:center;margin-right:2px;
+}
+.chart-plot{position:relative;flex:1;display:flex;align-items:stretch;gap:1px;height:100%;}
+.chart-plot .gl{position:absolute;left:0;right:0;height:1px;background:rgba(115,115,115,.14);}
+.cbar{flex:1;height:100%;display:flex;flex-direction:column;justify-content:flex-end;position:relative;z-index:1;}
+.cbar span{display:block;width:100%;}
+
+/* -- asset table -- */
+.atable{display:flex;flex-direction:column;height:100%;}
+.atable-head{display:flex;justify-content:space-between;align-items:center;padding-bottom:12px;flex-shrink:0;}
+.atable-head .sub{font-size:12px;color:var(--fg-secondary);}
+.arow{display:flex;align-items:center;gap:12px;padding:12px 0;border-top:1px solid var(--border-default);font-size:14px;}
+.arow .idx{color:var(--fg-secondary);font-size:13px;width:14px;text-align:right;}
+.arow .tok{width:22px;height:22px;border-radius:50%;flex-shrink:0;}
+.arow .nm{color:var(--fg-default);flex:1;}
+.arow .val{color:var(--fg-default);font-variant-numeric:tabular-nums;}
+.arow .chg{width:56px;text-align:right;font-variant-numeric:tabular-nums;}
+.chg.up{color:var(--emerald-fg);} .chg.dn{color:#f87171;}
+.tok.usds{background:#e8833a;color:#fff;font-size:12px;font-weight:600;display:flex;align-items:center;justify-content:center;}
+.tok.susds{background:#4a9d6e;color:#fff;font-size:12px;font-weight:600;display:flex;align-items:center;justify-content:center;}
+
+/* -- treemap -- */
+.tmap{display:flex;gap:6px;height:100%;width:760px;}
+.tmap-group{display:flex;flex-direction:column;border-radius:8px;overflow:hidden;border:1px solid var(--border-default);}
+.tmap-group>.gh{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--fg-default);padding:8px 10px;}
+.tmap-body{flex:1;display:flex;flex-wrap:wrap;gap:2px;padding:0 2px 2px;}
+.tm{border-radius:4px;padding:8px;position:relative;overflow:hidden;font-size:11px;color:rgba(255,255,255,.85);}
+.tm img{width:16px;height:16px;border-radius:50%;}
+.tm .tnm{margin-top:6px;color:#fff;font-size:12px;}
+.tm .tvl{color:rgba(255,255,255,.7);font-size:11px;}
+
+/* -- financial statement table -- */
+.fstable{border-collapse:collapse;font-size:13px;width:500px;}
+.fstable th,.fstable td{padding:9px 10px;text-align:right;white-space:nowrap;}
+.fstable th:first-child,.fstable td:first-child{text-align:left;}
+.fstable thead th{color:var(--fg-secondary);font-weight:400;font-size:13px;}
+.fstable tbody td{color:var(--fg-default);border-top:1px solid var(--border-default);}
+.fstable .sec td{color:var(--fg-secondary);border-top:1px solid var(--border-default);padding-top:16px;}
+.fs-eth{display:flex;align-items:center;gap:8px;font-size:15px;color:var(--fg-default);}
+.fs-eth img{width:20px;height:20px;border-radius:50%;}
+.pos{color:var(--emerald-fg);} .neg{color:#f87171;}
+.fstable .d{color:var(--fg-secondary);}
+
+/* -- queries -- */
+.q-wrap{width:720px;font-size:13px;}
+.q-bc{display:flex;align-items:center;gap:8px;padding:10px 12px;border-bottom:1px solid var(--border-default);color:var(--fg-secondary);}
+.q-bc b{color:var(--fg-default);font-weight:400;}
+.q-body{display:flex;gap:0;}
+.q-left{width:280px;border-right:1px solid var(--border-default);padding:0 12px 12px;}
+.q-tab{display:inline-flex;align-items:center;gap:6px;padding:10px 4px;border-bottom:2px solid var(--fg-default);color:var(--fg-default);}
+.q-search{display:flex;align-items:center;gap:8px;margin-top:10px;border:1px solid var(--border-default);border-radius:8px;padding:8px 10px;color:var(--fg-secondary);}
+.q-item{display:flex;align-items:center;gap:8px;margin-top:8px;border:1px solid var(--border-default);border-radius:8px;padding:8px 10px;color:var(--fg-default);}
+.q-item .n{margin-left:auto;color:var(--fg-secondary);}
+.q-right{flex:1;}
+.q-code{display:flex;gap:12px;padding:10px 12px;font-family:"Geist Mono",ui-monospace,monospace;font-size:12.5px;line-height:1.7;}
+.q-code .ln{color:#4b5563;text-align:right;}
+.q-kw{color:#c084fc;} .q-str{color:#fbbf24;} .q-id{color:#e5e7eb;}
+.q-ai{display:flex;align-items:center;gap:8px;padding:8px 12px;border-top:1px solid var(--border-default);border-bottom:1px solid var(--border-default);color:var(--fg-secondary);font-size:12px;}
+.q-kbd{border:1px solid var(--border-default);border-radius:4px;padding:1px 5px;font-size:11px;}
+.q-status{display:flex;align-items:center;gap:8px;padding:10px 12px;color:var(--fg-default);}
+.q-status .ok{color:var(--emerald-fg);}
+.q-status .ago{color:var(--fg-secondary);}
+.q-res{width:100%;border-collapse:collapse;font-family:"Geist Mono",ui-monospace,monospace;font-size:12px;}
+.q-res th{color:var(--fg-secondary);font-weight:400;text-align:left;padding:8px 12px;border-top:1px solid var(--border-default);}
+.q-res td{color:var(--fg-secondary);padding:8px 12px;border-top:1px solid var(--border-default);}
+
+/* -- sheets -- */
+.sh{width:700px;border:1px solid var(--border-default);border-radius:8px;overflow:hidden;background:var(--bg-default);}
+.sh-bar{display:flex;align-items:center;gap:0;border-bottom:1px solid var(--border-default);font-size:13px;}
+.sh-name{display:flex;align-items:center;justify-content:space-between;width:110px;padding:8px 10px;border-right:1px solid var(--border-default);color:var(--fg-default);}
+.sh-fx{padding:8px 12px;color:var(--fg-secondary);border-right:1px solid var(--border-default);font-style:italic;}
+.sh-formula{padding:8px 12px;font-family:"Geist Mono",ui-monospace,monospace;font-size:12.5px;color:var(--fg-default);}
+.sh-formula .s{color:#7dd3fc;}
+.sh table{border-collapse:collapse;width:100%;font-size:12.5px;}
+.sh th,.sh td{border:1px solid var(--border-default);padding:6px 8px;color:var(--fg-default);white-space:nowrap;}
+.sh th{background:#111114;color:var(--fg-secondary);font-weight:400;text-align:center;}
+.sh td.rn{background:#111114;color:var(--fg-secondary);text-align:center;width:34px;}
+.sh td.num{text-align:left;}
+.sh .selcell{outline:2px solid #3b6fd4;background:#1c2333;}
+.sh .colA{background:#1a2440;}
+
+/* -- api -- */
+.api{width:640px;font-family:"Geist Mono",ui-monospace,monospace;font-size:12.5px;}
+.api-row{display:flex;align-items:center;gap:12px;padding:0 0 14px;}
+.api-get{display:flex;align-items:center;gap:24px;border:1px solid var(--border-default);border-radius:8px;padding:10px 14px;color:var(--emerald-fg);font-size:15px;}
+.api-url{flex:1;border:1px solid var(--border-default);border-radius:8px;padding:11px 14px;color:var(--fg-default);font-size:14px;}
+.api-meta{display:flex;align-items:center;gap:10px;color:var(--fg-secondary);padding-bottom:12px;font-size:13px;}
+.api-meta .ok{color:var(--emerald-fg);}
+.api-tabs{display:flex;align-items:center;gap:22px;color:var(--fg-secondary);padding:10px 0;border-top:1px solid var(--border-default);font-family:"Geist",sans-serif;font-size:13px;}
+.api-code{display:flex;gap:14px;line-height:1.75;padding-top:6px;}
+.api-code .ln{color:#4b5563;text-align:right;}
+.j-k{color:#93c5fd;} .j-s{color:#fbbf24;} .j-n{color:#c084fc;} .j-p{color:#e5e7eb;}
+
+/* -- data room -- */
+.dr{width:700px;font-size:13px;}
+.dr-top{display:flex;align-items:center;gap:10px;padding:10px 12px;border-bottom:1px solid var(--border-default);color:var(--fg-secondary);}
+.dr-chip{display:flex;align-items:center;gap:6px;border:1px solid var(--border-default);border-radius:6px;padding:4px 8px;color:#93b7f0;}
+.dr-bc{display:flex;align-items:center;gap:6px;padding:10px 12px;color:var(--fg-secondary);border-bottom:1px solid var(--border-default);}
+.dr-bc .lk{color:#93b7f0;}
+.dr-name{display:flex;align-items:center;gap:8px;padding:12px;color:var(--fg-default);font-size:15px;border-bottom:1px solid var(--border-default);}
+.dr-tabs{display:flex;gap:22px;padding:0 12px;border-bottom:1px solid var(--border-default);color:var(--fg-secondary);}
+.dr-tabs span{padding:10px 0;}
+.dr-tabs .on{color:#93b7f0;border-bottom:2px solid #4285f4;}
+.dr-filter{display:flex;align-items:center;gap:10px;padding:10px 12px;color:var(--fg-secondary);border-bottom:1px solid var(--border-default);}
+.dr table{width:100%;border-collapse:collapse;}
+.dr th{color:var(--fg-secondary);font-weight:400;text-align:left;padding:9px 12px;}
+.dr td{color:var(--fg-default);padding:9px 12px;border-top:1px solid var(--border-default);font-family:"Geist Mono",ui-monospace,monospace;font-size:12px;}
+.dr td.t{color:var(--fg-secondary);}
+.dr .cb{width:13px;height:13px;border:1px solid var(--border-default);border-radius:3px;display:inline-block;vertical-align:-2px;}
+
+/* ======================= Testimonials ======================= */
+.tst-wrap{
+  width:1240px;max-width:100%;margin:0 auto;padding:0 20px;
+  display:flex;flex-direction:column;gap:24px;align-items:center;justify-content:center;
+}
+.tst-title{
+  font-weight:500;color:var(--fg-default);letter-spacing:-.05em;
+  font-size:46px;line-height:.9em;margin-bottom:28px;text-align:center;
+}
+.tst-cols{display:flex;align-items:center;width:100%;gap:32px;}
+.tst-col{display:flex;flex-direction:column;gap:32px;flex:1;}
+.tst-card{
+  border:1px solid var(--border-default);background:var(--bg-surface);
+  display:flex;flex-direction:column;align-items:flex-start;gap:16px;
+  border-radius:16px;padding:28px;
+}
+.tst-head{display:flex;align-items:center;gap:16px;}
+.tst-head img{width:32px;height:32px;border-radius:50%;object-fit:cover;object-position:top left;}
+.tst-nm{font-size:14px;font-weight:500;color:var(--fg-default);}
+.tst-co{font-size:14px;color:var(--fg-secondary);}
+.tst-q{font-size:14px;color:var(--fg-secondary);white-space:pre-line;line-height:1.55;margin:0;}
+.tst-more{
+  display:inline-flex;align-items:center;gap:12px;padding:12px 20px;border-radius:8px;
+  font-size:14px;font-weight:500;color:var(--fg-default);text-decoration:none;margin-top:8px;
+  transition:background-color .2s;
+}
+.tst-more:hover{background:rgba(212,212,212,.1);}
+.tst-more svg{transition:transform .3s;}
+.tst-more:hover svg{transform:translateX(3px);}
+
+/* ======================= Solutions ======================= */
+.sol-wrap{width:1240px;max-width:100%;margin:0 auto;padding:96px 20px 0;}
+.sol-inner{display:flex;flex-direction:column;gap:16px;max-width:100%;}
+.sol-head{display:flex;justify-content:space-between;gap:40px;margin-bottom:40px;flex-direction:row;align-items:flex-end;}
+.sol-title{font-weight:500;color:var(--fg-default);letter-spacing:-.05em;font-size:46px;margin-bottom:-14px;line-height:1.05;}
+.sol-sub{font-size:14px;width:400px;color:var(--fg-secondary);line-height:1.55;}
+.sol-cards{display:flex;flex-direction:row;justify-content:center;gap:16px;width:100%;padding:0 20px 20px;margin-left:-20px;width:calc(100% + 40px);}
+.sol-card{
+  position:relative;display:block;height:260px;width:100%;max-width:300px;
+  border-radius:16px;background:rgba(19,18,23,.8);border:1px solid var(--border-default);
+  overflow:hidden;padding:16px 20px 20px;color:var(--fg-default);text-decoration:none;
+  transition:background-color .2s;
+}
+.sol-card:hover{background:var(--bg-popover);}
+.sol-card .top{display:flex;flex-direction:column;gap:2px;height:75px;}
+.sol-card .t1{display:flex;align-items:center;justify-content:space-between;}
+.sol-card .nm{font-size:16px;font-weight:500;}
+.sol-card .arw{width:16px;height:16px;flex-shrink:0;color:var(--fg-secondary);opacity:0;transition:opacity .2s;}
+.sol-card:hover .arw{opacity:1;}
+.sol-card p{margin:0;font-size:14px;color:var(--fg-secondary);}
+.sol-art{position:absolute;left:20px;right:0;top:100px;bottom:0;pointer-events:none;
+  mask-image:radial-gradient(circle at top left, black 20%, transparent 95%);
+  -webkit-mask-image:radial-gradient(circle at top left, black 20%, transparent 95%);
+  color:var(--fg-secondary);opacity:.62;
+}
+.sol-fade{
+  position:absolute;bottom:0;right:0;width:100%;height:100%;pointer-events:none;z-index:1;
+  background:linear-gradient(0deg, var(--bg-surface) 0%, rgba(19,18,23,0) 100%);
+}
+.sol-part{display:flex;align-items:center;gap:16px;margin:32px 0 8px;}
+.sol-part span{font-size:12px;color:var(--fg-secondary);text-transform:uppercase;letter-spacing:.05em;font-weight:500;}
+.sol-part i{flex:1;height:1px;background:var(--border-default);display:block;}
+.sol-prow{display:flex;gap:16px;}
+.sol-pcard{
+  flex:1;display:flex;align-items:center;gap:12px;padding:12px 16px;border-radius:12px;
+  background:rgba(19,18,23,.8);border:1px solid var(--border-default);color:var(--fg-default);
+  text-decoration:none;transition:background-color .2s;
+}
+.sol-pcard:hover{background:var(--bg-popover);}
+.sol-pcard .ic{color:var(--fg-default);display:flex;font-size:20px;}
+.sol-pcard .nm{font-size:14px;font-weight:500;}
+.sol-pcard .sb{font-size:13px;color:var(--fg-secondary);}
+.sol-pcard .arw{margin-left:auto;width:16px;height:16px;color:var(--fg-secondary);opacity:0;transition:opacity .2s;}
+.sol-pcard:hover .arw{opacity:1;}
+
+/* ======================= Talk to our team ======================= */
+.talk-wrap{
+  width:1240px;max-width:100%;margin:0 auto;padding:50px 20px 100px;
+  display:flex;flex-direction:column;gap:24px;align-items:center;justify-content:center;
+}
+.talk-card{
+  border:1px solid var(--border-default);border-radius:16px;background:var(--bg-surface);
+  width:100%;padding:150px 48px;
+}
+.talk-title{
+  color:var(--fg-default);letter-spacing:-.05em;font-size:46px;font-weight:500;
+  text-align:center;line-height:.9em;margin-bottom:40px;
+}
+.talk-btns{display:flex;flex-direction:column;gap:16px;width:420px;max-width:100%;margin:0 auto;}
+.talk-btn{
+  display:flex;align-items:center;justify-content:center;gap:12px;
+  padding:14px 20px;border-radius:8px;font-size:15px;font-weight:500;
+  color:var(--fg-default);text-decoration:none;
+  background:var(--button-default-bg);border:1px solid var(--border-default);
+  box-shadow:0 1px 2px rgba(0,0,0,.1);transition:background-color .2s;
+}
+.talk-btn:hover{background:var(--button-default-bg-hover);}
+
+/* ======================= Footer ======================= */
+.site-footer{background:var(--bg-surface);color:var(--fg-default);padding:20px;}
+.foot-inner{max-width:1200px;margin:0 auto;}
+.foot-top{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:20px;padding:12px 0;}
+.foot-logo{display:flex;color:var(--fg-default);}
+.foot-getlisted{
+  display:inline-flex;align-items:center;justify-content:center;padding:10px 16px;border-radius:8px;
+  font-size:14px;font-weight:500;color:var(--fg-default);text-decoration:none;
+  background:var(--button-default-bg);border:1px solid var(--border-default);box-shadow:0 1px 2px rgba(0,0,0,.1);
+  transition:background-color .2s;
+}
+.foot-getlisted:hover{background:var(--button-default-bg-hover);}
+.foot-cols{display:flex;flex-direction:row;gap:24px;align-items:flex-start;}
+.foot-col{display:flex;flex-direction:column;width:250px;flex-shrink:1;}
+.foot-col>.h{font-size:14px;font-weight:500;margin-bottom:16px;color:var(--fg-default);}
+.foot-col .lnks{display:flex;flex-direction:column;gap:6px;align-items:flex-start;max-width:100%;}
+.foot-col a{
+  font-size:14px;font-weight:500;color:var(--fg-secondary);margin-bottom:5px;
+  text-decoration:none;transition:color .2s;display:inline-flex;align-items:center;
+}
+.foot-col a:hover{color:var(--fg-default);}
+.badge-hiring{
+  margin-left:4px;background:rgba(34,211,238,.15);color:#67e8f9;border-radius:4px;
+  padding:1px 6px;font-size:12px;font-weight:500;
+}
+.news{
+  border:1px solid var(--border-default);background:var(--bg-surface);padding:28px;
+  border-radius:16px;margin-top:24px;
+}
+.news-in{display:flex;flex-direction:row;gap:16px;align-items:center;justify-content:space-between;}
+.news-l{display:flex;align-items:center;gap:16px;}
+.news-ic{
+  border:1px solid var(--border-default);background:var(--bg-surface);width:40px;height:40px;
+  border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:20px;
+}
+.news-t{font-weight:500;color:var(--fg-default);letter-spacing:-.025em;font-size:18px;}
+.news-s{font-size:14px;color:var(--fg-secondary);}
+.news-form{display:flex;gap:8px;flex-direction:row;align-items:center;width:400px;max-width:100%;}
+.news-form input{
+  flex:1;height:38px;font-size:14px;padding:0 12px;border-radius:8px;
+  background:var(--bg-default);border:1px solid var(--border-default);color:var(--fg-default);
+  font-family:inherit;outline:none;
+}
+.news-form input::placeholder{color:var(--fg-muted);}
+.news-form input:focus{border-color:var(--border-hover);}
+.news-form button{
+  height:38px;padding:0 16px;border-radius:8px;font-size:14px;font-weight:500;cursor:pointer;
+  background:var(--button-default-bg);border:1px solid var(--border-default);color:var(--fg-default);
+  font-family:inherit;transition:background-color .2s;
+}
+.news-form button:hover{background:var(--button-default-bg-hover);}
+.foot-bottom{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:36px 0 28px;}
+.foot-copy{color:#565656;font-size:14px;}
+.theme-tog{display:flex;gap:2px;background:var(--button-default-bg);border:1px solid var(--border-default);border-radius:8px;padding:2px;}
+.theme-tog button{
+  width:32px;height:28px;display:flex;align-items:center;justify-content:center;cursor:pointer;
+  background:transparent;border:0;border-radius:6px;color:var(--fg-secondary);transition:background-color .2s,color .2s;
+}
+.theme-tog button:hover{color:var(--fg-default);}
+.theme-tog button[aria-pressed="true"]{background:var(--button-default-bg-hover);color:var(--fg-default);}
+
+@media (max-width:1279px){
+  .sol-cards{flex-wrap:wrap;justify-content:flex-start;}
+  .sol-card{max-width:none;flex:1 1 calc(33.333% - 16px);}
+}
+@media (max-width:1023px){
+  .fund-grid{grid-template-columns:minmax(0,1fr);}
+  .fund-span2{grid-column:span 1 / span 1;}
+  .fcard.wide{flex-direction:column;}
+  .fcard.wide .fcard-head{width:100%;}
+  .fund-title{font-size:32px;}
+  .tst-cols{flex-direction:column;align-items:stretch;}
+  .tst-title,.sol-title,.talk-title{font-size:36px;}
+  .talk-card{padding:50px 24px;}
+  .foot-cols{flex-wrap:wrap;}
+}
+@media (max-width:767px){
+  .sol-head{flex-direction:column;align-items:flex-start;gap:16px;}
+  .sol-sub{width:100%;}
+  .sol-card{flex:1 1 100%;height:180px;}
+  .sol-prow{flex-direction:column;}
+  .news-in{flex-direction:column;align-items:flex-start;}
+  .foot-cols{flex-direction:column;}
+  .talk-btns{width:100%;}
+}
+
 </style>
 </head>
 <body>
 
-<div class="shell">
+<header class="site-nav" id="siteNav" data-is-scrolled="false">
+  <div class="nav-inner">
+    <nav class="nav">
+      <a class="logo" href="#" aria-label="Token Terminal"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 157 17" width="157" height="18.406896551724138" fill="none"><path fill="currentColor" d="M8.44 13.68v2.37h-3.5a2.36 2.36 0 0 1-2.36-2.35V7.3H0V4.99h2.57V1.66h2.66v3.32h3.2v2.33h-3.2v6.37h3.2ZM9.55 10.76A5.5 5.5 0 0 1 15.2 5a5.5 5.5 0 0 1 5.64 5.76 5.5 5.5 0 0 1-5.64 5.75 5.5 5.5 0 0 1-5.65-5.75Zm8.63 0c0-2-1.28-3.32-2.98-3.32-1.71 0-3 1.32-3 3.32 0 1.99 1.29 3.32 3 3.32 1.7 0 2.98-1.33 2.98-3.32ZM25.36 10.23v5.82h-2.65V0h2.65v9.81L29.66 5h3.5L28.28 10l5.15 6.04h-3.32l-4.76-5.82Z"></path><path fill="currentColor" d="M44.25 11.4h-8.32c.29 1.62 1.35 2.55 2.99 2.55 1.17 0 1.86-.44 2.21-1.22h2.88c-.66 2.3-2.59 3.54-5.2 3.54-3.16 0-5.49-2.37-5.49-5.75 0-3.39 2.33-5.76 5.49-5.76s5.5 2.37 5.5 5.76c-.01.3-.03.6-.06.88Zm-8.3-1.88h5.71c-.28-1.55-1.3-2.43-2.85-2.43s-2.57.88-2.86 2.43ZM48.82 16.05h-2.66V4.98h2.66v1.6a3.56 3.56 0 0 1 3.19-1.82c2.35 0 4.12 1.55 4.12 4.67v6.62h-2.66V9.96c0-1.85-.89-2.87-2.33-2.87-1.43 0-2.32 1.02-2.32 2.87v6.1ZM72.18 13.68v2.37h-3.5a2.36 2.36 0 0 1-2.36-2.35V7.3h-2.57V4.99h2.57V1.66h2.66v3.32h3.2v2.33h-3.2v6.37h3.2ZM84.28 11.4h-8.33c.29 1.62 1.35 2.55 3 2.55 1.16 0 1.85-.44 2.2-1.22h2.89c-.67 2.3-2.6 3.54-5.2 3.54-3.17 0-5.5-2.37-5.5-5.75 0-3.39 2.33-5.76 5.5-5.76 3.16 0 5.49 2.37 5.49 5.76 0 .3-.03.6-.05.88Zm-8.3-1.88h5.71c-.28-1.55-1.3-2.43-2.85-2.43-1.56 0-2.58.88-2.86 2.43ZM97.3 16.05h-2.65V4.98h2.66v1.44a3.37 3.37 0 0 1 2.96-1.66c1.5 0 2.77.69 3.41 2.04a3.72 3.72 0 0 1 3.46-2.04c2.23 0 3.9 1.49 3.9 4.45v6.84h-2.66v-6.3c0-1.73-.8-2.66-2.1-2.66-1.31 0-2.1.93-2.1 2.65v6.31h-2.67v-6.3c0-1.73-.8-2.66-2.1-2.66s-2.1.93-2.1 2.65v6.31ZM113.23 1.66c0-.95.71-1.66 1.66-1.66.98 0 1.66.71 1.66 1.66 0 .93-.68 1.66-1.66 1.66-.95 0-1.66-.73-1.66-1.66ZM116.22 4.98h-2.66v11.07h2.66V4.98ZM121.52 16.05h-2.66V4.98h2.66v1.6a3.56 3.56 0 0 1 3.18-1.82c2.35 0 4.12 1.55 4.12 4.67v6.62h-2.65V9.96c0-1.85-.89-2.87-2.33-2.87s-2.32 1.02-2.32 2.87v6.1ZM138.04 14.42c-.71 1.3-2 1.85-3.52 1.85-1.9 0-3.72-.95-3.72-3.18 0-4.76 7.2-2.64 7.2-4.85 0-.86-.89-1.38-2.04-1.38-1.22 0-2.06.65-2.06 1.89h-2.77c0-2.88 2.35-3.99 4.83-3.99 2.44 0 4.7 1 4.7 3.59v7.7h-2.62v-1.63Zm-2.97-.36c1.55 0 2.97-.88 2.97-2.57V11c-1.78.72-4.52.5-4.52 1.92 0 .78.66 1.15 1.55 1.15ZM143.07 16.05V0h2.66v16.05h-2.66ZM91.98 7.55h1.14V4.96h-.88c-1.36 0-2.66.66-3.38 1.81l-.02.03V5H86.2v11.08h2.65v-5.65c0-1.86 1.16-2.88 3.13-2.88h.01Z"></path><path fill="#00CF9D" d="M148.14 16.05v-2.37H157v2.37h-8.86Z"></path></svg></a>
+      <div class="nav-links">
+        <a href="#">Products</a><a href="#">Get Listed</a><a href="#">Pricing</a>
+        <a href="#">Resources</a><a href="#">About</a>
+      </div>
+      <div class="nav-right"><a class="explorer-btn" href="#" id="explore-button">Go to Explorer</a></div>
+    </nav>
+  </div>
+</header>
+
+<div class="shell nav-spacer">
   <div class="v-rule left"></div>
   <div class="v-rule right"></div>
 
-  <nav class="nav">
-    <div class="logo">token terminal<i>_</i></div>
-    <div class="nav-links">
-      <a href="#">Products</a><a href="#">Get Listed</a><a href="#">Pricing</a>
-      <a href="#">Resources</a><a href="#">About</a>
-    </div>
-    <a class="explorer-btn" href="#">Go to Explorer</a>
-  </nav>
 </div>
 
-<div class="shell announce-row">
-  <a class="announce" href="#">
-    <span style="display:flex;align-items:center;gap:8px;">
-      <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="none" stroke="currentColor" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 256 256"><path d="M48,112H16v32H48l72,56V56Z"/><path d="M120,56V200"/><path d="M176,88a40,40,0,0,1,0,80"/></svg>
-      <span style="font-weight:500">Announcement</span>
-    </span>
-    <span class="sep"></span>
-    <span style="display:flex;align-items:center;gap:8px;font-weight:400;">
-      Token Terminal MCP is here
-      <svg class="arrow" xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 256 256"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg>
-    </span>
-  </a>
+<div class="announce-row">
+  <div class="row">
+    <a class="announce-link animate-fade-in" href="#" target="_blank" rel="noreferrer noopener">
+      <div class="announce" data-color="neutral" data-size="large" data-variant="muted">
+        <div class="in">
+          <div class="lead"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 256 256"><path d="M248,120a48.05,48.05,0,0,0-48-48H160.2c-2.91-.17-53.62-3.74-101.91-44.24A16,16,0,0,0,32,40V200a16,16,0,0,0,26.29,12.25c37.77-31.68,77-40.76,93.71-43.3v31.72A16,16,0,0,0,159.12,214l11,7.33A16,16,0,0,0,194.5,212l11.77-44.36A48.07,48.07,0,0,0,248,120ZM48,199.93V40h0c42.81,35.91,86.63,45,104,47.24v65.48C134.65,155,90.84,164.07,48,199.93Zm131,8,0,.11-11-7.33V168h21.6ZM200,152H168V88h32a32,32,0,1,1,0,64Z"/></svg><span class="t">Announcement</span></div>
+          <div class="sep" role="separator" aria-orientation="vertical" aria-hidden="true"></div>
+          <span class="msg">Token Terminal MCP is here</span>
+          <svg class="arrow" xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 256 256"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg>
+        </div>
+      </div>
+    </a>
+  </div>
 </div>
 
 <div class="shell" style="position:relative;">
   <div class="pause-wrap">
     <button class="pause-btn" id="pauseBtn" aria-label="Pause">
       <svg id="pauseIcon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 256 256"><path d="M216,48V208a16,16,0,0,1-16,16H160a16,16,0,0,1-16-16V48a16,16,0,0,1,16-16h40A16,16,0,0,1,216,48ZM96,32H56A16,16,0,0,0,40,48V208a16,16,0,0,0,16,16H96a16,16,0,0,0,16-16V48A16,16,0,0,0,96,32Z"/></svg>
-      <svg class="pause-ring" width="100%" height="100%">
-        <circle cx="19" cy="19" r="18.5" fill="none" stroke="rgba(255,255,255,.08)" stroke-width="1"></circle>
-        <circle id="ring" cx="19" cy="19" r="18.5" fill="none" stroke="#fff" stroke-width="1"
-                stroke-dasharray="116.23892818282235" stroke-dashoffset="116.23892818282235" stroke-linecap="round"></circle>
-      </svg>
     </button>
+    <div class="pause-ring-wrap">
+      <svg class="pause-ring" width="100%" height="100%">
+        <circle cx="19" cy="19" r="18.5" fill="none" stroke="rgba(255,255,255,.05)" stroke-width="1"></circle>
+        <circle id="ring" cx="19" cy="19" r="18.5" fill="none" stroke="#fff" stroke-width="1" stroke-dasharray="116.23892818282235" stroke-dashoffset="116.23892818282235" stroke-linecap="round"></circle>
+      </svg>
+    </div>
   </div>
 
   <div class="hero-grid" id="grid">
@@ -526,14 +1008,16 @@ table.fs th:not(:first-child),table.fs td:not(:first-child){padding-left:22px;}
                 <div>top_projects = fees...</div>
                 <div style="margin-top:14px;color:#94a3b8">Top 10 Projects by fees</div>
                 <table>
-                  <tr><td>61</td><td>Ethereum</td></tr>
-                  <tr><td>32</td><td>Bitcoin</td></tr>
-                  <tr><td>191</td><td>Uniswap</td></tr>
-                  <tr><td>188</td><td>Tron</td></tr>
-                  <tr><td>126</td><td>OpenSea</td></tr>
-                  <tr><td>101</td><td>Lido Finance</td></tr>
-                  <tr><td>66</td><td>Filecoin</td></tr>
-                  <tr><td>24</td><td>BNB Chain</td></tr>
+                  <tbody>
+                    <tr><td>61</td><td>Ethereum</td></tr>
+                    <tr><td>32</td><td>Bitcoin</td></tr>
+                    <tr><td>191</td><td>Uniswap</td></tr>
+                    <tr><td>188</td><td>Tron</td></tr>
+                    <tr><td>126</td><td>OpenSea</td></tr>
+                    <tr><td>101</td><td>Lido Finance</td></tr>
+                    <tr><td>66</td><td>Filecoin</td></tr>
+                    <tr><td>24</td><td>BNB Chain</td></tr>
+                  </tbody>
                 </table>
               </div>
               <div class="railbar">
@@ -583,6 +1067,577 @@ table.fs th:not(:first-child),table.fs td:not(:first-child){padding-left:22px;}
     </a>
   </div>
 </div>
+
+<div class="container-1240">
+  <div class="trusted animate-fade-in-up" style="animation-delay:.5s">
+    <div class="trusted-label">Trusted by</div>
+    <div class="logo-grid"><img alt="google" loading="lazy" width="520" height="500" decoding="async" src="assets/logos/google.svg"/><img alt="binance" loading="lazy" width="520" height="500" decoding="async" src="assets/logos/binance.svg"/><img alt="bloomberg" loading="lazy" width="520" height="500" decoding="async" src="assets/logos/bloomberg.svg"/><img alt="coingecko" loading="lazy" width="520" height="500" decoding="async" src="assets/logos/coingecko.svg"/><img alt="morgan-stanley" loading="lazy" width="520" height="500" decoding="async" src="assets/logos/morgan-stanley.svg"/><img alt="franklin-templeton" loading="lazy" width="520" height="500" decoding="async" src="assets/logos/franklin-templeton.svg"/><img alt="vaneck" loading="lazy" width="520" height="500" decoding="async" src="assets/logos/vaneck.svg"/><img alt="coinbase-ventures" loading="lazy" width="520" height="500" decoding="async" src="assets/logos/coinbase-ventures.svg"/><img alt="bitwise" loading="lazy" width="520" height="500" decoding="async" src="assets/logos/bitwise.svg"/><img alt="harvard-business" loading="lazy" width="520" height="500" decoding="async" src="assets/logos/harvard-business.svg"/><img alt="standard-chartered" loading="lazy" width="520" height="500" decoding="async" src="assets/logos/standard-chartered.svg"/><img alt="messari" loading="lazy" width="520" height="500" decoding="async" src="assets/logos/messari.svg"/><img alt="nansen" loading="lazy" width="520" height="500" decoding="async" src="assets/logos/nansen.svg"/><img alt="grayscale" loading="lazy" width="520" height="500" decoding="async" src="assets/logos/grayscale.svg"/><img alt="pantera" loading="lazy" width="520" height="500" decoding="async" src="assets/logos/pantera.svg"/><img alt="brevan-howard" loading="lazy" width="520" height="500" decoding="async" src="assets/logos/brevan-howard.svg"/><img alt="dragonfly" loading="lazy" width="520" height="500" decoding="async" src="assets/logos/dragonfly.svg"/><img alt="coindesk" loading="lazy" width="520" height="500" decoding="async" src="assets/logos/coindesk.svg"/><img alt="ark-invest" loading="lazy" width="520" height="500" decoding="async" src="assets/logos/ark-invest.svg"/><img alt="jeffries" loading="lazy" width="520" height="500" decoding="async" src="assets/logos/jeffries.svg"/></div>
+  </div>
+</div>
+
+<section class="platform">
+ <div class="container-1240">
+  <div class="platform-inner">
+   <div class="platform-head">
+    <div class="platform-head-copy">
+     <div class="platform-title">A full stack onchain data platform</div>
+     <p class="platform-sub">Token Terminal provides the complete infrastructure for blockchain analytics. From raw blockchain data ingestion to standardized, comparable metrics&mdash;we handle the entire data pipeline so you can focus on insights, not infrastructure.</p>
+    </div>
+    <a class="platform-link" href="#">Read our engineering blog<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 256 256"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg></a>
+   </div>
+   <div class="platform-grid">
+    <div class="platform-card">
+      <div class="card-illu-box"><svg width="379" height="281" viewBox="0 0 379 281" fill="none" xmlns="http://www.w3.org/2000/svg" class="card-illu" style="animation-play-state:running"><defs><filter id="dw-glow-:Rm996:" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="3" result="blur"></feGaussianBlur><feMerge><feMergeNode in="blur"></feMergeNode><feMergeNode in="SourceGraphic"></feMergeNode></feMerge></filter><clipPath id="dw-db-clip-:Rm996:"><path d="M250.877 56C219.605 56 194.254 63.166 194.254 72.004V72.004L191.792 75.697V113.855L194.254 117.548V117.548L191.792 121.24V158.167L194.254 161.86V161.86L191.792 165.552V203.711L194.254 207.404C194.254 211.648 200.219 215.718 210.838 218.719C221.457 221.72 235.859 223.406 250.876 223.406C265.894 223.406 280.296 221.72 290.915 218.719C301.533 215.718 307.499 211.648 307.499 207.404L309.961 203.711V165.552L307.499 161.86V161.86L309.961 158.167V121.24L307.499 117.548V117.548L309.961 113.855V75.697L307.499 72.002C307.499 63.164 282.149 56 250.877 56Z"></path></clipPath></defs><style>
+        @keyframes dw-travel-top {
+          0%, 15% { offset-distance: 0%; opacity: 0; }
+          20% { opacity: 1; }
+          45% { opacity: 1; }
+          50% { offset-distance: 100%; opacity: 0; }
+          100% { opacity: 0; }
+        }
+        @keyframes dw-travel-mid {
+          0%, 30% { offset-distance: 0%; opacity: 0; }
+          35% { opacity: 1; }
+          60% { opacity: 1; }
+          65% { offset-distance: 100%; opacity: 0; }
+          100% { opacity: 0; }
+        }
+        @keyframes dw-travel-bot {
+          0%, 50% { offset-distance: 0%; opacity: 0; }
+          55% { opacity: 1; }
+          80% { opacity: 1; }
+          85% { offset-distance: 100%; opacity: 0; }
+          100% { opacity: 0; }
+        }
+        @keyframes dw-db-pulse {
+          0%, 40% { opacity: 0; }
+          50% { opacity: 0.15; }
+          60% { opacity: 0; }
+          75% { opacity: 0.1; }
+          85% { opacity: 0; }
+          100% { opacity: 0; }
+        }
+        .dw-dot-top {
+          offset-path: path('M98 78.9336C137.6 78.9336 137.6 100.934 178 100.934');
+          animation: dw-travel-top 4.5s ease-in-out infinite;
+          animation-play-state: inherit;
+        }
+        .dw-dot-mid {
+          offset-path: path('M98 139.434L179 139.434');
+          animation: dw-travel-mid 4.5s ease-in-out infinite;
+          animation-play-state: inherit;
+        }
+        .dw-dot-bot {
+          offset-path: path('M98 201.934C137.6 201.934 137.6 180.934 178 180.934');
+          animation: dw-travel-bot 4.5s ease-in-out infinite;
+          animation-play-state: inherit;
+        }
+        .dw-db-glow-rect {
+          animation: dw-db-pulse 4.5s ease-in-out infinite;
+          animation-play-state: inherit;
+        }
+      </style><path d="M194.254 117.547L191.792 121.24V158.167L194.254 161.86C194.254 166.104 200.219 170.174 210.838 173.175C221.457 176.176 235.859 177.862 250.876 177.862C265.894 177.862 280.296 176.176 290.915 173.175C301.533 170.174 307.499 166.104 307.499 161.86L309.961 158.167V121.24L307.499 117.547" stroke="currentColor"></path><path d="M194.254 161.859L191.792 165.552V203.711L194.254 207.404C194.254 211.648 200.219 215.718 210.838 218.719C221.457 221.72 235.859 223.406 250.876 223.406C265.894 223.406 280.296 221.72 290.915 218.719C301.533 215.718 307.499 211.648 307.499 207.404L309.961 203.711V165.552L307.499 161.859" stroke="currentColor"></path><path d="M307.499 72.002C307.499 80.8397 282.149 88.0041 250.877 88.0041C219.605 88.0041 194.254 80.8416 194.254 72.0039M307.499 72.002C307.499 63.1644 282.149 56 250.877 56C219.605 56 194.254 63.1662 194.254 72.0039M307.499 72.002L307.499 72.0039L309.961 75.6967V113.855L307.499 117.548C307.499 121.792 301.533 125.862 290.915 128.863C280.296 131.864 265.894 133.55 250.876 133.55C235.859 133.55 221.457 131.864 210.838 128.863C200.219 125.862 194.254 121.792 194.254 117.548L191.792 113.855V75.6967L194.254 72.0039" stroke="currentColor"></path><g clip-path="url(#dw-db-clip-:Rm996:)"><rect class="dw-db-glow-rect" x="188" y="52" width="126" height="176" fill="currentColor" opacity="0"></rect></g><circle cx="69.9307" cy="79" r="19.5" stroke="currentColor"></circle><path d="M69.9308 69.7695L75.4701 79.0016L69.9308 82.6944L64.3916 79.0016L69.9308 69.7695Z" fill="currentColor" opacity="0.8"></path><path d="M69.9308 69.7695L64.3916 79.0016H69.9308V69.7695Z" fill="currentColor" opacity="0.7"></path><path d="M69.9307 69.7695L75.4699 79.0016H69.9307V69.7695Z" fill="currentColor" opacity="0.9"></path><path d="M69.9308 82.6928L75.4701 79L69.9308 88.2321L64.3916 79L69.9308 82.6928Z" fill="currentColor" opacity="0.5"></path><circle cx="69.9307" cy="140.547" r="19.5" stroke="currentColor"></circle><path d="M62.5449 135.008H75.4698L77.3162 137.777H64.3913L62.5449 135.008Z" fill="currentColor"></path><path d="M62.5449 143.316H75.4698L77.3162 146.086H64.3913L62.5449 143.316Z" fill="currentColor"></path><path d="M77.3162 139.164H64.3913L62.5449 141.934H75.4698L77.3162 139.164Z" fill="currentColor"></path><circle cx="69.9307" cy="202.094" r="19.5" stroke="currentColor"></circle><path d="M68.5459 192.863H67.1611V196.556H68.5459V192.863Z" fill="currentColor"></path><path d="M72.7002 192.863H71.3154V196.556H72.7002V192.863Z" fill="currentColor"></path><path d="M68.5459 207.633H67.1611V211.326H68.5459V207.633Z" fill="currentColor"></path><path d="M72.7002 207.633H71.3154V211.326H72.7002V207.633Z" fill="currentColor"></path><path d="M65.3145 196.555H72.7001C75.4697 196.555 76.3929 198.401 76.3929 199.786C76.3929 201.171 75.4697 202.094 73.6233 202.094C75.9313 202.094 77.3161 203.017 77.3161 204.864C77.3161 207.172 75.4697 207.633 72.7001 207.633H65.3145V196.555ZM68.0841 198.401V201.171H71.7769C73.1617 201.171 73.6233 200.248 73.6233 199.786C73.6233 199.324 73.1617 198.401 71.7769 198.401H68.0841ZM68.0841 203.017V205.787H72.2385C73.6233 205.787 74.5465 205.325 74.5465 204.402C74.5465 203.479 73.6233 203.017 72.2385 203.017H68.0841Z" fill="currentColor"></path><path d="M98 201.934C137.6 201.934 137.6 180.934 178 180.934" stroke="currentColor" stroke-dasharray="4.92 3.69"></path><path d="M98 78.9336C137.6 78.9336 137.6 100.934 178 100.934" stroke="currentColor" stroke-dasharray="4.92 3.69"></path><line x1="98" y1="139.434" x2="179" y2="139.434" stroke="currentColor" stroke-dasharray="4.92 3.69"></line><circle class="dw-dot-top" r="3" fill="currentColor" filter="url(#dw-glow-:Rm996:)"></circle><circle class="dw-dot-mid" r="3" fill="currentColor" filter="url(#dw-glow-:Rm996:)"></circle><circle class="dw-dot-bot" r="3" fill="currentColor" filter="url(#dw-glow-:Rm996:)"></circle></svg></div>
+      <div class="platform-card-copy">
+        <h3>Source of truth for onchain data</h3>
+        <p>Every onchain metric traces back to the individual block and transaction. Raw blockchain data is ingested directly from RPC nodes across 100+ blockchains, decoded at the smart contract level, and stored in a proprietary petabyte-scale data warehouse.</p>
+      </div>
+    </div>
+    <div class="platform-card">
+      <div class="card-illu-box"><svg width="379" height="281" viewBox="0 0 379 281" fill="none" xmlns="http://www.w3.org/2000/svg" class="card-illu" style="animation-play-state:running"><defs><filter id="elt-line-glow-:Rq996:" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="2" result="blur"></feGaussianBlur><feMerge><feMergeNode in="blur"></feMergeNode><feMergeNode in="SourceGraphic"></feMergeNode></feMerge></filter></defs><style>
+        @keyframes elt-highlight {
+          0%, 8% { opacity: 0; }
+          10% { opacity: 1; }
+          20% { opacity: 1; }
+          28%, 100% { opacity: 0; }
+        }
+        @keyframes elt-center-pulse {
+          0%, 100% { opacity: 1; }
+          50% { opacity: 0.7; }
+        }
+        .elt-glow-1 { animation: elt-highlight 6s ease-in-out infinite; animation-play-state: inherit; }
+        .elt-glow-2 { animation: elt-highlight 6s ease-in-out 1s infinite; animation-play-state: inherit; }
+        .elt-glow-3 { animation: elt-highlight 6s ease-in-out 2s infinite; animation-play-state: inherit; }
+        .elt-glow-4 { animation: elt-highlight 6s ease-in-out 3s infinite; animation-play-state: inherit; }
+        .elt-glow-5 { animation: elt-highlight 6s ease-in-out 4s infinite; animation-play-state: inherit; }
+        .elt-glow-6 { animation: elt-highlight 6s ease-in-out 5s infinite; animation-play-state: inherit; }
+        .elt-center { animation: elt-center-pulse 3s ease-in-out infinite; animation-play-state: inherit; }
+      </style><path d="M92.4269 60.082H40.7275C38.0082 60.082 35.8037 62.2865 35.8037 65.0058V98.2412C35.8037 100.96 38.0082 103.165 40.7275 103.165H92.4269C95.1463 103.165 97.3507 100.96 97.3507 98.2412V65.0058C97.3507 62.2865 95.1463 60.082 92.4269 60.082Z" stroke="currentColor"></path><path d="M45.6514 72.3906H87.5033" stroke="currentColor"></path><path d="M45.6514 82.2383H78.8867" stroke="currentColor"></path><path d="M45.6514 92.0859H82.5796" stroke="currentColor"></path><path d="M92.4269 115.473H40.7275C38.0082 115.473 35.8037 117.677 35.8037 120.396V153.632C35.8037 156.351 38.0082 158.556 40.7275 158.556H92.4269C95.1463 158.556 97.3507 156.351 97.3507 153.632V120.396C97.3507 117.677 95.1463 115.473 92.4269 115.473Z" stroke="currentColor"></path><path d="M45.6514 127.781H85.0414" stroke="currentColor"></path><path d="M45.6514 137.629H72.732" stroke="currentColor"></path><path d="M45.6514 147.477H89.9652" stroke="currentColor"></path><path d="M92.4269 170.867H40.7275C38.0082 170.867 35.8037 173.072 35.8037 175.791V209.026C35.8037 211.746 38.0082 213.95 40.7275 213.95H92.4269C95.1463 213.95 97.3507 211.746 97.3507 209.026V175.791C97.3507 173.072 95.1463 170.867 92.4269 170.867Z" stroke="currentColor"></path><path d="M45.6514 183.176H80.1177" stroke="currentColor"></path><path d="M45.6514 193.023H87.5033" stroke="currentColor"></path><path d="M45.6514 202.871H75.1939" stroke="currentColor"></path><path d="M222.658 97H156.187C150.749 97 146.34 101.409 146.34 106.848V173.318C146.34 178.757 150.749 183.166 156.187 183.166H222.658C228.097 183.166 232.506 178.757 232.506 173.318V106.848C232.506 101.409 228.097 97 222.658 97Z" stroke="currentColor"></path><path class="elt-center" d="M213.088 116.21C214.33 117.41 215.149 118.987 215.34 120.713C215.34 121.43 215.149 121.914 214.713 122.815C214.277 123.723 208.966 132.915 207.377 135.459C206.469 136.952 205.991 138.72 205.991 140.44C205.991 142.16 206.475 143.934 207.377 145.421C208.954 147.966 214.277 157.199 214.713 158.125C215.149 159.033 215.34 159.469 215.34 160.185C215.149 161.911 214.39 163.488 213.13 164.641C211.929 165.883 210.352 166.701 208.673 166.851C207.956 166.851 207.472 166.66 206.612 166.224C205.752 165.788 180.638 151.274 180.638 151.274C180.931 153.669 181.982 155.969 183.708 157.647C184.043 157.982 184.383 158.274 184.76 158.555C184.467 158.698 172.071 165.937 171.151 166.373C170.243 166.809 169.807 167 169.049 167C167.322 166.809 165.745 166.05 164.592 164.79C163.349 163.59 162.531 162.013 162.34 160.287C162.382 159.57 162.591 158.854 162.967 158.226C163.403 157.319 168.714 148.067 170.303 145.523C171.211 144.03 171.689 142.31 171.689 140.542C171.689 138.774 171.205 137.048 170.303 135.561C168.726 132.933 163.361 123.675 162.967 122.774C162.585 122.147 162.4 121.43 162.34 120.713C162.531 118.987 163.29 117.41 164.55 116.21C165.751 114.968 167.328 114.191 169.054 114C169.771 114.042 170.488 114.251 171.157 114.627C171.916 114.962 196.976 129.738 196.976 129.738C196.684 126.871 195.274 124.279 192.962 122.511C193.141 122.415 205.585 115.039 206.51 114.645C207.138 114.263 207.855 114.078 208.613 114.018C210.292 114.209 211.875 114.968 213.07 116.228L213.1 116.216L213.088 116.21ZM189.73 144.973L193.314 141.378C193.81 140.876 193.81 140.13 193.314 139.61L189.73 136.015C189.234 135.513 188.487 135.513 187.968 136.015L184.383 139.61C183.887 140.112 183.887 140.858 184.383 141.378L187.968 144.973C188.41 145.415 189.21 145.415 189.73 144.973Z" fill="currentColor"></path><path d="M338.612 60.082H286.913C284.194 60.082 281.989 62.2865 281.989 65.0058V98.2412C281.989 100.96 284.194 103.165 286.913 103.165H338.612C341.332 103.165 343.536 100.96 343.536 98.2412V65.0058C343.536 62.2865 341.332 60.082 338.612 60.082Z" stroke="currentColor"></path><path d="M331.227 69.9297H294.299C292.939 69.9297 291.837 71.0319 291.837 72.3916V74.8534C291.837 76.2131 292.939 77.3153 294.299 77.3153H331.227C332.587 77.3153 333.689 76.2131 333.689 74.8534V72.3916C333.689 71.0319 332.587 69.9297 331.227 69.9297Z" fill="currentColor"></path><path d="M331.227 82.2383H294.299C292.939 82.2383 291.837 83.3405 291.837 84.7002V87.162C291.837 88.5217 292.939 89.6239 294.299 89.6239H331.227C332.587 89.6239 333.689 88.5217 333.689 87.162V84.7002C333.689 83.3405 332.587 82.2383 331.227 82.2383Z" fill="currentColor"></path><path d="M338.612 115.473H286.913C284.194 115.473 281.989 117.677 281.989 120.396V153.632C281.989 156.351 284.194 158.556 286.913 158.556H338.612C341.332 158.556 343.536 156.351 343.536 153.632V120.396C343.536 117.677 341.332 115.473 338.612 115.473Z" stroke="currentColor"></path><path d="M331.227 125.32H294.299C292.939 125.32 291.837 126.423 291.837 127.782V130.244C291.837 131.604 292.939 132.706 294.299 132.706H331.227C332.587 132.706 333.689 131.604 333.689 130.244V127.782C333.689 126.423 332.587 125.32 331.227 125.32Z" fill="currentColor"></path><path d="M331.227 137.629H294.299C292.939 137.629 291.837 138.731 291.837 140.091V142.553C291.837 143.912 292.939 145.015 294.299 145.015H331.227C332.587 145.015 333.689 143.912 333.689 142.553V140.091C333.689 138.731 332.587 137.629 331.227 137.629Z" fill="currentColor"></path><path d="M338.612 170.867H286.913C284.194 170.867 281.989 173.072 281.989 175.791V209.026C281.989 211.746 284.194 213.95 286.913 213.95H338.612C341.332 213.95 343.536 211.746 343.536 209.026V175.791C343.536 173.072 341.332 170.867 338.612 170.867Z" stroke="currentColor"></path><path d="M331.227 180.711H294.299C292.939 180.711 291.837 181.813 291.837 183.173V185.635C291.837 186.994 292.939 188.097 294.299 188.097H331.227C332.587 188.097 333.689 186.994 333.689 185.635V183.173C333.689 181.813 332.587 180.711 331.227 180.711Z" fill="currentColor"></path><path d="M331.227 193.023H294.299C292.939 193.023 291.837 194.126 291.837 195.485V197.947C291.837 199.307 292.939 200.409 294.299 200.409H331.227C332.587 200.409 333.689 199.307 333.689 197.947V195.485C333.689 194.126 332.587 193.023 331.227 193.023Z" fill="currentColor"></path><path d="M103.68 82C121.995 82 121.995 115 140.68 115" stroke="currentColor" stroke-dasharray="4.92 3.69"></path><line x1="103.68" y1="139.523" x2="140.68" y2="139.523" stroke="currentColor" stroke-dasharray="4.92 3.69"></line><path d="M103.68 199C121.995 199 121.995 159 140.68 159" stroke="currentColor" stroke-dasharray="4.92 3.69"></path><path d="M275.68 81.5938C257.365 81.5938 257.365 114.594 238.68 114.594" stroke="currentColor" stroke-dasharray="4.92 3.69"></path><line y1="-0.5" x2="37" y2="-0.5" transform="matrix(-1 0 0 1 275.68 139.617)" stroke="currentColor" stroke-dasharray="4.92 3.69"></line><path d="M275.68 198.594C257.365 198.594 257.365 158.594 238.68 158.594" stroke="currentColor" stroke-dasharray="4.92 3.69"></path><path class="elt-glow-1" d="M103.68 82C121.995 82 121.995 115 140.68 115" stroke="currentColor" stroke-width="2" stroke-dasharray="4.92 3.69" filter="url(#elt-line-glow-:Rq996:)" opacity="0"></path><line class="elt-glow-2" x1="103.68" y1="139.523" x2="140.68" y2="139.523" stroke="currentColor" stroke-width="2" stroke-dasharray="4.92 3.69" filter="url(#elt-line-glow-:Rq996:)" opacity="0"></line><path class="elt-glow-3" d="M103.68 199C121.995 199 121.995 159 140.68 159" stroke="currentColor" stroke-width="2" stroke-dasharray="4.92 3.69" filter="url(#elt-line-glow-:Rq996:)" opacity="0"></path><path class="elt-glow-4" d="M275.68 81.5938C257.365 81.5938 257.365 114.594 238.68 114.594" stroke="currentColor" stroke-width="2" stroke-dasharray="4.92 3.69" filter="url(#elt-line-glow-:Rq996:)" opacity="0"></path><line class="elt-glow-5" y1="-0.5" x2="37" y2="-0.5" transform="matrix(-1 0 0 1 275.68 139.617)" stroke="currentColor" stroke-width="2" stroke-dasharray="4.92 3.69" filter="url(#elt-line-glow-:Rq996:)" opacity="0"></line><path class="elt-glow-6" d="M275.68 198.594C257.365 198.594 257.365 158.594 238.68 158.594" stroke="currentColor" stroke-width="2" stroke-dasharray="4.92 3.69" filter="url(#elt-line-glow-:Rq996:)" opacity="0"></path></svg></div>
+      <div class="platform-card-copy">
+        <h3>Standardized and comparable by design</h3>
+        <p>Every cross-protocol comparison is defensible. Project-specific business logic is mapped to standard financial and usage metrics, applied consistently across 1,200+ applications and 7,000+ tokenized assets.</p>
+      </div>
+    </div>
+    <div class="platform-card">
+      <div class="card-illu-box"><svg width="379" height="281" viewBox="0 0 379 281" fill="none" xmlns="http://www.w3.org/2000/svg" class="card-illu-fluid" style="animation-play-state:running"><style>
+        @keyframes of-draw {
+          0% { stroke-dashoffset: 220; }
+          40% { stroke-dashoffset: 0; }
+          60% { stroke-dashoffset: 0; }
+          100% { stroke-dashoffset: 220; }
+        }
+        @keyframes of-scan {
+          0%, 40% { opacity: 0; }
+          45% { opacity: 0.6; }
+          90% { opacity: 0.6; }
+          95%, 100% { opacity: 0; }
+        }
+        .of-chart-line {
+          stroke-dasharray: 220;
+          stroke-dashoffset: 220;
+          animation: of-draw 6s ease-in-out infinite;
+          animation-play-state: inherit;
+        }
+        .of-scan-line {
+          animation: of-scan 6s ease-in-out infinite;
+          animation-play-state: inherit;
+        }
+      </style><path d="M312.422 41.6172H66.237C59.4388 41.6172 53.9277 47.1282 53.9277 53.9264V226.256C53.9277 233.054 59.4388 238.565 66.237 238.565H312.422C319.22 238.565 324.731 233.054 324.731 226.256V53.9264C324.731 47.1282 319.22 41.6172 312.422 41.6172Z" stroke="currentColor"></path><path d="M68 58.6602C69.8392 58.6602 71.3301 57.1693 71.3301 55.3301C71.3301 53.4909 69.8392 52 68 52C66.1609 52 64.6699 53.4909 64.6699 55.3301C64.6699 57.1693 66.1609 58.6602 68 58.6602Z" fill="currentColor"></path><path d="M79.6543 58.6602C81.4935 58.6602 82.9844 57.1693 82.9844 55.3301C82.9844 53.4909 81.4935 52 79.6543 52C77.8152 52 76.3242 53.4909 76.3242 55.3301C76.3242 57.1693 77.8152 58.6602 79.6543 58.6602Z" fill="currentColor"></path><path d="M91.3106 58.6602C93.1497 58.6602 94.6407 57.1693 94.6407 55.3301C94.6407 53.4909 93.1497 52 91.3106 52C89.4714 52 87.9805 53.4909 87.9805 55.3301C87.9805 57.1693 89.4714 58.6602 91.3106 58.6602Z" fill="currentColor"></path><path d="M228.824 50H149.836C146.861 50 144.45 52.4112 144.45 55.3856C144.45 58.3599 146.861 60.7711 149.836 60.7711H228.824C231.798 60.7711 234.209 58.3599 234.209 55.3856C234.209 52.4112 231.798 50 228.824 50Z" stroke="currentColor" stroke-width="0.729201"></path><path d="M122.63 75H69.7099C66.9264 75 64.6699 77.4746 64.6699 80.5273V221.473C64.6699 224.525 66.9264 227 69.7099 227H122.63C125.413 227 127.67 224.525 127.67 221.473V80.5273C127.67 77.4746 125.413 75 122.63 75Z" stroke="currentColor"></path><path d="M116.99 84.2383H76.0323C74.7017 84.2383 73.623 85.2456 73.623 86.4883V90.9883C73.623 92.2309 74.7017 93.2383 76.0323 93.2383H116.99C118.32 93.2383 119.399 92.2309 119.399 90.9883V86.4883C119.399 85.2456 118.32 84.2383 116.99 84.2383Z" fill="currentColor"></path><path d="M109.614 101.473H76.0224C74.6973 101.473 73.623 102.48 73.623 103.723V108.223C73.623 109.465 74.6973 110.473 76.0224 110.473H109.614C110.939 110.473 112.013 109.465 112.013 108.223V103.723C112.013 102.48 110.939 101.473 109.614 101.473Z" fill="currentColor"></path><path d="M114.531 118.703H76.0294C74.7004 118.703 73.623 119.71 73.623 120.953V125.453C73.623 126.696 74.7004 127.703 76.0294 127.703H114.531C115.86 127.703 116.937 126.696 116.937 125.453V120.953C116.937 119.71 115.86 118.703 114.531 118.703Z" fill="currentColor"></path><path d="M104.699 135.938H76.0135C74.6933 135.938 73.623 136.945 73.623 138.188V142.688C73.623 143.93 74.6933 144.938 76.0135 144.938H104.699C106.019 144.938 107.089 143.93 107.089 142.688V138.188C107.089 136.945 106.019 135.938 104.699 135.938Z" fill="currentColor"></path><path d="M112.072 153.168H76.0261C74.6989 153.168 73.623 154.175 73.623 155.418V159.918C73.623 161.161 74.6989 162.168 76.0261 162.168H112.072C113.399 162.168 114.475 161.161 114.475 159.918V155.418C114.475 154.175 113.399 153.168 112.072 153.168Z" fill="currentColor"></path><path d="M107.156 170.402H76.0183C74.6954 170.402 73.623 171.41 73.623 172.652V177.152C73.623 178.395 74.6954 179.402 76.0183 179.402H107.156C108.479 179.402 109.551 178.395 109.551 177.152V172.652C109.551 171.41 108.479 170.402 107.156 170.402Z" fill="currentColor"></path><path d="M307.727 75H144.613C141.883 75 139.67 77.4305 139.67 80.4286V164.571C139.67 167.57 141.883 170 144.613 170H307.727C310.457 170 312.67 167.57 312.67 164.571V80.4286C312.67 77.4305 310.457 75 307.727 75Z" stroke="currentColor"></path><path d="M152.402 156.09L177.021 143.781L201.639 149.936L226.258 125.317L250.876 131.472L275.495 113.008L300.113 119.162" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" opacity="0.3"></path><path class="of-chart-line" d="M152.402 156.09L177.021 143.781L201.639 149.936L226.258 125.317L250.876 131.472L275.495 113.008L300.113 119.162" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path><g class="of-scan-line" opacity="0"><line x1="152" y1="80" x2="152" y2="165" stroke="currentColor" stroke-width="0.5"></line><animateTransform attributeName="transform" type="translate" values="0,0;0,0;148,0;148,0" keyTimes="0;0.4;0.9;1" dur="6s" repeatCount="indefinite"></animateTransform></g><path d="M187.075 180.562H144.98C142.245 180.562 140.027 183.137 140.027 186.312V220.812C140.027 223.988 142.245 226.562 144.98 226.562H187.075C189.81 226.562 192.027 223.988 192.027 220.812V186.312C192.027 183.137 189.81 180.562 187.075 180.562Z" stroke="currentColor"></path><path d="M170.866 190.559H148.709C148.03 190.559 147.479 191.11 147.479 191.79V196.713C147.479 197.393 148.03 197.944 148.709 197.944H170.866C171.546 197.944 172.097 197.393 172.097 196.713V191.79C172.097 191.11 171.546 190.559 170.866 190.559Z" fill="currentColor"></path><path d="M181.945 202.867H149.94C148.581 202.867 147.479 203.969 147.479 205.329V212.715C147.479 214.074 148.581 215.177 149.94 215.177H181.945C183.304 215.177 184.407 214.074 184.407 212.715V205.329C184.407 203.969 183.304 202.867 181.945 202.867Z" fill="currentColor"></path><path d="M246.17 180.562H204.884C202.202 180.562 200.027 183.137 200.027 186.312V220.812C200.027 223.988 202.202 226.562 204.884 226.562H246.17C248.853 226.562 251.027 223.988 251.027 220.812V186.312C251.027 183.137 248.853 180.562 246.17 180.562Z" stroke="currentColor"></path><path d="M227.488 190.559H207.793C207.114 190.559 206.562 191.11 206.562 191.79V196.713C206.562 197.393 207.114 197.944 207.793 197.944H227.488C228.168 197.944 228.719 197.393 228.719 196.713V191.79C228.719 191.11 228.168 190.559 227.488 190.559Z" fill="currentColor"></path><path d="M238.567 202.867H209.024C207.665 202.867 206.562 203.969 206.562 205.329V212.715C206.562 214.074 207.665 215.177 209.024 215.177H238.567C239.927 215.177 241.029 214.074 241.029 212.715V205.329C241.029 203.969 239.927 202.867 238.567 202.867Z" fill="currentColor"></path><path d="M305.17 180.562H263.884C261.202 180.562 259.027 183.137 259.027 186.312V220.812C259.027 223.988 261.202 226.562 263.884 226.562H305.17C307.853 226.562 310.027 223.988 310.027 220.812V186.312C310.027 183.137 307.853 180.562 305.17 180.562Z" stroke="currentColor"></path><path d="M293.959 190.559H266.878C266.199 190.559 265.647 191.11 265.647 191.79V196.713C265.647 197.393 266.199 197.944 266.878 197.944H293.959C294.639 197.944 295.19 197.393 295.19 196.713V191.79C295.19 191.11 294.639 190.559 293.959 190.559Z" fill="currentColor"></path><path d="M295.19 202.867H268.109C266.75 202.867 265.647 203.969 265.647 205.329V212.715C265.647 214.074 266.75 215.177 268.109 215.177H295.19C296.55 215.177 297.652 214.074 297.652 212.715V205.329C297.652 203.969 296.55 202.867 295.19 202.867Z" fill="currentColor"></path></svg></div>
+      <div class="platform-card-copy">
+        <h3>Data you can act on</h3>
+        <p>Token Terminal covers the full onchain market across blockchains, DeFi protocols, and tokenized assets. Explore metrics in Explorer, build custom analysis in Studio, or query our data directly via API or MCP. Our data is standardized, transparent, and ready for due diligence.</p>
+      </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</section>
+
+
+<div class="container-1240">
+ <div class="fund-wrap">
+  <div style="max-width:1240px;margin:0 auto 48px">
+   <div class="fund-title">Onchain fundamentals<br/>you can understand</div>
+  </div>
+  <div class="fund-grid">
+   <div class="fund-span2">  <a class="fcard row1 wide" href="#">
+    <div class="fcard-head">
+      <div class="ficon"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" class="w-5 h-5 text-fg-default"><path d="M237.2,151.87v0a47.1,47.1,0,0,0-2.35-5.45L193.26,51.8a7.82,7.82,0,0,0-1.66-2.44,32,32,0,0,0-45.26,0A8,8,0,0,0,144,55V80H112V55a8,8,0,0,0-2.34-5.66,32,32,0,0,0-45.26,0,7.82,7.82,0,0,0-1.66,2.44L21.15,146.4a47.1,47.1,0,0,0-2.35,5.45v0A48,48,0,1,0,112,168V96h32v72a48,48,0,1,0,93.2-16.13ZM76.71,59.75a16,16,0,0,1,19.29-1v73.51a47.9,47.9,0,0,0-46.79-9.92ZM64,200a32,32,0,1,1,32-32A32,32,0,0,1,64,200ZM160,58.74a16,16,0,0,1,19.29,1l27.5,62.58A47.9,47.9,0,0,0,160,132.25ZM192,200a32,32,0,1,1,32-32A32,32,0,0,1,192,200Z"></path></svg></div>
+      <span class="fkicker">Explorer</span>
+      <h4>Historical onchain metrics</h4>
+      <p class="fdesc">Track blockchain fees, revenue, and other key metrics over time with interactive charts that let you compare performance across projects and chains.</p>
+    </div>
+    <div class="fcard-vis"><div class="fmask"><div class="fpanel w800">
+  <div style="padding-bottom:8px"><h3 class="fpanel-title">Fees for L1 blockchains</h3></div>
+  <div class="chart-axis-label">Fees</div>
+  <div class="chart-legend"><span class="lg"><i class="sw" style="background:#22c55e"></i>Tron</span><span class="lg"><i class="sw" style="background:#4f46e5"></i>Solana</span><span class="lg"><i class="sw" style="background:#6d28d9"></i>Ethereum</span><span class="lg"><i class="sw" style="background:#e879f9"></i>Bitcoin</span><span class="lg"><i class="sw" style="background:#e7e5e4"></i>NEAR Protocol</span></div>
+  <div class="chart-area">
+    <div class="chart-rot">Fees</div>
+    <div class="chart-yaxis"><span>$12.5m</span><span>$10m</span><span>$7.5m</span><span>$5m</span><span>$2.5m</span></div>
+    <div class="chart-plot" id="l1chart"></div>
+  </div>
+</div></div></div>
+  </a>
+</div>
+   <div>  <a class="fcard row1" href="#">
+    <div class="fcard-head">
+      <div class="ficon"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" class="w-5 h-5 text-fg-default"><path d="M237.2,151.87v0a47.1,47.1,0,0,0-2.35-5.45L193.26,51.8a7.82,7.82,0,0,0-1.66-2.44,32,32,0,0,0-45.26,0A8,8,0,0,0,144,55V80H112V55a8,8,0,0,0-2.34-5.66,32,32,0,0,0-45.26,0,7.82,7.82,0,0,0-1.66,2.44L21.15,146.4a47.1,47.1,0,0,0-2.35,5.45v0A48,48,0,1,0,112,168V96h32v72a48,48,0,1,0,93.2-16.13ZM76.71,59.75a16,16,0,0,1,19.29-1v73.51a47.9,47.9,0,0,0-46.79-9.92ZM64,200a32,32,0,1,1,32-32A32,32,0,0,1,64,200ZM160,58.74a16,16,0,0,1,19.29,1l27.5,62.58A47.9,47.9,0,0,0,160,132.25ZM192,200a32,32,0,1,1,32-32A32,32,0,0,1,192,200Z"></path></svg></div>
+      <span class="fkicker">Explorer</span>
+      <h4>Tokenized assets</h4>
+      <p class="fdesc">Compare the top-performing tokenized assets with standardized metrics like market cap, trading volume, and price changes to identify market trends.</p>
+    </div>
+    <div class="fcard-vis"><div class="fmask"><div class="fpanel" style="width:100%;height:100%;border-top-left-radius:12px">
+  <div class="atable">
+    <div class="atable-head"><h3 class="fpanel-title">Circulating asset market cap</h3><span class="sub">30d</span></div>
+    <div class="arow"><span class="idx">1</span><img class="tok" src="assets/tokens/tether.png" alt=""><span class="nm">USDT</span><span class="val">$183.3 B</span><span class="chg up">+0.2%</span></div>
+    <div class="arow"><span class="idx">2</span><img class="tok" src="assets/tokens/circle.png" alt=""><span class="nm">USDC</span><span class="val">$74.3 B</span><span class="chg up">+3.2%</span></div>
+    <div class="arow"><span class="idx">3</span><span class="tok usds">S</span><span class="nm">USDS</span><span class="val">$9.7 B</span><span class="chg up">+1.1%</span></div>
+    <div class="arow"><span class="idx">4</span><span class="tok susds">S</span><span class="nm">sUSDS</span><span class="val">$4.4 B</span><span class="chg dn">-0.6%</span></div>
+    <div class="arow"><span class="idx">5</span><img class="tok" src="assets/tokens/ethena.png" alt=""><span class="nm">USDe</span><span class="val">$3.1 B</span><span class="chg up">+0.9%</span></div>
+  </div>
+</div></div></div>
+  </a>
+</div>
+   <div>  <a class="fcard row2" href="#">
+    <div class="fcard-head">
+      <div class="ficon"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" class="w-5 h-5 text-fg-default"><path d="M237.2,151.87v0a47.1,47.1,0,0,0-2.35-5.45L193.26,51.8a7.82,7.82,0,0,0-1.66-2.44,32,32,0,0,0-45.26,0A8,8,0,0,0,144,55V80H112V55a8,8,0,0,0-2.34-5.66,32,32,0,0,0-45.26,0,7.82,7.82,0,0,0-1.66,2.44L21.15,146.4a47.1,47.1,0,0,0-2.35,5.45v0A48,48,0,1,0,112,168V96h32v72a48,48,0,1,0,93.2-16.13ZM76.71,59.75a16,16,0,0,1,19.29-1v73.51a47.9,47.9,0,0,0-46.79-9.92ZM64,200a32,32,0,1,1,32-32A32,32,0,0,1,64,200ZM160,58.74a16,16,0,0,1,19.29,1l27.5,62.58A47.9,47.9,0,0,0,160,132.25ZM192,200a32,32,0,1,1,32-32A32,32,0,0,1,192,200Z"></path></svg></div>
+      <span class="fkicker">Explorer</span>
+      <h4>Market sectors</h4>
+      <p class="fdesc">Visualize how fees and revenue are distributed across market sectors like stablecoins, L1 blockchains, exchanges, and more.</p>
+    </div>
+    <div class="fcard-vis"><div class="fmask"><div class="fpanel" style="width:100%;height:100%;border-top-left-radius:12px;display:flex;flex-direction:column">
+  <div style="padding-bottom:12px"><h3 class="fpanel-title">Fees by market sector</h3></div>
+  <div class="tmap" style="flex:1"><div class="tmap-group" style="flex:2.2">
+  <div class="gh"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 256 256" class="w-5 h-5 shrink-0 text-fg-secondary"><path d="M224,200h-8V40a8,8,0,0,0-8-8H152a8,8,0,0,0-8,8V80H96a8,8,0,0,0-8,8v40H48a8,8,0,0,0-8,8v64H32a8,8,0,0,0,0,16H224a8,8,0,0,0,0-16ZM160,48h40V200H160ZM104,96h40V200H104ZM56,144H88v56H56Z"></path></svg>Stablecoin issuers</div>
+  <div class="tmap-body">
+    <div class="tm" style="width:calc(58% - 2px);height:62%;background:#0f5132"><img src="assets/tokens/tether.png" alt=""><div class="tnm">Tether</div><div class="tvl">$417.9M (25.9%)</div></div>
+    <div class="tm" style="width:calc(42% - 2px);height:62%;background:#146c43"><img src="assets/tokens/circle.png" alt=""><div class="tnm">Circle</div><div class="tvl">$182.8M (10.9%)</div></div>
+    <div class="tm" style="width:calc(50% - 2px);height:36%;background:#198754"><img src="assets/tokens/ethena.png" alt=""><div class="tnm">Sky</div><div class="tvl"></div></div>
+    <div class="tm" style="width:calc(50% - 2px);height:36%;background:#1a9c62"><img src="assets/tokens/makerdao.png" alt=""><div class="tnm">Ethena</div><div class="tvl"></div></div>
+  </div>
+</div><div class="tmap-group" style="flex:1.5">
+  <div class="gh"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 256 256" class="w-5 h-5 shrink-0 text-fg-secondary"><path d="M224,200h-8V40a8,8,0,0,0-8-8H152a8,8,0,0,0-8,8V80H96a8,8,0,0,0-8,8v40H48a8,8,0,0,0-8,8v64H32a8,8,0,0,0,0,16H224a8,8,0,0,0,0-16ZM160,48h40V200H160ZM104,96h40V200H104ZM56,144H88v56H56Z"></path></svg>Blockchains (L1)</div>
+  <div class="tmap-body">
+    <div class="tm" style="width:100%;height:44%;background:#1e3a8a"><img src="assets/tokens/tron.png" alt=""><div class="tnm">Tron</div><div class="tvl">$223.2M (13.3%)</div></div>
+    <div class="tm" style="width:100%;height:26%;background:#1e40af"><img src="assets/tokens/solana.png" alt=""><div class="tnm">Solana</div><div class="tvl">$22.3M (1.3%)</div></div>
+    <div class="tm" style="width:100%;height:26%;background:#2543a6"><img src="assets/tokens/zcash.png" alt=""><div class="tnm">Zcash</div><div class="tvl">$124.1M (7.7%)</div></div>
+  </div>
+</div><div class="tmap-group" style="flex:1.1">
+  <div class="gh"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 256 256" class="w-5 h-5 shrink-0 text-fg-secondary"><path d="M224,200h-8V40a8,8,0,0,0-8-8H152a8,8,0,0,0-8,8V80H96a8,8,0,0,0-8,8v40H48a8,8,0,0,0-8,8v64H32a8,8,0,0,0,0,16H224a8,8,0,0,0,0-16ZM160,48h40V200H160ZM104,96h40V200H104ZM56,144H88v56H56Z"></path></svg>Exchanges (DEX)</div>
+  <div class="tmap-body">
+    <div class="tm" style="width:100%;height:42%;background:#78350f"><img src="assets/tokens/pancakeswap.png" alt=""><div class="tnm">PancakeSwap</div><div class="tvl">$48.9M (3.0%)</div></div>
+    <div class="tm" style="width:calc(50% - 2px);height:28%;background:#92400e"><img src="assets/tokens/pumpfun.png" alt=""><div class="tnm">pump.fun</div><div class="tvl"></div></div>
+    <div class="tm" style="width:calc(50% - 2px);height:28%;background:#9a3412"><img src="assets/tokens/uniswap.png" alt=""><div class="tnm">Uniswap</div><div class="tvl"></div></div>
+  </div>
+</div><div class="tmap-group" style="flex:1">
+  <div class="gh"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 256 256" class="w-5 h-5 shrink-0 text-fg-secondary"><path d="M224,200h-8V40a8,8,0,0,0-8-8H152a8,8,0,0,0-8,8V80H96a8,8,0,0,0-8,8v40H48a8,8,0,0,0-8,8v64H32a8,8,0,0,0,0,16H224a8,8,0,0,0,0-16ZM160,48h40V200H160ZM104,96h40V200H104ZM56,144H88v56H56Z"></path></svg>Liquid staking</div>
+  <div class="tmap-body">
+    <div class="tm" style="width:100%;height:44%;background:#4c1d95"><img src="assets/tokens/lido.png" alt=""><div class="tnm">Lido Finance</div><div class="tvl">$78.0M (4.8%)</div></div>
+    <div class="tm" style="width:calc(50% - 2px);height:26%;background:#5b21b6"><img src="assets/tokens/jito.png" alt=""><div class="tnm">Jito</div><div class="tvl"></div></div>
+    <div class="tm" style="width:calc(50% - 2px);height:26%;background:#6d28d9"><img src="assets/tokens/etherfi.png" alt=""><div class="tnm">ether.fi</div><div class="tvl"></div></div>
+  </div>
+</div></div>
+</div></div></div>
+  </a>
+</div>
+   <div>  <a class="fcard row2" href="#">
+    <div class="fcard-head">
+      <div class="ficon"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" class="w-5 h-5 text-fg-default"><path d="M237.2,151.87v0a47.1,47.1,0,0,0-2.35-5.45L193.26,51.8a7.82,7.82,0,0,0-1.66-2.44,32,32,0,0,0-45.26,0A8,8,0,0,0,144,55V80H112V55a8,8,0,0,0-2.34-5.66,32,32,0,0,0-45.26,0,7.82,7.82,0,0,0-1.66,2.44L21.15,146.4a47.1,47.1,0,0,0-2.35,5.45v0A48,48,0,1,0,112,168V96h32v72a48,48,0,1,0,93.2-16.13ZM76.71,59.75a16,16,0,0,1,19.29-1v73.51a47.9,47.9,0,0,0-46.79-9.92ZM64,200a32,32,0,1,1,32-32A32,32,0,0,1,64,200ZM160,58.74a16,16,0,0,1,19.29,1l27.5,62.58A47.9,47.9,0,0,0,160,132.25ZM192,200a32,32,0,1,1,32-32A32,32,0,0,1,192,200Z"></path></svg></div>
+      <span class="fkicker">Explorer</span>
+      <h4>Financial statements</h4>
+      <p class="fdesc">Analyze income statements with fees, revenue, expenses, and earnings for blockchain projects using traditional financial reporting formats.</p>
+    </div>
+    <div class="fcard-vis"><div class="fmask"><div class="fpanel" style="width:100%;height:100%;border-top-left-radius:12px">
+  <div style="display:flex;align-items:center;justify-content:space-between;padding-bottom:14px">
+    <div class="fs-eth"><img src="assets/tokens/ethereum.png" alt="">Ethereum</div>
+    <div style="color:var(--fg-secondary);font-size:14px">Jan 2026</div>
+  </div>
+  <table class="fstable">
+    <tbody>
+      <tr class="sec"><td colspan="3" style="padding-top:0">Income statement</td></tr>
+      <tr class=""><td>Fees</td><td>$312.4M <span class="pos">+4.8%</span></td><td>$298.1M <span class="neg">-2.1%</span></td></tr>
+      <tr class=""><td>Revenue</td><td>$312.4M <span class="pos">+4.8%</span></td><td>$298.1M <span class="neg">-2.1%</span></td></tr>
+      <tr class=""><td style="padding-left:14px">(Expenses)</td><td>$45.2M <span class="pos">+5.6%</span></td><td>$42.8M <span class="pos">+3.6%</span></td></tr>
+      <tr class=""><td>Earnings</td><td>$267.2M <span class="pos">+4.7%</span></td><td>$255.3M <span class="neg">-2.5%</span></td></tr>
+      <tr class="sec"><td colspan="3">Market data</td></tr>
+      <tr class=""><td>Price</td><td>$3.4K <span class="pos">+3.7%</span></td><td>$3.3K <span class="pos">+4.5%</span></td></tr>
+      <tr class=""><td>Market cap (circulating)</td><td>$411.2B <span class="pos">+3.7%</span></td><td>$396.5B <span class="pos">+4.5%</span></td></tr>
+    </tbody>
+  </table>
+</div></div></div>
+  </a>
+</div>
+   <div>  <a class="fcard row2" href="#">
+    <div class="fcard-head">
+      <div class="ficon"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" class="w-5 h-5 text-fg-default"><path d="M248,92.68a15.86,15.86,0,0,0-4.69-11.31L174.63,12.68a16,16,0,0,0-22.63,0L123.57,41.11l-58,21.77A16.06,16.06,0,0,0,55.35,75.23L32.11,214.68A8,8,0,0,0,40,224a8.4,8.4,0,0,0,1.32-.11l139.44-23.24a16,16,0,0,0,12.35-10.17l21.77-58L243.31,104A15.87,15.87,0,0,0,248,92.68Zm-69.87,92.19L63.32,204l47.37-47.37a28,28,0,1,0-11.32-11.32L52,192.7,71.13,77.86,126,57.29,198.7,130ZM112,132a12,12,0,1,1,12,12A12,12,0,0,1,112,132Zm96-15.32L139.31,48l24-24L232,92.68Z"></path></svg></div>
+      <span class="fkicker">Studio</span>
+      <h4>Dive deeper with Queries</h4>
+      <p class="fdesc">Write and execute SQL queries against raw blockchain data with AI-powered suggestions and instant results.</p>
+    </div>
+    <div class="fcard-vis"><div class="fmask"><div class="fpanel" style="padding:0;width:100%;height:100%;border-top-left-radius:12px">
+ <div class="q-wrap">
+  <div class="q-bc">Queries <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 256 256"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg> <b>Bitcoin active_addresses</b> <svg width="14" height="14" viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="16"><path d="M132.4,190.7l50.4,32c6.5,4.1,14.5-2,12.6-9.5l-14.4-57.1a8.7,8.7,0,0,1,2.9-8.8l45-37.5c5.9-4.9,2.9-14.8-4.8-15.3l-58.8-3.8a8.3,8.3,0,0,1-7.3-5.3L136.2,30a8.5,8.5,0,0,0-16,0L98.2,85.4a8.5,8.5,0,0,1-7.3,5.3L32.1,94.5c-7.7.5-10.7,10.4-4.8,15.3l45,37.5a8.7,8.7,0,0,1,2.9,8.8L61.9,208.9c-2.3,9,7.3,16.1,15.1,11.1l48.1-30.6A8,8,0,0,1,132.4,190.7Z"/></svg></div>
+  <div class="q-body">
+    <div class="q-left">
+      <div class="q-tab"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 256 256" class="w-5 h-5 shrink-0 text-fg-secondary"><path d="M224,200h-8V40a8,8,0,0,0-8-8H152a8,8,0,0,0-8,8V80H96a8,8,0,0,0-8,8v40H48a8,8,0,0,0-8,8v64H32a8,8,0,0,0,0,16H224a8,8,0,0,0,0-16ZM160,48h40V200H160ZM104,96h40V200H104ZM56,144H88v56H56Z"></path></svg>Tables</div>
+      <div class="q-search"><svg width="13" height="13" viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="18"><circle cx="116" cy="116" r="84"/><line x1="175.4" y1="175.4" x2="224" y2="224"/></svg>Search</div>
+      <div class="q-item"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 256 256"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 256 256" class="w-5 h-5 shrink-0 text-fg-secondary"><path d="M224,200h-8V40a8,8,0,0,0-8-8H152a8,8,0,0,0-8,8V80H96a8,8,0,0,0-8,8v40H48a8,8,0,0,0-8,8v64H32a8,8,0,0,0,0,16H224a8,8,0,0,0,0-16ZM160,48h40V200H160ZM104,96h40V200H104ZM56,144H88v56H56Z"></path></svg>metrics<span class="n">2</span></div>
+      <div class="q-item"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 256 256"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 256 256" class="w-5 h-5 shrink-0 text-fg-secondary"><path d="M224,200h-8V40a8,8,0,0,0-8-8H152a8,8,0,0,0-8,8V80H96a8,8,0,0,0-8,8v40H48a8,8,0,0,0-8,8v64H32a8,8,0,0,0,0,16H224a8,8,0,0,0,0-16ZM160,48h40V200H160ZM104,96h40V200H104ZM56,144H88v56H56Z"></path></svg>primitives<span class="n">2</span></div>
+    </div>
+    <div class="q-right">
+      <div class="q-code">
+        <div class="ln">1<br>2<br>3</div>
+        <div><span class="q-kw">select</span> *<br><span class="q-kw">from</span> <span class="q-id">metrics</span><br><span class="q-kw">where</span> <span class="q-id">data_id</span> = <span class="q-str">'bitcoin'</span></div>
+      </div>
+      <div class="q-ai"><span class="q-kbd">&#8984;I</span> AI suggestions</div>
+      <div class="q-status"><span class="ok">&#10003;</span> Success <span class="ago">21 days ago</span></div>
+      <table class="q-res">
+        <thead><tr><th>timestamp</th><th>data_id</th><th>value</th></tr></thead>
+        <tbody>
+          <tr><td>5/1/2012</td><td>bitcoin</td><td>11,443</td></tr>
+          <tr><td>5/2/2012</td><td>bitcoin</td><td>11,573</td></tr>
+          <tr><td>5/5/2012</td><td>bitcoin</td><td>12,299</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+ </div>
+</div></div></div>
+  </a>
+</div>
+   <div>  <a class="fcard row2" href="#">
+    <div class="fcard-head">
+      <div class="ficon"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" class="w-5 h-5 text-fg-default"><path d="M224,48H32a8,8,0,0,0-8,8V192a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A8,8,0,0,0,224,48ZM40,112H80v32H40Zm56,0H216v32H96ZM216,64V96H40V64ZM40,160H80v32H40Zm176,32H96V160H216v32Z"></path></svg></div>
+      <span class="fkicker">Sheets</span>
+      <h4>Sheets integration</h4>
+      <p class="fdesc">Pull blockchain data directly into Excel and Google Sheets with custom functions for financial statements, metrics, and more.</p>
+    </div>
+    <div class="fcard-vis"><div class="fmask"><div class="sh">
+  <div class="sh-bar">
+    <div class="sh-name">A1 <span style="color:var(--fg-secondary)">&#9662;</span></div>
+    <div class="sh-fx">&#402;</div>
+    <div class="sh-formula">=TT_FINANCIAL_STATEMENT(<span class="s">"ETH"</span>, <span class="s">"qua</span></div>
+  </div>
+  <table>
+    <thead><tr><th style="width:34px"></th><th class="colA">A</th><th>B</th><th>C</th><th>D</th></tr></thead>
+    <tbody><tr><td class="rn">1</td><td class="selcell">Quarters</td><td>Q1 2026</td><td>Q4 2025</td><td>Q3 20</td></tr><tr><td class="rn">2</td><td>Income State…</td><td></td><td></td><td></td></tr><tr><td class="rn">3</td><td>Fees</td><td>$4,716,702.18</td><td>$76,566,498.…</td><td>$125,</td></tr><tr><td class="rn">4</td><td>Fees_Supply…</td><td>$4,010,677.26</td><td>$48,093,226.…</td><td>$69,0</td></tr><tr><td class="rn">5</td><td>Revenue</td><td>$706,024.92</td><td>$28,473,271.56</td><td>$56,</td></tr><tr><td class="rn">6</td><td>Expenses</td><td>$97,171,161.57</td><td>$765,529,137.…</td><td>$933,</td></tr><tr><td class="rn">7</td><td>Token_Incent…</td><td>$97,171,161.57</td><td>$765,529,137.…</td><td>$933,</td></tr><tr><td class="rn">8</td><td>Earnings</td><td>($96,465,136.…</td><td>($737,055,86…</td><td>($877,</td></tr></tbody>
+  </table>
+</div></div></div>
+  </a>
+</div>
+   <div>  <a class="fcard row2" href="#">
+    <div class="fcard-head">
+      <div class="ficon"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" class="w-5 h-5 text-fg-default"><path d="M69.12,94.15,28.5,128l40.62,33.85a8,8,0,1,1-10.24,12.29l-48-40a8,8,0,0,1,0-12.29l48-40a8,8,0,0,1,10.24,12.3Zm176,27.7-48-40a8,8,0,1,0-10.24,12.3L227.5,128l-40.62,33.85a8,8,0,1,0,10.24,12.29l48-40a8,8,0,0,0,0-12.29ZM162.73,32.48a8,8,0,0,0-10.25,4.79l-64,176a8,8,0,0,0,4.79,10.26A8.14,8.14,0,0,0,96,224a8,8,0,0,0,7.52-5.27l64-176A8,8,0,0,0,162.73,32.48Z"></path></svg></div>
+      <span class="fkicker">API</span>
+      <h4>REST API</h4>
+      <p class="fdesc">Access standardized blockchain metrics through a developer-friendly REST API with comprehensive documentation and type definitions.</p>
+    </div>
+    <div class="fcard-vis"><div class="fmask"><div class="api">
+  <div class="api-row">
+    <div class="api-get">GET <span style="color:var(--fg-secondary)">&#9662;</span></div>
+    <div class="api-url">api.tokenterminal.com/v2/proje</div>
+  </div>
+  <div class="api-meta"><span class="ok">200 OK</span> &bull; 309 ms &bull; 535.2 KB</div>
+  <div class="api-tabs"><span>Pretty <span style="color:var(--fg-secondary)">&#9662;</span></span><span>Headers <span style="color:var(--fg-default)">14</span></span></div>
+  <div class="api-code">
+    <div class="ln">1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14</div>
+    <div class="j-p" style="white-space:pre">{
+  <span class="j-k">"data"</span>: [
+    {
+      <span class="j-k">"timestamp"</span>: <span class="j-s">"2024-10-21T00:00:00.000Z"</span>,
+      <span class="j-k">"project_name"</span>: <span class="j-s">"Base"</span>,
+      <span class="j-k">"project_id"</span>: <span class="j-s">"base"</span>,
+      <span class="j-k">"fees"</span>: <span class="j-n">107315.92</span>,
+      <span class="j-k">"revenue"</span>: <span class="j-n">107315.92</span>,
+      <span class="j-k">"earnings"</span>: <span class="j-n">106651.32</span>,
+      <span class="j-k">"user_dau"</span>: <span class="j-n">1662351</span>,
+    },
+    {
+      <span class="j-k">"timestamp"</span>: <span class="j-s">"2024-10-22T00:00:00.000Z"</span>,
+      <span class="j-k">"project_name"</span>: <span class="j-s">"Base"</span>,</div>
+  </div>
+</div></div></div>
+  </a>
+</div>
+   <div>  <a class="fcard row2" href="#">
+    <div class="fcard-head">
+      <div class="ficon"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 256 256" class="w-5 h-5 text-fg-default"><path d="M128,24C74.17,24,32,48.6,32,80v96c0,31.4,42.17,56,96,56s96-24.6,96-56V80C224,48.6,181.83,24,128,24Zm80,104c0,9.62-7.88,19.43-21.61,26.92C170.93,163.35,150.19,168,128,168s-42.93-4.65-58.39-13.08C55.88,147.43,48,137.62,48,128V111.36c17.06,15,46.23,24.64,80,24.64s62.94-9.68,80-24.64ZM69.61,53.08C85.07,44.65,105.81,40,128,40s42.93,4.65,58.39,13.08C200.12,60.57,208,70.38,208,80s-7.88,19.43-21.61,26.92C170.93,115.35,150.19,120,128,120s-42.93-4.65-58.39-13.08C55.88,99.43,48,89.62,48,80S55.88,60.57,69.61,53.08ZM186.39,202.92C170.93,211.35,150.19,216,128,216s-42.93-4.65-58.39-13.08C55.88,195.43,48,185.62,48,176V159.36c17.06,15,46.23,24.64,80,24.64s62.94-9.68,80-24.64V176C208,185.62,200.12,195.43,186.39,202.92Z"></path></svg></div>
+      <span class="fkicker">Data Room</span>
+      <h4>Access our data warehouse</h4>
+      <p class="fdesc">Query raw blockchain data directly in your own data warehouse with schemas for blocks, transactions, and decoded contract events.</p>
+    </div>
+    <div class="fcard-vis"><div class="fmask"><div class="fpanel" style="padding:0;width:100%;height:100%;border-top-left-radius:12px">
+ <div class="dr">
+  <div class="dr-top"><span style="width:10px;height:10px;border-radius:50%;background:#3f3f46;display:inline-block"></span><span>&#9662;</span><span style="color:var(--border-default)">|</span><span class="dr-chip"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 256 256" class="w-5 h-5 shrink-0 text-fg-secondary"><path d="M224,200h-8V40a8,8,0,0,0-8-8H152a8,8,0,0,0-8,8V80H96a8,8,0,0,0-8,8v40H48a8,8,0,0,0-8,8v64H32a8,8,0,0,0,0,16H224a8,8,0,0,0,0-16ZM160,48h40V200H160ZM104,96h40V200H104ZM56,144H88v56H56Z"></path></svg> blocks <span>&#9662;</span></span></div>
+  <div class="dr-bc"><span class="lk">blockchain</span> / <span>Datasets</span> / <span class="lk">solana</span> / <span>blocks</span></div>
+  <div class="dr-name"><svg width="14" height="14" viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="16"><path d="M132.4,190.7l50.4,32c6.5,4.1,14.5-2,12.6-9.5l-14.4-57.1a8.7,8.7,0,0,1,2.9-8.8l45-37.5c5.9-4.9,2.9-14.8-4.8-15.3l-58.8-3.8a8.3,8.3,0,0,1-7.3-5.3L136.2,30a8.5,8.5,0,0,0-16,0L98.2,85.4a8.5,8.5,0,0,1-7.3,5.3L32.1,94.5c-7.7.5-10.7,10.4-4.8,15.3l45,37.5a8.7,8.7,0,0,1,2.9,8.8L61.9,208.9c-2.3,9,7.3,16.1,15.1,11.1l48.1-30.6A8,8,0,0,1,132.4,190.7Z"/></svg> blocks</div>
+  <div class="dr-tabs"><span class="on">Schema</span><span>Details</span><span>Preview</span></div>
+  <div class="dr-filter"><svg width="13" height="13" viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="16"><path d="M42,72H214M74,128H182M110,184h36"/></svg> Filter <span style="color:var(--fg-muted)">Enter property name or value</span></div>
+  <table>
+    <thead><tr><th><span class="cb"></span> Field name</th><th>Type</th><th>Mode</th></tr></thead>
+    <tbody><tr><td><span class="cb"></span> block_slot</td><td class="t">INTEGER</td><td class="t">NULLABLE</td></tr><tr><td><span class="cb"></span> block_hash</td><td class="t">STRING</td><td class="t">NULLABLE</td></tr><tr><td><span class="cb"></span> block_height</td><td class="t">INTEGER</td><td class="t">NULLABLE</td></tr><tr><td><span class="cb"></span> block_timestamp</td><td class="t">TIMESTAMP</td><td class="t">NULLABLE</td></tr><tr><td><span class="cb"></span> parent_slot</td><td class="t">INTEGER</td><td class="t">NULLABLE</td></tr><tr><td><span class="cb"></span> previous_block_hash</td><td class="t">STRING</td><td class="t">NULLABLE</td></tr><tr><td><span class="cb"></span> total_transaction_count</td><td class="t">INTEGER</td><td class="t">NULLABLE</td></tr><tr><td><span class="cb"></span> successful_transaction_count</td><td class="t">INTEGER</td><td class="t">NULLABLE</td></tr></tbody>
+  </table>
+ </div>
+</div></div></div>
+  </a>
+</div>
+  </div>
+ </div>
+</div>
+
+<div class="tst-wrap">
+  <div class="tst-title">Hear from our customers</div>
+  <div class="tst-cols">
+  <div class="tst-col">
+    <div class="tst-card">
+      <div class="tst-head">
+        <img src="assets/avatars/avatar-TheiaResearch.jpg" alt="Felipe Montealegre avatar" loading="lazy" width="32" height="32"/>
+        <div><div class="tst-nm">Felipe Montealegre</div><div class="tst-co">Theia</div></div>
+      </div>
+      <div class="tst-q">"Even though the industry is open source and most of the information is publicly available on the blockchain, it can still be a lot of work to get accurate and actionable data. We’ve found that Token Terminal is consistently putting out high quality data, with everything clearly documented.
+
+They’ve really changed the way we think about onchain data internally, since we don’t need to build our data pipelines from scratch anymore."</div>
+    </div>
+    <div class="tst-card">
+      <div class="tst-head">
+        <img src="assets/avatars/avatar-cosmo_jiang.png" alt="Cosmo Jiang avatar" loading="lazy" width="32" height="32"/>
+        <div><div class="tst-nm">Cosmo Jiang</div><div class="tst-co">Pantera</div></div>
+      </div>
+      <div class="tst-q">"We’re frequent and happy users of the data and dashboards available on Token Terminal. Token Terminal has done a great job focusing on standardizing KPIs that make fundamental analysis of digital assets faster and easier."</div>
+    </div>
+    <div class="tst-card">
+      <div class="tst-head">
+        <img src="assets/avatars/avatar-RasterlyRock.jpg" alt="Ryan Rasmussen avatar" loading="lazy" width="32" height="32"/>
+        <div><div class="tst-nm">Ryan Rasmussen</div><div class="tst-co">Bitwise</div></div>
+      </div>
+      <div class="tst-q">"Token Terminal has been an invaluable tool in my crypto research, offering deep insights into on-chain metrics and token economics. Its user-friendly interface and robust data sets streamline my analysis, ensuring I stay ahead in the rapidly evolving crypto landscape. A must-have for anyone serious about crypto analysis."</div>
+    </div>
+  </div>
+  <div class="tst-col">
+    <div class="tst-card">
+      <div class="tst-head">
+        <img src="assets/avatars/avatar-devan-mitchem.png" alt="Devan Mitchem avatar" loading="lazy" width="32" height="32"/>
+        <div><div class="tst-nm">Devan Mitchem</div><div class="tst-co">Google</div></div>
+      </div>
+      <div class="tst-q">"Token Terminal's decoders turn raw onchain chaos into structured, instruction-level insights—giving every builder the deep microstructure transparency once reserved for sophisticated teams. I look forward to seeing how the Solana community uses these powerful new primitives."</div>
+    </div>
+    <div class="tst-card">
+      <div class="tst-head">
+        <img src="assets/avatars/avatar-CFBenchmarks.jpg" alt="Sui Chung avatar" loading="lazy" width="32" height="32"/>
+        <div><div class="tst-nm">Sui Chung</div><div class="tst-co">CF Benchmarks</div></div>
+      </div>
+      <div class="tst-q">"At CF Benchmarks we have found Token Terminal to be the best of breed of blockchain data providers. First and foremost their data is accurate and comprehensive, of imperative importance to a UK FCA regulated benchmark administrator like ourselves. On top of that the data interrogation tools and APIs across all their products are reliable, intuitive and performant. Hard to ask for more."</div>
+    </div>
+    <div class="tst-card">
+      <div class="tst-head">
+        <img src="assets/avatars/avatar-kapursanat.png" alt="Sanat Kapur avatar" loading="lazy" width="32" height="32"/>
+        <div><div class="tst-nm">Sanat Kapur</div><div class="tst-co">Dragonfly Capital</div></div>
+      </div>
+      <div class="tst-q">"As a crypto investor, I spend a lot of time trying to understand the financial performance of crypto protocols. Before Token Terminal, this meant a lot of manual work across different platforms, whereas now I’m able to access comparable metrics for hundreds of protocols all in one place. At this point, I can’t imagine doing due diligence without the Terminal."</div>
+    </div>
+    <div class="tst-card">
+      <div class="tst-head">
+        <img src="assets/avatars/avatar-KatieTalati.jpg" alt="Katie Talati avatar" loading="lazy" width="32" height="32"/>
+        <div><div class="tst-nm">Katie Talati</div><div class="tst-co">Arca</div></div>
+      </div>
+      <div class="tst-q">"Token Terminal saves my team hours of work by aggregating information across multiple data sources. Having revenue data for projects across multiple sectors and chains all in one place is invaluable."</div>
+    </div>
+  </div>
+  <div class="tst-col">
+    <div class="tst-card">
+      <div class="tst-head">
+        <img src="assets/avatars/avatar-marcos-vernemis.jpg" alt="Marcos Veremis avatar" loading="lazy" width="32" height="32"/>
+        <div><div class="tst-nm">Marcos Veremis</div><div class="tst-co">Accolade Partners</div></div>
+      </div>
+      <div class="tst-q">"Token Terminal gives me clean, accurate, and up-to-date data to quickly understand what’s happening in the markets and how to think about valuing assets. If you’re interested or working in investing, it’s invaluable."</div>
+    </div>
+    <div class="tst-card">
+      <div class="tst-head">
+        <img src="assets/avatars/avatar-mleinweber2.jpg" alt="Martin Leinweber avatar" loading="lazy" width="32" height="32"/>
+        <div><div class="tst-nm">Martin Leinweber</div><div class="tst-co">MarketVector Indexes</div></div>
+      </div>
+      <div class="tst-q">"Token Terminal has been instrumental in revolutionizing the way we approach on-chain data for our index business. Their commitment to delivering high-quality, actionable insights has made a significant impact on our joint project to create the first fundamental indexes for crypto.
+
+What stands out most is their ability to distill complex data into comprehensible formats, enabling portfolio managers to make informed decisions with ease. The clarity and precision that Token Terminal brings to the table are unparalleled, making them an invaluable partner in navigating the ever-evolving blockchain landscape."</div>
+    </div>
+    <div class="tst-card">
+      <div class="tst-head">
+        <img src="assets/avatars/avatar-matt-maximo.jpg" alt="Matt Maximo avatar" loading="lazy" width="32" height="32"/>
+        <div><div class="tst-nm">Matt Maximo</div><div class="tst-co">Van Eck</div></div>
+      </div>
+      <div class="tst-q">"Token Terminal gives me access to high quality and well documented metrics for a broad range of projects and networks allowing me to go straight to analyzing data."</div>
+    </div>
+  </div>
+  </div>
+  <a class="tst-more" href="#">Explore more customer stories<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 256 256"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg></a>
+</div>
+
+<div class="sol-wrap">
+ <div class="sol-inner">
+  <div class="sol-head">
+   <div class="sol-title">Solutions for every scale</div>
+   <div class="sol-sub">Our products drive technical and non-technical teams to success, building off the same quality data.</div>
+  </div>
+  <div>
+   <div class="sol-cards">
+    <a class="sol-card" href="#">
+      <div style="position:relative;z-index:2">
+        <div class="top"><div class="t1"><div class="nm">Explorer</div><svg class="arw" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg></div><p>Browse and compare</p></div>
+      </div>
+      <div class="sol-art"><svg width="100%" height="100%" viewBox="0 0 260 170" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMinYMin meet"><rect x="12" y="10" width="150" height="150" rx="8" stroke="currentColor" opacity=".5"/><rect x="28" y="26" width="86" height="5" rx="2.5" fill="currentColor" opacity=".45"/><rect x="28" y="38" width="54" height="5" rx="2.5" fill="currentColor" opacity=".3"/><g transform="translate(8,26)"><rect x="20" y="76" width="14" height="34" rx="2" fill="currentColor" opacity=".28"/><rect x="42" y="58" width="14" height="52" rx="2" fill="currentColor" opacity=".28"/><rect x="64" y="66" width="14" height="44" rx="2" fill="currentColor" opacity=".28"/><rect x="86" y="42" width="14" height="68" rx="2" fill="currentColor" opacity=".28"/><rect x="108" y="52" width="14" height="58" rx="2" fill="currentColor" opacity=".28"/><rect x="130" y="24" width="14" height="86" rx="2" fill="currentColor" opacity=".28"/><rect x="152" y="36" width="14" height="74" rx="2" fill="currentColor" opacity=".28"/></g></svg></div>
+      <div class="sol-fade"></div>
+    </a>
+    <a class="sol-card" href="#">
+      <div style="position:relative;z-index:2">
+        <div class="top"><div class="t1"><div class="nm">Studio</div><svg class="arw" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg></div><p>Build and share</p></div>
+      </div>
+      <div class="sol-art"><svg width="100%" height="100%" viewBox="0 0 260 170" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMinYMin meet"><rect x="12" y="10" width="90" height="52" rx="6" stroke="currentColor" opacity=".5"/><rect x="20" y="18" width="46" height="4" rx="2" fill="currentColor" opacity=".4"/><rect x="20" y="40" width="10" height="14" rx="2" fill="currentColor" opacity=".4"/><rect x="34" y="34" width="10" height="20" rx="2" fill="currentColor" opacity=".4"/><rect x="48" y="28" width="10" height="26" rx="2" fill="currentColor" opacity=".4"/><rect x="12" y="72" width="90" height="60" rx="6" stroke="currentColor" opacity=".5"/><circle cx="46" cy="102" r="18" stroke="currentColor" opacity=".45"/><path d="M46 84a18 18 0 0 1 18 18h-18z" fill="currentColor" opacity=".35"/><rect x="118" y="14" width="78" height="56" rx="6" stroke="currentColor" opacity=".45" transform="rotate(9 118 14)"/></svg></div>
+      <div class="sol-fade"></div>
+    </a>
+    <a class="sol-card" href="#">
+      <div style="position:relative;z-index:2">
+        <div class="top"><div class="t1"><div class="nm">MCP</div><svg class="arw" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg></div><p>For AI &amp; LLM applications</p></div>
+      </div>
+      <div class="sol-art"><svg width="100%" height="100%" viewBox="0 0 260 170" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMinYMin meet"><rect x="12" y="10" width="150" height="26" rx="6" stroke="currentColor" opacity=".5"/><circle cx="26" cy="23" r="3" fill="currentColor" opacity=".5"/><circle cx="38" cy="23" r="3" fill="currentColor" opacity=".5"/><circle cx="50" cy="23" r="3" fill="currentColor" opacity=".5"/><rect x="76" y="19" width="76" height="8" rx="4" fill="currentColor" opacity=".28"/><g opacity=".45" stroke="currentColor"><path d="M46 60v42M25 81h42M31 66l30 30M61 66l-30 30"/></g><circle cx="120" cy="81" r="20" stroke="currentColor" opacity=".45"/><path d="M113 74h14M113 81h14M113 88h9" stroke="currentColor" opacity=".45"/><path d="M40 128l7 14 7-14-7-14z" fill="currentColor" opacity=".35"/><circle cx="120" cy="134" r="16" stroke="currentColor" opacity=".45"/><path d="M112 134a8 8 0 0 1 16 0" stroke="currentColor" opacity=".45"/></svg></div>
+      <div class="sol-fade"></div>
+    </a>
+    <a class="sol-card" href="#">
+      <div style="position:relative;z-index:2">
+        <div class="top"><div class="t1"><div class="nm">Sheets</div><svg class="arw" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg></div><p>For analysts &amp; researchers</p></div>
+      </div>
+      <div class="sol-art"><svg width="100%" height="100%" viewBox="0 0 260 170" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMinYMin meet"><rect x="12" y="10" width="150" height="20" rx="5" stroke="currentColor" opacity=".5"/><rect x="20" y="17" width="20" height="6" rx="2" fill="currentColor" opacity=".4"/><path d="M148 17l5 6 5-6" stroke="currentColor" opacity=".4"/><g stroke="currentColor" opacity=".4"><path d="M12 44h150M12 74h150M12 104h150M12 134h150M12 44v100M62 44v100M112 44v100M162 44v100"/></g></svg></div>
+      <div class="sol-fade"></div>
+    </a>
+    <a class="sol-card" href="#">
+      <div style="position:relative;z-index:2">
+        <div class="top"><div class="t1"><div class="nm">API</div><svg class="arw" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg></div><p>For data scientists &amp; developers</p></div>
+      </div>
+      <div class="sol-art"><svg width="100%" height="100%" viewBox="0 0 260 170" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMinYMin meet"><rect x="12" y="10" width="150" height="24" rx="6" stroke="currentColor" opacity=".5"/><circle cx="26" cy="22" r="3.5" stroke="currentColor" opacity=".5"/><circle cx="38" cy="22" r="3.5" stroke="currentColor" opacity=".5"/><circle cx="50" cy="22" r="3.5" stroke="currentColor" opacity=".5"/><text x="14" y="62" font-family="monospace" font-size="13" fill="currentColor" opacity=".42">~/making-moves</text><text x="14" y="86" font-family="monospace" font-size="13" fill="currentColor" opacity=".42">curl --request</text><text x="14" y="110" font-family="monospace" font-size="13" fill="currentColor" opacity=".42">--url http</text></svg></div>
+      <div class="sol-fade"></div>
+    </a>
+    <a class="sol-card" href="#">
+      <div style="position:relative;z-index:2">
+        <div class="top"><div class="t1"><div class="nm">Data Room</div><svg class="arw" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg></div><p>For technical teams</p></div>
+      </div>
+      <div class="sol-art"><svg width="100%" height="100%" viewBox="0 0 260 170" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMinYMin meet"><rect x="12" y="10" width="150" height="30" rx="6" stroke="currentColor" opacity=".45"/><path d="M24 20h12M24 25h12M24 30h12" stroke="currentColor" opacity=".45"/><text x="48" y="30" font-size="12" fill="currentColor" opacity=".42">Google Cloud</text><rect x="12" y="48" width="150" height="30" rx="6" stroke="currentColor" opacity=".45"/><circle cx="30" cy="63" r="8" stroke="currentColor" opacity=".45"/><text x="48" y="68" font-size="12" fill="currentColor" opacity=".42">BigQuery</text><rect x="12" y="86" width="150" height="24" rx="5" fill="currentColor" opacity=".12"/><rect x="12" y="114" width="150" height="24" rx="5" fill="currentColor" opacity=".2"/><rect x="24" y="122" width="10" height="8" rx="2" fill="currentColor" opacity=".4"/></svg></div>
+      <div class="sol-fade"></div>
+    </a>
+    <a class="sol-card" href="#">
+      <div style="position:relative;z-index:2">
+        <div class="top"><div class="t1"><div class="nm">Research</div><svg class="arw" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg></div><p>Custom research &amp; data support</p></div>
+      </div>
+      <div class="sol-art"><svg width="100%" height="100%" viewBox="0 0 260 170" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMinYMin meet"><rect x="12" y="10" width="150" height="150" rx="8" stroke="currentColor" opacity=".45"/><rect x="28" y="28" width="100" height="6" rx="3" fill="currentColor" opacity=".4"/><rect x="28" y="44" width="70" height="6" rx="3" fill="currentColor" opacity=".28"/><path d="M28 100l26-22 24 18 30-34 28 24" stroke="currentColor" opacity=".4"/><rect x="28" y="126" width="110" height="5" rx="2.5" fill="currentColor" opacity=".22"/><rect x="28" y="138" width="80" height="5" rx="2.5" fill="currentColor" opacity=".22"/></svg></div>
+      <div class="sol-fade"></div>
+    </a>
+   </div>
+   <div class="sol-part"><i></i><span>Partnerships</span><i></i></div>
+   <div class="sol-prow">
+    <a class="sol-pcard" href="#"><span class="ic"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 256 256" class="w-5 h-5 shrink-0 text-fg-secondary"><path d="M254.3,107.91,228.78,56.85a16,16,0,0,0-21.47-7.15L182.44,62.13,130.05,48.27a8.14,8.14,0,0,0-4.1,0L73.56,62.13,48.69,49.7a16,16,0,0,0-21.47,7.15L1.7,107.9a16,16,0,0,0,7.15,21.47l27,13.51,55.49,39.63a8.06,8.06,0,0,0,2.71,1.25l64,16a8,8,0,0,0,7.6-2.1l55.07-55.08,26.42-13.21a16,16,0,0,0,7.15-21.46Zm-54.89,33.37L165,113.72a8,8,0,0,0-10.68.61C136.51,132.27,116.66,130,104,122L147.24,80h31.81l27.21,54.41ZM41.53,64,62,74.22,36.43,125.27,16,115.06Zm116,119.13L99.42,168.61l-49.2-35.14,28-56L128,64.28l9.8,2.59-45,43.68-.08.09a16,16,0,0,0,2.72,24.81c20.56,13.13,45.37,11,64.91-5L188,152.66Zm62-57.87-25.52-51L214.47,64,240,115.06Zm-87.75,92.67a8,8,0,0,1-7.75,6.06,8.13,8.13,0,0,1-1.95-.24L80.41,213.33a7.89,7.89,0,0,1-2.71-1.25L51.35,193.26a8,8,0,0,1,9.3-13l25.11,17.94L126,208.24A8,8,0,0,1,131.82,217.94Z"></path></svg></span><span><span class="nm" style="display:block">Data Partnerships</span><span class="sb">Protocols &amp; dApps</span></span><svg class="arw" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg></a>
+    <a class="sol-pcard" href="#"><span class="ic"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 256 256" class="w-5 h-5 shrink-0 text-fg-secondary"><path d="M237.66,66.34a8,8,0,0,0-11.32,0L192,100.69,155.31,64l34.35-34.34a8,8,0,1,0-11.32-11.32L144,52.69,117.66,26.34a8,8,0,0,0-11.32,11.32L112.69,44l-53,53a40,40,0,0,0,0,56.57l15.71,15.71L26.34,218.34a8,8,0,0,0,11.32,11.32l49.09-49.09,15.71,15.71a40,40,0,0,0,56.57,0l53-53,6.34,6.35a8,8,0,0,0,11.32-11.32L203.31,112l34.35-34.34A8,8,0,0,0,237.66,66.34ZM147.72,185a24,24,0,0,1-33.95,0L71,142.23a24,24,0,0,1,0-33.95l53-53L200.69,132Z"></path></svg></span><span><span class="nm" style="display:block">Integrations</span><span class="sb">Third-party platforms</span></span><svg class="arw" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg></a>
+    <a class="sol-pcard" href="#"><span class="ic"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 256 256" class="w-5 h-5 shrink-0 text-fg-secondary"><path d="M224,200h-8V40a8,8,0,0,0-8-8H152a8,8,0,0,0-8,8V80H96a8,8,0,0,0-8,8v40H48a8,8,0,0,0-8,8v64H32a8,8,0,0,0,0,16H224a8,8,0,0,0,0-16ZM160,48h40V200H160ZM104,96h40V200H104ZM56,144H88v56H56Z"></path></svg></span><span><span class="nm" style="display:block">Indexes</span><span class="sb">Fundamentals-weighted</span></span><svg class="arw" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 256 256"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg></a>
+   </div>
+  </div>
+ </div>
+</div>
+
+<div class="talk-wrap">
+  <div class="talk-card">
+    <div class="talk-title">Talk to our team</div>
+    <div class="talk-btns">
+      <a class="talk-btn" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 256 256"><path d="M228.88,26.19a9,9,0,0,0-9.16-1.57L17.06,103.93a14.22,14.22,0,0,0,2.43,27.21L72,141.45V200a15.92,15.92,0,0,0,10,14.83,15.91,15.91,0,0,0,17.51-3.73l25.32-26.26L165,220a15.88,15.88,0,0,0,10.51,4,16.3,16.3,0,0,0,5-.79,15.85,15.85,0,0,0,10.67-11.63L231.77,35A9,9,0,0,0,228.88,26.19Zm-61.14,36L78.15,126.35l-49.6-9.73ZM88,200V152.52l24.79,21.74Zm87.53,8L92.85,135.5l119-85.29Z"></path></svg>Chat on Telegram</a>
+      <a class="talk-btn" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 256 256"><path d="M208,32H184V24a8,8,0,0,0-16,0v8H88V24a8,8,0,0,0-16,0v8H48A16,16,0,0,0,32,48V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V48A16,16,0,0,0,208,32ZM72,48v8a8,8,0,0,0,16,0V48h80v8a8,8,0,0,0,16,0V48h24V80H48V48ZM208,208H48V96H208V208Zm-96-88v64a8,8,0,0,1-16,0V132.94l-4.42,2.22a8,8,0,0,1-7.16-14.32l16-8A8,8,0,0,1,112,120Zm59.16,30.45L152,176h16a8,8,0,0,1,0,16H136a8,8,0,0,1-6.4-12.8l28.78-38.37A8,8,0,1,0,145.07,132a8,8,0,1,1-13.85-8A24,24,0,0,1,176,136,23.76,23.76,0,0,1,171.16,150.45Z"></path></svg>Book a demo</a>
+      <a class="talk-btn" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 256 256"><path d="M224,48H32a8,8,0,0,0-8,8V192a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A8,8,0,0,0,224,48Zm-96,85.15L52.57,64H203.43ZM98.71,128,40,181.81V74.19Zm11.84,10.85,12,11.05a8,8,0,0,0,10.82,0l12-11.05,58,53.15H52.57ZM157.29,128,216,74.18V181.82Z"></path></svg>Email us</a>
+    </div>
+  </div>
+</div>
+
+<footer class="site-footer">
+ <div class="foot-inner">
+  <div class="foot-top">
+   <a class="foot-logo" href="#"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 157 17" width="157" height="18.406896551724138" fill="none" class="text-fg-default"><path fill="currentColor" d="M8.44 13.68v2.37h-3.5a2.36 2.36 0 0 1-2.36-2.35V7.3H0V4.99h2.57V1.66h2.66v3.32h3.2v2.33h-3.2v6.37h3.2ZM9.55 10.76A5.5 5.5 0 0 1 15.2 5a5.5 5.5 0 0 1 5.64 5.76 5.5 5.5 0 0 1-5.64 5.75 5.5 5.5 0 0 1-5.65-5.75Zm8.63 0c0-2-1.28-3.32-2.98-3.32-1.71 0-3 1.32-3 3.32 0 1.99 1.29 3.32 3 3.32 1.7 0 2.98-1.33 2.98-3.32ZM25.36 10.23v5.82h-2.65V0h2.65v9.81L29.66 5h3.5L28.28 10l5.15 6.04h-3.32l-4.76-5.82Z"></path><path fill="currentColor" d="M44.25 11.4h-8.32c.29 1.62 1.35 2.55 2.99 2.55 1.17 0 1.86-.44 2.21-1.22h2.88c-.66 2.3-2.59 3.54-5.2 3.54-3.16 0-5.49-2.37-5.49-5.75 0-3.39 2.33-5.76 5.49-5.76s5.5 2.37 5.5 5.76c-.01.3-.03.6-.06.88Zm-8.3-1.88h5.71c-.28-1.55-1.3-2.43-2.85-2.43s-2.57.88-2.86 2.43ZM48.82 16.05h-2.66V4.98h2.66v1.6a3.56 3.56 0 0 1 3.19-1.82c2.35 0 4.12 1.55 4.12 4.67v6.62h-2.66V9.96c0-1.85-.89-2.87-2.33-2.87-1.43 0-2.32 1.02-2.32 2.87v6.1ZM72.18 13.68v2.37h-3.5a2.36 2.36 0 0 1-2.36-2.35V7.3h-2.57V4.99h2.57V1.66h2.66v3.32h3.2v2.33h-3.2v6.37h3.2ZM84.28 11.4h-8.33c.29 1.62 1.35 2.55 3 2.55 1.16 0 1.85-.44 2.2-1.22h2.89c-.67 2.3-2.6 3.54-5.2 3.54-3.17 0-5.5-2.37-5.5-5.75 0-3.39 2.33-5.76 5.5-5.76 3.16 0 5.49 2.37 5.49 5.76 0 .3-.03.6-.05.88Zm-8.3-1.88h5.71c-.28-1.55-1.3-2.43-2.85-2.43-1.56 0-2.58.88-2.86 2.43ZM97.3 16.05h-2.65V4.98h2.66v1.44a3.37 3.37 0 0 1 2.96-1.66c1.5 0 2.77.69 3.41 2.04a3.72 3.72 0 0 1 3.46-2.04c2.23 0 3.9 1.49 3.9 4.45v6.84h-2.66v-6.3c0-1.73-.8-2.66-2.1-2.66-1.31 0-2.1.93-2.1 2.65v6.31h-2.67v-6.3c0-1.73-.8-2.66-2.1-2.66s-2.1.93-2.1 2.65v6.31ZM113.23 1.66c0-.95.71-1.66 1.66-1.66.98 0 1.66.71 1.66 1.66 0 .93-.68 1.66-1.66 1.66-.95 0-1.66-.73-1.66-1.66ZM116.22 4.98h-2.66v11.07h2.66V4.98ZM121.52 16.05h-2.66V4.98h2.66v1.6a3.56 3.56 0 0 1 3.18-1.82c2.35 0 4.12 1.55 4.12 4.67v6.62h-2.65V9.96c0-1.85-.89-2.87-2.33-2.87s-2.32 1.02-2.32 2.87v6.1ZM138.04 14.42c-.71 1.3-2 1.85-3.52 1.85-1.9 0-3.72-.95-3.72-3.18 0-4.76 7.2-2.64 7.2-4.85 0-.86-.89-1.38-2.04-1.38-1.22 0-2.06.65-2.06 1.89h-2.77c0-2.88 2.35-3.99 4.83-3.99 2.44 0 4.7 1 4.7 3.59v7.7h-2.62v-1.63Zm-2.97-.36c1.55 0 2.97-.88 2.97-2.57V11c-1.78.72-4.52.5-4.52 1.92 0 .78.66 1.15 1.55 1.15ZM143.07 16.05V0h2.66v16.05h-2.66ZM91.98 7.55h1.14V4.96h-.88c-1.36 0-2.66.66-3.38 1.81l-.02.03V5H86.2v11.08h2.65v-5.65c0-1.86 1.16-2.88 3.13-2.88h.01Z"></path><path fill="#00CF9D" d="M148.14 16.05v-2.37H157v2.37h-8.86Z"></path></svg></a>
+   <a class="foot-getlisted" href="#">Get listed</a>
+  </div>
+  <div class="foot-cols">
+   <div class="foot-col"><div class="h">Company</div><div class="lnks"><a href="#">About</a><a href="#">Careers<span class="badge-hiring">We're hiring!</span></a><a href="#">Customers</a><a href="#">Contact</a><a href="#">Pricing</a><a href="#">Privacy policy</a><a href="#">Terms</a></div></div>
+   <div class="foot-col"><div class="h">Products</div><div class="lnks"><a href="#">Explorer</a><a href="#">Studio</a><a href="#">MCP</a><a href="#">Sheets</a><a href="#">API</a><a href="#">Data Room</a></div></div>
+   <div class="foot-col"><div class="h">Partnerships</div><div class="lnks"><a href="#">Data Partnerships</a><a href="#">Integrations</a><a href="#">Indexes</a></div></div>
+   <div class="foot-col"><div class="h">Explore</div><div class="lnks"><a href="#">API Docs</a><a href="#">Docs</a><a href="#">MVTT10F (index)</a><a href="#">MVTT10M (index)</a><a href="#">Resources</a></div></div>
+   <div class="foot-col"><div class="h">Socials</div><div class="lnks"><a href="#">X</a><a href="#">Discord</a><a href="#">LinkedIn</a><a href="#">YouTube</a><a href="#">Podcast</a></div></div>
+  </div>
+  <div class="news">
+   <div class="news-in">
+    <div class="news-l">
+     <div class="news-ic"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 256 256" class="text-fg-secondary size-5"><path d="M104,152a8,8,0,0,1-8,8H56a8,8,0,0,1,0-16H96A8,8,0,0,1,104,152Zm136-36v60a16,16,0,0,1-16,16H136v32a8,8,0,0,1-16,0V192H32a16,16,0,0,1-16-16V116A60.07,60.07,0,0,1,76,56h76V24a8,8,0,0,1,8-8h32a8,8,0,0,1,0,16H168V56h12A60.07,60.07,0,0,1,240,116ZM120,176V116a44,44,0,0,0-88,0v60Zm104-60a44.05,44.05,0,0,0-44-44H168v72a8,8,0,0,1-16,0V72H116.75A59.86,59.86,0,0,1,136,116v60h88Z"></path></svg></div>
+     <div>
+      <div class="news-t">Subscribe to our weekly newsletter</div>
+      <div class="news-s">Actionable insights you can&#8217;t get elsewhere.</div>
+     </div>
+    </div>
+    <form class="news-form" onsubmit="return false">
+     <input type="text" placeholder="Enter your email" aria-label="Email" autocomplete="off"/>
+     <button type="button">Subscribe</button>
+    </form>
+   </div>
+  </div>
+  <div class="foot-bottom">
+   <div class="foot-copy">&copy; 2026 Token Terminal</div>
+   <div class="theme-tog" role="group" aria-label="Theme">
+    <button type="button" aria-label="Light" aria-pressed="false"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 256 256" class="pointer-events-none" aria-hidden="true"><path d="M120,40V16a8,8,0,0,1,16,0V40a8,8,0,0,1-16,0Zm72,88a64,64,0,1,1-64-64A64.07,64.07,0,0,1,192,128Zm-16,0a48,48,0,1,0-48,48A48.05,48.05,0,0,0,176,128ZM58.34,69.66A8,8,0,0,0,69.66,58.34l-16-16A8,8,0,0,0,42.34,53.66Zm0,116.68-16,16a8,8,0,0,0,11.32,11.32l16-16a8,8,0,0,0-11.32-11.32ZM192,72a8,8,0,0,0,5.66-2.34l16-16a8,8,0,0,0-11.32-11.32l-16,16A8,8,0,0,0,192,72Zm5.66,114.34a8,8,0,0,0-11.32,11.32l16,16a8,8,0,0,0,11.32-11.32ZM48,128a8,8,0,0,0-8-8H16a8,8,0,0,0,0,16H40A8,8,0,0,0,48,128Zm80,80a8,8,0,0,0-8,8v24a8,8,0,0,0,16,0V216A8,8,0,0,0,128,208Zm112-88H216a8,8,0,0,0,0,16h24a8,8,0,0,0,0-16Z"></path></svg></button>
+    <button type="button" aria-label="Dark" aria-pressed="true"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 256 256" class="pointer-events-none" aria-hidden="true"><path d="M233.54,142.23a8,8,0,0,0-8-2,88.08,88.08,0,0,1-109.8-109.8,8,8,0,0,0-10-10,104.84,104.84,0,0,0-52.91,37A104,104,0,0,0,136,224a103.09,103.09,0,0,0,62.52-20.88,104.84,104.84,0,0,0,37-52.91A8,8,0,0,0,233.54,142.23ZM188.9,190.34A88,88,0,0,1,65.66,67.11a89,89,0,0,1,31.4-26A106,106,0,0,0,96,56,104.11,104.11,0,0,0,200,160a106,106,0,0,0,14.92-1.06A89,89,0,0,1,188.9,190.34Z"></path></svg></button>
+    <button type="button" aria-label="System" aria-pressed="false"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 256 256" class="pointer-events-none" aria-hidden="true"><path d="M208,40H48A24,24,0,0,0,24,64V176a24,24,0,0,0,24,24H208a24,24,0,0,0,24-24V64A24,24,0,0,0,208,40Zm8,136a8,8,0,0,1-8,8H48a8,8,0,0,1-8-8V64a8,8,0,0,1,8-8H208a8,8,0,0,1,8,8Zm-48,48a8,8,0,0,1-8,8H96a8,8,0,0,1,0-16h64A8,8,0,0,1,168,224Z"></path></svg></button>
+   </div>
+  </div>
+ </div>
+</footer>
 
 <script>
 /* ---- slide config: taken 1:1 from the source bundle ---- */
@@ -646,7 +1701,7 @@ function render(){
 function go(n){
   index = (n + SLIDES.length) % SLIDES.length;
   elapsed = 0;
-  ring.setAttribute("stroke-dashoffset", CIRC);
+  if (ring) ring.setAttribute("stroke-dashoffset", CIRC);
   render();
 }
 
@@ -655,7 +1710,7 @@ function start(){
   timer = setInterval(() => {
     if(!playing) return;
     elapsed += TICK;
-    ring.setAttribute("stroke-dashoffset", CIRC * (1 - elapsed / DURATION));
+    if (ring) ring.setAttribute("stroke-dashoffset", CIRC * (1 - elapsed / DURATION));
     if(elapsed >= DURATION) go(index + 1);
   }, TICK);
 }
@@ -723,6 +1778,35 @@ document.fonts.ready.then(() => {
 measure();
 render();
 start();
+/* ---- stacked L1 fee bars for the "Historical onchain metrics" card ---- */
+(function(){
+  var el=document.getElementById("l1chart"); if(!el) return;
+  var colors=["#22c55e","#4f46e5","#6d28d9","#e879f9","#e7e5e4"];
+  var s=1337; function rnd(){ s=(s*1664525+1013904223)%4294967296; return s/4294967296; }
+  var N=92, html="";
+  for(var i=0;i<5;i++) html+='<div class="gl" style="bottom:'+(i*25)+'%"></div>';
+  for(var b=0;b<N;b++){
+    var t=b/N;
+    var segs=[58+t*10+(rnd()-0.5)*12, 2+rnd()*4, 4+rnd()*8*(0.4+t), 2+rnd()*5*(0.4+t), 1+rnd()*4];
+    var total=segs.reduce(function(a,c){return a+c;},0);
+    var scale=Math.min(total,96)/total, inner="";
+    for(var k=segs.length-1;k>=0;k--) inner+='<span style="height:'+(segs[k]*scale)+'%;background:'+colors[k]+'"></span>';
+    html+='<div class="cbar">'+inner+'</div>';
+  }
+  el.innerHTML=html;
+})();
+
+/* ---- navbar: transparent at the top, frosted once the page scrolls ---- */
+(function(){
+  var nav=document.getElementById("siteNav"); if(!nav) return;
+  var ticking=false;
+  function apply(){ nav.dataset.isScrolled = (window.scrollY > 0) ? "true" : "false"; ticking=false; }
+  window.addEventListener("scroll",function(){
+    if(!ticking){ ticking=true; requestAnimationFrame(apply); }
+  },{passive:true});
+  apply();
+})();
+
 </script>
 </body>
 </html>
