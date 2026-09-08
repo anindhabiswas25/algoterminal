@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Token Terminal — Hero</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --hero-width: 1300px;
+  --bg-default:#0d0d10;
+  --bg-surface:#111114;
+  --fg-default:#fff;
+  --fg-secondary:#a1a1aa;
+  --border-default:rgba(115,115,115,.18);
+  --border-dashed:#1b1b21;
+  --emerald-fg:#62e0ae;
+  --emerald-bg:#112520;
+}
+*{box-sizing:border-box;}
+/* background lives on the root so the z-index:-1 guide rules stay visible above the canvas */
+html{background:var(--bg-default);}
+html,body{margin:0;padding:0;color:var(--fg-default);}
+body{background:transparent;
+  font-family:"Geist",ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+.mono{font-family:"Geist Mono",ui-monospace,SFMono-Regular,"Roboto Mono",monospace;}
+
+.shell{width:var(--hero-width);max-width:100vw;margin:0 auto;padding:0 20px;position:relative;}
+
+/* ---------------- dashed guide lines ---------------- */
+.v-rule{
+  position:absolute;top:-500px;bottom:-500px;width:1px;
+  border-right:1px dashed var(--border-dashed);
+  z-index:-1;pointer-events:none;
+}
+.v-rule.left{left:0;} .v-rule.right{right:0;}
+.v-rule::after{
+  content:"";position:absolute;left:-1px;right:0;top:0;bottom:0;width:2px;
+  background:linear-gradient(to bottom,var(--bg-default),transparent 25%,transparent 75%,var(--bg-default));
+}
+.h-rule{
+  height:1px;z-index:-1;position:relative;pointer-events:none;
+  border-top:1px dashed var(--border-dashed);
+  --gutterWidth:calc((100vw - var(--hero-width)) / -2);
+}
+.h-rule::after{
+  content:"";position:absolute;left:0;right:0;top:-1px;bottom:0;height:2px;
+  background:linear-gradient(to right,var(--bg-default),transparent 30%,transparent 70%,var(--bg-default));
+}
+.h-rule.full{grid-column:1 / 17;margin-left:var(--gutterWidth);margin-right:var(--gutterWidth);}
+.h-rule.r1{grid-row:1;top:-30px;}
+.h-rule.r6{grid-row:6;bottom:10px;}
+.h-rule.left-seg{grid-column:1 / 5;grid-row:3;top:-10px;margin-left:var(--gutterWidth);}
+.h-rule.right-seg{grid-column:12 / 17;grid-row:4;top:-10px;margin-right:var(--gutterWidth);}
+/* interior vertical rule on the column 11/12 boundary */
+.v-seg{
+  grid-column:12;grid-row:4 / 6;justify-self:start;
+  width:1px;margin-top:-500px;margin-bottom:-500px;margin-left:-13px;
+  border-right:1px dashed var(--border-dashed);
+  position:relative;z-index:-1;pointer-events:none;
+}
+.v-seg::after{
+  content:"";position:absolute;left:-1px;right:0;top:0;bottom:0;width:2px;
+  background:linear-gradient(to bottom,var(--bg-default),transparent 45%,transparent 55%,var(--bg-default));
+}
+
+/* ---------------- nav ---------------- */
+.nav{display:flex;align-items:center;justify-content:space-between;padding:14px 29px;}
+.logo{font-size:23px;font-weight:600;letter-spacing:-.02em;}
+.logo i{font-style:normal;color:#34d399;}
+.nav-links{display:flex;gap:30px;}
+.nav-links a{color:var(--fg-default);opacity:.85;text-decoration:none;font-size:14px;font-weight:400;transition:opacity .2s;}
+.nav-links a:hover{opacity:1;}
+.explorer-btn{
+  background:var(--emerald-bg);color:var(--emerald-fg);
+  font-size:14px;font-weight:500;text-decoration:none;
+  padding:0 15px;height:34px;display:inline-flex;align-items:center;border-radius:8px;
+  border:1px solid rgba(52,211,153,.10);transition:background .2s;
+}
+.explorer-btn:hover{background:#16332b;}
+
+/* ---------------- announcement ---------------- */
+.announce-row{
+  display:flex;flex-direction:column;align-items:center;gap:4px;
+  text-align:center;position:relative;z-index:2;margin-bottom:117px;
+}
+.announce{
+  display:inline-flex;align-items:center;gap:12px;
+  background:#1c1c1e;border:1px solid transparent;
+  border-radius:999px;padding:8px 18px;font-size:14px;color:var(--fg-default);
+  text-decoration:none;transition:background .2s;
+}
+.announce:hover{background:#232326;}
+.announce .sep{width:1px;align-self:stretch;background:rgba(255,255,255,.14);margin:2px 0;}
+.announce svg{flex-shrink:0;}
+.announce .arrow{transition:transform .3s;transform:translateX(-1px);}
+.announce:hover .arrow{transform:translateX(1px);}
+
+/* ---------------- pause button ---------------- */
+.pause-wrap{position:absolute;right:-4.5%;top:0;display:none;}
+@media (min-width:1460px){.pause-wrap{display:block;}}
+.pause-btn{
+  position:relative;width:38px;height:38px;border-radius:50%;
+  background:transparent;border:none;color:var(--fg-default);cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  opacity:.25;transition:opacity 200ms;padding:0;
+}
+.pause-btn:hover{opacity:.6;}
+.pause-ring{position:absolute;left:0;top:0;width:100%;height:100%;pointer-events:none;transform:rotate(-90deg);opacity:.25;}
+
+/* ---------------- hero grid ---------------- */
+.hero-grid{
+  --hero-width:1300px;
+  display:grid;width:100%;gap:25px;
+  grid-template-columns:repeat(16,1fr);
+  grid-template-rows:repeat(5,70px);
+  grid-template-areas:
+   "blockchain blockchain blockchain blockchain blockchain blockchain blockchain blockchain blockchain blockchain blockchain section2 section2 section2 section2 section2"
+   "data data data data section3 section3 section3 section3 section3 section3 section3 section2 section2 section2 section2 section2"
+   "section4 section4 section4 section4 section3 section3 section3 section3 section3 section3 section3 section2 section2 section2 section2 section2"
+   "section4 section4 section4 section4 section3 section3 section3 section3 section3 section3 section3 youcan youcan youcan youcan youcan"
+   "section4 section4 section4 section4 changetext changetext changetext changetext changetext changetext changetext changetext changetext changetext changetext changetext";
+}
+.hero-heading{
+  font-size:110px;line-height:60px;letter-spacing:-6px;font-weight:400;
+  white-space:nowrap;margin-bottom:.75rem;color:var(--fg-default);
+}
+
+/* image tiles.
+   blur-in settles at opacity .5 (not 1) — that is what gives the tiles their muted,
+   sunk-into-the-page look, and it is exactly how the original keyframe ends. */
+@keyframes blur-in{
+  0%{filter:blur(10px);opacity:0}
+  to{filter:none;opacity:.5}
+}
+.animate-blur-in{opacity:0;animation:2.5s cubic-bezier(.27,.01,0,1) .2s forwards blur-in;}
+@keyframes fade-in-up-quick{
+  0%{opacity:0;transform:translateY(50px)}
+  to{opacity:1;transform:translateY(0)}
+}
+.animate-fade-in-up-quick{opacity:0;animation:1s cubic-bezier(.27,.01,0,1) forwards fade-in-up-quick;}
+
+.tile{
+  position:relative;overflow:hidden;isolation:isolate;border-radius:20px;
+  transition:background-color 1000ms;background-color:#DD995D;
+}
+.pane{
+  position:absolute;left:0;top:0;width:100%;height:100%;
+  background-size:1300px auto;background-repeat:no-repeat;
+  mix-blend-mode:multiply;opacity:0;transition:opacity 1000ms;
+}
+.pane.on{opacity:1;}
+.pane.p-bank{background-image:url("assets/hero-illustration-bank.webp");}
+.pane.p-warehouse{background-image:url("assets/hero-illustration-warehouse.webp");}
+.pane.p-mountains{background-image:url("assets/hero-illustration-mountains.webp");}
+.pane.p-construction{background-image:url("assets/hero-illustration-construction.webp");}
+
+.pos-center .pane{background-position:50% top;}
+.pos-topright .pane{background-position:right top;}
+.pos-bottomleft .pane{background-position:left bottom;}
+.pos-card .pane{background-position:-335px -100px;}
+
+/* grid areas */
+.a-blockchain{grid-area:blockchain;display:flex;align-items:flex-start;gap:25px;text-align:left;}
+.a-blockchain .tile{flex:1;height:100%;}
+.a-data{grid-area:data;display:flex;align-items:center;justify-content:space-between;gap:25px;}
+.a-data .tile-wrap{height:100%;flex:1;}
+.a-data .tile{width:100%;height:100%;}
+.a-section2{grid-area:section2;}
+.a-section2 .tile{width:100%;height:100%;}
+.a-section4{grid-area:section4;}
+.a-section4 .tile{width:100%;height:100%;}
+.a-youcan{grid-area:youcan;display:flex;align-items:center;gap:25px;text-align:right;}
+.a-youcan .tile{height:100%;width:100%;}
+.a-changetext{grid-area:changetext;display:flex;align-items:center;justify-content:flex-start;gap:12.5px;text-align:right;}
+.a-changetext .tile{flex:1;height:100%;}
+
+/* rotating word */
+.word-window{
+  flex-shrink:0;height:calc(100% + 40px);position:relative;overflow:hidden;
+}
+/* the width only animates once the webfont has settled — otherwise the first
+   paint animates out of a fallback-font measurement and clips the first letter */
+.word-window.ready{transition:width .25s .1s cubic-bezier(.19,1,.22,1);}
+.word-track{position:absolute;right:0;top:15px;transition:top .5s;}
+.word-slot{
+  height:80px;margin-bottom:10px;opacity:0;filter:blur(15px);
+  transition:opacity .15s .1s, filter 300ms .1s;will-change:opacity,filter;
+}
+.word-slot.on{opacity:1;filter:blur(0px);}
+.word-slot .hero-heading{display:inline;margin-bottom:0;}
+
+/* featured card */
+.a-section3{grid-area:section3;}
+.card-outer{height:100%;width:100%;position:relative;z-index:3;}
+.card-clip{
+  width:100%;height:100%;position:relative;overflow:hidden;border-radius:25px;
+  box-shadow:0 0 150px 20px #0d0d0d;
+}
+.card-backdrop{
+  position:absolute;top:0;left:0;width:100%;height:100%;
+  overflow:hidden;isolation:isolate;border-radius:20px;
+  background-color:#DD995D;transition:background-color 1000ms;
+}
+.card-slide{
+  position:absolute;left:16px;top:16px;z-index:1;
+  opacity:0;filter:blur(15px);pointer-events:none;
+  transition:opacity .5s, filter .5s;
+}
+.card-slide.on{opacity:1;filter:blur(0);pointer-events:auto;}
+/* the "trust" slide is the card itself, edge to edge, with no illustration behind it */
+.card-slide.full{left:0;top:0;width:100%;height:100%;}
+.card-backdrop.hidden-backdrop{opacity:0;}
+
+.surface{
+  background:#0f0f11;border-radius:15px;padding:24px;
+  display:flex;flex-direction:column;gap:16px;
+}
+.hr{height:1px;background:var(--border-default);}
+.t-lg{font-size:18px;font-weight:500;}
+.t-sm{font-size:14px;}
+.sec{color:var(--fg-secondary);}
+
+/* financial statement */
+.fs-card{width:800px;height:900px;}
+.fs-head{display:flex;align-items:flex-start;gap:20px;}
+.fs-head img{width:32px;height:32px;border-radius:50%;}
+table.fs{text-align:left;width:550px;border-collapse:collapse;}
+table.fs th div{font-size:14px;font-weight:500;color:var(--fg-secondary);padding-bottom:8px;white-space:nowrap;}
+table.fs td div{font-size:14px;padding:8px 0;white-space:nowrap;}
+table.fs th:not(:first-child),table.fs td:not(:first-child){padding-left:22px;}
+
+
+/* asset management chart */
+.am-card{width:700px;height:252px;}
+.am-head{display:flex;align-items:flex-start;justify-content:space-between;gap:24px;}
+.legend{display:flex;gap:16px;flex-wrap:nowrap;font-size:13px;}
+.legend span{display:flex;align-items:center;gap:6px;white-space:nowrap;}
+.dot{width:10px;height:10px;border-radius:2px;display:inline-block;}
+.bars{display:flex;align-items:flex-end;gap:12px;height:118px;margin-top:auto;}
+.bar{width:40px;display:flex;flex-direction:column;justify-content:flex-end;border-radius:2px;overflow:hidden;}
+.bar i{display:block;}
+
+/* api / spreadsheet */
+.api-wrap{width:760px;height:252px;position:relative;}
+.sheet{
+  position:absolute;left:16px;top:34px;width:272px;background:#fff;color:#1f2937;
+  border-radius:6px;overflow:hidden;font-size:12px;
+  box-shadow:0 10px 30px rgba(0,0,0,.35);
+}
+.sheet .toolbar{display:flex;align-items:center;gap:10px;padding:6px 8px;border-bottom:1px solid #e5e7eb;}
+.sheet .namebox{border:1px solid #d1d5db;border-radius:3px;padding:2px 6px;min-width:52px;display:flex;justify-content:space-between;gap:8px;}
+.sheet .grid{display:grid;grid-template-columns:26px 1fr 1fr;}
+.sheet .grid div{border-right:1px solid #e5e7eb;border-bottom:1px solid #e5e7eb;padding:3px 6px;height:22px;overflow:hidden;}
+.sheet .grid .hd{background:#f3f4f6;color:#6b7280;text-align:center;font-size:11px;}
+.sheet .sel{outline:2px solid #1a73e8;outline-offset:-2px;}
+.tooltip{
+  position:absolute;left:57px;top:150px;width:280px;background:#e8f0ec;color:#0f172a;
+  border-radius:4px;padding:10px 12px;font-size:12px;box-shadow:0 8px 24px rgba(0,0,0,.3);
+}
+.tooltip .fn{color:#0b6b3a;}
+.codepane{
+  position:absolute;left:340px;top:0;width:330px;height:300px;background:#0e1726;color:#cbd5e1;
+  border-radius:6px;padding:14px 16px;font-size:12px;line-height:1.75;overflow:hidden;
+  box-shadow:0 10px 40px rgba(0,0,0,.5);
+}
+.codepane .k{color:#7dd3fc;} .codepane .s{color:#86efac;}
+.codepane table{width:165px;border-collapse:collapse;margin-top:10px;}
+.codepane td{padding:1px 0;}
+.codepane td:last-child{text-align:right;color:#e2e8f0;}
+.railbar{
+  position:absolute;left:292px;top:0;width:40px;height:300px;background:#111318;
+  border-radius:6px;display:flex;flex-direction:column;align-items:center;gap:18px;padding-top:16px;
+  color:#9ca3af;font-size:13px;
+}
+
+/* trust / pipeline */
+.tr-card{
+  width:100%;height:100%;border-radius:25px;position:relative;overflow:hidden;
+  background:radial-gradient(120% 130% at 75% 15%, #b467f5 0%, #9b5ae0 35%, #7c3fbd 70%, #5d2c93 100%);
+}
+.tr-card .hexes{
+  position:absolute;inset:0;opacity:.28;font-size:10px;line-height:1.45;color:#fff;
+  padding:18px 20px;word-break:break-all;overflow:hidden;
+  -webkit-mask-image:radial-gradient(80% 90% at 20% 55%,#000 0%,transparent 72%);
+          mask-image:radial-gradient(80% 90% at 20% 55%,#000 0%,transparent 72%);
+}
+.tr-logo{
+  position:absolute;left:206px;top:81px;width:116px;height:109px;border-radius:12px;
+  background:#111114;display:flex;align-items:flex-end;padding:10px 12px;
+  font-size:16px;font-weight:500;color:#fff;
+  box-shadow:0 12px 40px rgba(0,0,0,.35);
+}
+.tr-logo::before{
+  content:"";position:absolute;left:50%;top:0;bottom:0;width:1px;background:rgba(255,255,255,.08);
+}
+.pill{
+  position:absolute;background:rgba(255,255,255,.92);color:#1c1c22;
+  border-radius:999px;padding:5px 12px;font-size:12px;font-weight:500;white-space:nowrap;
+  box-shadow:0 4px 14px rgba(0,0,0,.18);
+}
+.pill.mono{font-family:"Geist Mono",monospace;}
+.tr-card .line{position:absolute;height:1px;background:rgba(255,255,255,.35);}
+
+/* footer */
+.hero-content-section{
+  display:flex;flex-direction:row;align-items:flex-start;justify-content:space-between;
+  gap:2rem;width:100%;padding:24px 8px;
+}
+.hero-content-section p{margin:0;max-width:700px;font-size:16px;line-height:1.55;color:var(--fg-secondary);}
+.cta{
+  display:inline-flex;align-items:center;gap:8px;white-space:nowrap;
+  color:var(--fg-default);text-decoration:none;font-size:14px;
+}
+.cta svg{transition:transform .3s;}
+.cta:hover svg{transform:translateX(3px);}
+
+@media (max-width:1023px){
+  .hero-grid{
+    grid-template-rows:40px 40px 40vw 40px 40px;gap:15px;padding:0 5px;
+    grid-template-areas:
+      "blockchain blockchain blockchain blockchain blockchain blockchain blockchain blockchain blockchain blockchain blockchain blockchain blockchain blockchain blockchain blockchain"
+      "data data data data data data data data data data data data data data data data"
+      "section3 section3 section3 section3 section3 section3 section3 section3 section3 section3 section3 section3 section3 section3 section3 section3"
+      "youcan youcan youcan youcan youcan youcan youcan youcan youcan youcan youcan youcan youcan youcan youcan youcan"
+      "changetext changetext changetext changetext changetext changetext changetext changetext changetext changetext changetext changetext changetext changetext changetext changetext";
+  }
+  .a-section2,.a-section4,.h-rule,.v-rule{display:none;}
+  .hero-heading{font-size:50px;line-height:24px;letter-spacing:-2px;}
+  .word-slot{height:40px;}
+  .nav-links{display:none;}
+  .hero-content-section{flex-direction:column;align-items:flex-start;padding:32px 0;}
+}
+</style>
+</head>
+<body>
+
+<div class="shell">
+  <div class="v-rule left"></div>
+  <div class="v-rule right"></div>
+
+  <nav class="nav">
+    <div class="logo">token terminal<i>_</i></div>
+    <div class="nav-links">
+      <a href="#">Products</a><a href="#">Get Listed</a><a href="#">Pricing</a>
+      <a href="#">Resources</a><a href="#">About</a>
+    </div>
+    <a class="explorer-btn" href="#">Go to Explorer</a>
+  </nav>
+</div>
+
+<div class="shell announce-row">
+  <a class="announce" href="#">
+    <span style="display:flex;align-items:center;gap:8px;">
+      <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="none" stroke="currentColor" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 256 256"><path d="M48,112H16v32H48l72,56V56Z"/><path d="M120,56V200"/><path d="M176,88a40,40,0,0,1,0,80"/></svg>
+      <span style="font-weight:500">Announcement</span>
+    </span>
+    <span class="sep"></span>
+    <span style="display:flex;align-items:center;gap:8px;font-weight:400;">
+      Token Terminal MCP is here
+      <svg class="arrow" xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 256 256"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg>
+    </span>
+  </a>
+</div>
+
+<div class="shell" style="position:relative;">
+  <div class="pause-wrap">
+    <button class="pause-btn" id="pauseBtn" aria-label="Pause">
+      <svg id="pauseIcon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 256 256"><path d="M216,48V208a16,16,0,0,1-16,16H160a16,16,0,0,1-16-16V48a16,16,0,0,1,16-16h40A16,16,0,0,1,216,48ZM96,32H56A16,16,0,0,0,40,48V208a16,16,0,0,0,16,16H96a16,16,0,0,0,16-16V48A16,16,0,0,0,96,32Z"/></svg>
+      <svg class="pause-ring" width="100%" height="100%">
+        <circle cx="19" cy="19" r="18.5" fill="none" stroke="rgba(255,255,255,.08)" stroke-width="1"></circle>
+        <circle id="ring" cx="19" cy="19" r="18.5" fill="none" stroke="#fff" stroke-width="1"
+                stroke-dasharray="116.23892818282235" stroke-dashoffset="116.23892818282235" stroke-linecap="round"></circle>
+      </svg>
+    </button>
+  </div>
+
+  <div class="hero-grid" id="grid">
+
+    <div class="h-rule full r1"></div>
+    <div class="h-rule left-seg"></div>
+    <div class="h-rule right-seg"></div>
+    <div class="h-rule full r6"></div>
+    <div class="v-seg"></div>
+
+    <!-- row 1 -->
+    <div class="a-blockchain">
+      <div class="hero-heading animate-fade-in-up-quick" style="animation-delay:0ms">Blockchain</div>
+      <div class="tile animate-blur-in pos-center">
+        <div class="pane p-bank on"></div><div class="pane p-warehouse"></div>
+        <div class="pane p-mountains"></div><div class="pane p-construction"></div>
+      </div>
+    </div>
+
+    <!-- row 2 left -->
+    <div class="a-data">
+      <div style="text-align:left"><div class="hero-heading animate-fade-in-up-quick" style="animation-delay:100ms">data</div></div>
+      <div class="tile-wrap">
+        <div class="tile animate-blur-in pos-center">
+          <div class="pane p-bank on"></div><div class="pane p-warehouse"></div>
+          <div class="pane p-mountains"></div><div class="pane p-construction"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- right tall -->
+    <div class="a-section2">
+      <div class="tile animate-blur-in pos-topright">
+        <div class="pane p-bank on"></div><div class="pane p-warehouse"></div>
+        <div class="pane p-mountains"></div><div class="pane p-construction"></div>
+      </div>
+    </div>
+
+    <!-- left tall -->
+    <div class="a-section4">
+      <div class="tile animate-blur-in pos-bottomleft">
+        <div class="pane p-bank on"></div><div class="pane p-warehouse"></div>
+        <div class="pane p-mountains"></div><div class="pane p-construction"></div>
+      </div>
+    </div>
+
+    <!-- you can -->
+    <div class="a-youcan">
+      <div class="tile animate-blur-in pos-center">
+        <div class="pane p-bank on"></div><div class="pane p-warehouse"></div>
+        <div class="pane p-mountains"></div><div class="pane p-construction"></div>
+      </div>
+      <div style="text-align:right"><div class="hero-heading animate-fade-in-up-quick" style="animation-delay:200ms">you can</div></div>
+    </div>
+
+    <!-- changing word -->
+    <div class="a-changetext">
+      <div class="tile animate-blur-in pos-center">
+        <div class="pane p-bank on"></div><div class="pane p-warehouse"></div>
+        <div class="pane p-mountains"></div><div class="pane p-construction"></div>
+      </div>
+      <div class="word-window animate-fade-in-up-quick" id="wordWindow" style="animation-delay:250ms">
+        <div class="word-track" id="wordTrack">
+          <div class="word-slot on"><span class="hero-heading">understand</span></div>
+          <div class="word-slot"><span class="hero-heading">trust</span></div>
+          <div class="word-slot"><span class="hero-heading">explore</span></div>
+          <div class="word-slot"><span class="hero-heading">act on</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- featured card -->
+    <div class="a-section3 animate-fade-in-up-quick" style="animation-delay:150ms">
+      <div class="card-outer">
+        <div class="card-clip">
+          <div class="card-backdrop animate-blur-in pos-card" id="cardBackdrop">
+            <div class="pane p-bank on"></div><div class="pane p-warehouse"></div>
+            <div class="pane p-mountains"></div><div class="pane p-construction"></div>
+          </div>
+
+          <!-- slide 0: understand -> financial statement -->
+          <div class="card-slide on">
+            <div class="surface fs-card">
+              <div class="fs-head">
+                <img src="assets/ethereum.png" alt="Ethereum">
+                <div style="display:flex;flex-direction:column;">
+                  <div class="t-lg">Financial Statement</div>
+                  <div class="t-sm sec">Ethereum</div>
+                </div>
+              </div>
+              <div class="hr"></div>
+              <table class="fs">
+                <thead><tr>
+                  <th><div>Income statement</div></th><th><div>Jul 2024</div></th>
+                  <th><div>Aug 2024</div></th><th><div>Sep 2024</div></th><th><div>Oct 2024</div></th>
+                </tr></thead>
+                <tbody>
+                  <tr><td><div>Fees</div></td><td><div class="mono">$94.64m</div></td><td><div class="mono">$62.82m</div></td><td><div class="mono">$62.82m</div></td><td><div class="mono">$103.72m</div></td></tr>
+                  <tr><td><div>(Supply-side fees)</div></td><td><div class="mono">$38.30m</div></td><td><div class="mono">$27.96m</div></td><td><div class="mono">$27.96m</div></td><td><div class="mono">$35.51m</div></td></tr>
+                  <tr><td><div>Revenue</div></td><td><div class="mono">$56.33m</div></td><td><div class="mono">$34.85m</div></td><td><div class="mono">$34.85m</div></td><td><div class="mono">$68.22m</div></td></tr>
+                  <tr><td><div>(Expenses)</div></td><td><div class="mono">$265.95m</div></td><td><div class="mono">$217.14m</div></td><td><div class="mono">$217.14m</div></td><td><div class="mono">$197.39m</div></td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- slide 1: trust -> data pipeline -->
+          <div class="card-slide full">
+            <div class="tr-card">
+              <div class="hexes mono" id="hexes"></div>
+              <div class="line" style="left:322px;top:114px;width:34px;"></div>
+              <div class="line" style="left:322px;top:154px;width:84px;"></div>
+              <div class="tr-logo">TT_</div>
+              <div class="pill" style="left:352px;top:104px;">Expenses</div>
+              <div class="pill mono" style="left:441px;top:104px;">Active users</div>
+              <div class="pill" style="left:402px;top:144px;">Revenue</div>
+              <div class="pill mono" style="left:481px;top:144px;">TVL</div>
+            </div>
+          </div>
+
+          <!-- slide 2: explore -> asset management -->
+          <div class="card-slide">
+            <div class="surface am-card">
+              <div class="am-head">
+                <div>
+                  <div class="t-lg">Asset management</div>
+                  <div class="t-sm sec">Top 5 projects</div>
+                </div>
+                <div class="legend">
+                  <span><i class="dot" style="background:#34d399"></i>BlackRock (BUIDL)</span>
+                  <span><i class="dot" style="background:#1d4ed8"></i>Bitwise (ETHW)</span>
+                  <span><i class="dot" style="background:#f472b6"></i>Ondo (OUSG)</span>
+                </div>
+              </div>
+              <div class="hr"></div>
+              <div class="bars" id="bars"></div>
+            </div>
+          </div>
+
+          <!-- slide 3: act on -> API / spreadsheet -->
+          <div class="card-slide">
+            <div class="api-wrap">
+              <div class="codepane mono">
+                <div><span class="k">df</span> = pd.DataFrame(...)</div>
+                <div>fees_by_project = fees...</div>
+                <div>top_projects = fees...</div>
+                <div style="margin-top:14px;color:#94a3b8">Top 10 Projects by fees</div>
+                <table>
+                  <tr><td>61</td><td>Ethereum</td></tr>
+                  <tr><td>32</td><td>Bitcoin</td></tr>
+                  <tr><td>191</td><td>Uniswap</td></tr>
+                  <tr><td>188</td><td>Tron</td></tr>
+                  <tr><td>126</td><td>OpenSea</td></tr>
+                  <tr><td>101</td><td>Lido Finance</td></tr>
+                  <tr><td>66</td><td>Filecoin</td></tr>
+                  <tr><td>24</td><td>BNB Chain</td></tr>
+                </table>
+              </div>
+              <div class="railbar">
+                <span>{x}</span><span>&#128273;</span><span>&#128193;</span><span>&#8646;</span>
+              </div>
+              <div class="sheet">
+                <div class="toolbar mono">
+                  <span class="namebox">A1 <span style="color:#9ca3af">&#9662;</span></span>
+                  <span style="color:#9ca3af">fx</span>
+                  <span>=TT_TIMESERIES("A</span>
+                </div>
+                <div class="grid mono">
+                  <div class="hd"></div><div class="hd">A</div><div class="hd">B</div>
+                  <div class="hd">1</div><div class="sel" style="color:#1a73e8">=TT_TIMESERIES("AAVE", "fees",</div><div></div>
+                  <div class="hd">2</div><div></div><div></div>
+                  <div class="hd">3</div><div></div><div></div>
+                  <div class="hd">4</div><div></div><div></div>
+                  <div class="hd">5</div><div></div><div></div>
+                  <div class="hd">6</div><div></div><div></div>
+                  <div class="hd">7</div><div></div><div></div>
+                  <div class="hd">8</div><div></div><div></div>
+                  <div class="hd">9</div><div></div><div></div>
+                </div>
+              </div>
+              <div class="tooltip mono">
+                <div><span class="fn">TT_TIMESERIES(ticker, metricId, startTime, endTime)</span></div>
+                <div style="margin-top:10px;color:#6b7280;font-size:11px;">EXAMPLE</div>
+                <div class="fn">TT_TIMESERIES(string|Array&lt;string&gt;, string, string|Date, string|Date)</div>
+                <div style="margin-top:8px;color:#6b7280;font-size:11px;">ABOUT</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="shell">
+  <div class="hero-content-section">
+    <p>Token Terminal transforms raw blockchain data into institutional-grade intelligence. We provide standardized metrics and comparable data across 100+ chains, 1,200+ applications, and 7,000+ tokenized assets.</p>
+    <a class="cta" href="#" id="ctaLink">
+      <span id="ctaText">Learn more about Explorer</span>
+      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 256 256"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg>
+    </a>
+  </div>
+</div>
+
+<script>
+/* ---- slide config: taken 1:1 from the source bundle ---- */
+const SLIDES = [
+  { word:"understand", image:"bank",         accent:"#DD995D", cta:"Learn more about Explorer" },
+  { word:"trust",      image:"warehouse",    accent:"#925BD6", cta:"Learn more about our data pipeline" },
+  { word:"explore",    image:"mountains",    accent:"#61E7BF", cta:"Learn more about Explorer" },
+  { word:"act on",     image:"construction", accent:"#5291C1", cta:"Learn more about our API" },
+];
+const DURATION = 6000, TICK = 50, CIRC = 116.23892818282235;
+
+const tiles      = document.querySelectorAll(".tile, .card-backdrop");
+const wordSlots  = document.querySelectorAll(".word-slot");
+const cardSlides = document.querySelectorAll(".card-slide");
+const wordTrack  = document.getElementById("wordTrack");
+const wordWindow = document.getElementById("wordWindow");
+const ring       = document.getElementById("ring");
+const ctaText    = document.getElementById("ctaText");
+const pauseBtn   = document.getElementById("pauseBtn");
+const pauseIcon  = document.getElementById("pauseIcon");
+
+let index = 0, elapsed = 0, playing = true, timer = null;
+
+/* measure each word so the window can animate its width, like the original */
+let widths = [];
+function measure(){
+  widths = [...wordSlots].map(slot => {
+    const el = slot.firstElementChild;
+    const r = document.createRange();
+    r.selectNodeContents(el);
+    const ink = r.getBoundingClientRect().width;
+    /* +16 of headroom: with -6px tracking the glyphs overhang the inline box,
+       and the window is right-anchored, so a tight width shaves the first letter */
+    return Math.ceil(Math.max(ink, el.getBoundingClientRect().width)) + 16;
+  });
+  applyWidth();
+}
+function applyWidth(){ wordWindow.style.width = widths[index] + "px"; }
+
+function render(){
+  const s = SLIDES[index];
+
+  tiles.forEach(t => {
+    t.style.backgroundColor = s.accent;
+    t.querySelectorAll(".pane").forEach(p =>
+      p.classList.toggle("on", p.classList.contains("p-" + s.image)));
+  });
+
+  wordSlots.forEach((el,i) => el.classList.toggle("on", i === index));
+  wordTrack.style.top = (15 - 90 * index) + "px";
+  applyWidth();
+
+  measure();
+  cardSlides.forEach((el,i) => el.classList.toggle("on", i === index));
+  /* the trust slide paints its own full-bleed card, so drop the illustration backdrop */
+  document.getElementById("cardBackdrop")
+    .classList.toggle("hidden-backdrop", SLIDES[index].word === "trust");
+  ctaText.textContent = s.cta;
+}
+
+function go(n){
+  index = (n + SLIDES.length) % SLIDES.length;
+  elapsed = 0;
+  ring.setAttribute("stroke-dashoffset", CIRC);
+  render();
+}
+
+function start(){
+  clearInterval(timer);
+  timer = setInterval(() => {
+    if(!playing) return;
+    elapsed += TICK;
+    ring.setAttribute("stroke-dashoffset", CIRC * (1 - elapsed / DURATION));
+    if(elapsed >= DURATION) go(index + 1);
+  }, TICK);
+}
+
+const PAUSE_SVG = '<path d="M216,48V208a16,16,0,0,1-16,16H160a16,16,0,0,1-16-16V48a16,16,0,0,1,16-16h40A16,16,0,0,1,216,48ZM96,32H56A16,16,0,0,0,40,48V208a16,16,0,0,0,16,16H96a16,16,0,0,0,16-16V48A16,16,0,0,0,96,32Z"/>';
+const PLAY_SVG  = '<path d="M232.4,114.49,88.32,26.35a16,16,0,0,0-16.2-.3A15.86,15.86,0,0,0,64,39.87V216.13A15.94,15.94,0,0,0,80,232a16.07,16.07,0,0,0,8.36-2.35L232.4,141.51a15.81,15.81,0,0,0,0-27Z"/>';
+
+pauseBtn.addEventListener("click", () => {
+  playing = !playing;
+  pauseIcon.innerHTML = playing ? PAUSE_SVG : PLAY_SVG;
+  pauseBtn.setAttribute("aria-label", playing ? "Pause" : "Play");
+});
+
+/* keyboard controls, same as the original: arrows navigate, space toggles */
+document.addEventListener("keydown", e => {
+  if(["INPUT","TEXTAREA"].includes(e.target.tagName)) return;
+  if(e.key === "ArrowLeft")  go(index - 1);
+  else if(e.key === "ArrowRight") go(index + 1);
+  else if(e.key === " "){ e.preventDefault(); pauseBtn.click(); }
+});
+
+/* decorative hex stream on the "trust" card */
+(function(){
+  const el = document.getElementById("hexes");
+  const hex = "0123456789abcdef";
+  let out = "";
+  for(let i=0;i<40;i++){
+    let line = "";
+    for(let j=0;j<110;j++) line += hex[Math.floor(Math.random()*16)];
+    out += line + "\n";
+  }
+  el.textContent = out;
+})();
+
+/* stacked bars on the "explore" card */
+(function(){
+  const el = document.getElementById("bars");
+  const data = [
+    [3,2,2],[5,3,2],[7,5,3],[10,7,3],[13,9,4],
+    [17,12,5],[38,26,7],[40,28,7],[42,29,8],[44,30,8]
+  ];
+  const totals = data.map(d => d.reduce((a,b)=>a+b,0));
+  const max = Math.max(...totals);
+  el.innerHTML = data.map((d,i) => {
+    const h = totals[i];
+    return '<div class="bar" style="height:' + (h/max*100) + '%">' +
+      '<i style="background:#f472b6;height:' + (d[2]/h*100) + '%"></i>' +
+      '<i style="background:#2563eb;height:' + (d[1]/h*100) + '%"></i>' +
+      '<i style="background:#34d399;height:' + (d[0]/h*100) + '%"></i>' +
+      '</div>';
+  }).join("");
+})();
+
+window.addEventListener("resize", measure);
+/* a ResizeObserver on the words is the only reliable trigger here: the webfont can
+   swap in well after load, and a stale measurement shaves the leading glyph */
+if (window.ResizeObserver){
+  const ro = new ResizeObserver(measure);
+  wordSlots.forEach(slot => ro.observe(slot.firstElementChild));
+}
+document.fonts.ready.then(() => {
+  measure();
+  requestAnimationFrame(() => wordWindow.classList.add("ready"));
+});
+measure();
+render();
+start();
+</script>
+</body>
+</html>
