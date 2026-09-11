@@ -16,6 +16,7 @@ import {
 } from '../routes/params.js';
 import { AskResponseSchema, CitationSchema, PlanSchema } from '../ask/schema.js';
 import { SERVICE_NAME } from '../routes/catalog.js';
+import { KPI_FACT_SCHEMA_PATH, SCHEMA_VERSION_KEY } from '../standardize/jsonschema.js';
 import {
   ComparabilitySchema,
   ComparisonSchema,
@@ -366,6 +367,28 @@ function operations(): Record<string, JsonObject> {
           content: {
             'application/json': { schema: { type: 'object' } },
             'text/markdown': { schema: { type: 'string' } },
+          },
+        },
+      },
+    },
+
+    [KPI_FACT_SCHEMA_PATH]: {
+      operationId: 'getKpiFactSchema',
+      summary: 'The KpiFact envelope as JSON Schema',
+      description:
+        'The envelope every number arrives in, as a self-contained JSON Schema draft 2020-12 ' +
+        'document, stamped `' +
+        SCHEMA_VERSION_KEY +
+        '`. Free. Generate types from it in any language, or validate a response before acting ' +
+        'on it — including the cross-field rules the components block below cannot carry: a null ' +
+        'value is legal only beside an error, and an estimate always names its estimation_method. ' +
+        'It is a contract artefact, not a client library. DATA_SCHEMA.md §7 governs what a ' +
+        'version bump may change it.',
+      responses: {
+        '200': {
+          description: 'The KpiFact JSON Schema.',
+          content: {
+            'application/schema+json': { schema: { type: 'object' } },
           },
         },
       },

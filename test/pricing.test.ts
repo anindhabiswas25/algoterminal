@@ -27,6 +27,7 @@ describe('the §1 route and price table', () => {
     ['GET', '/openapi.json', false, null],
     ['GET', '/llms.txt', false, null],
     ['GET', '/methodology', false, null],
+    ['GET', '/schema/kpi-fact.json', false, null],
     ['GET', '/metric/{protocol}/{kpi}', true, '0.005'],
     ['GET', '/compare', true, '0.05'],
     ['POST', '/ask', true, '0.15'],
@@ -57,13 +58,17 @@ describe('the §1 route and price table', () => {
 
   it('keeps the free tier free — the §1 compliance claim', () => {
     // "everything needed to evaluate AlgoTerminal is free": discover, read the
-    // schema, read the methodology, check health.
+    // schema, read the methodology, check health. `/schema/kpi-fact.json` is
+    // the KpiFact envelope as JSON Schema — the contract a buyer generates
+    // types from — and it is on this list for the same §7.5 reason as the rest:
+    // an agent must be able to evaluate us completely before it pays.
     expect(freeRoutes().map((r) => r.path)).toEqual([
       '/health',
       '/catalog',
       '/openapi.json',
       '/llms.txt',
       '/methodology',
+      '/schema/kpi-fact.json',
     ]);
     for (const route of freeRoutes()) expect(route.variants).toEqual([]);
     expect(isFreeRoute('/health')).toBe(true);

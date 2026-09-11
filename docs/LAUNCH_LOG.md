@@ -642,6 +642,7 @@ account that has not opted in cannot receive the asset and every payment to it
 fails. It is a one-command check and it is the single cheapest catastrophic
 mistake to rule out. Do it before the §5.1 payment, and paste the output here.
 
+
 ### 7. Sub-cent quota, from day one
 
 §1.1's note: the $0.005 base route sits under the facilitator's $0.01 sub-cent
@@ -650,6 +651,387 @@ Past that, settles return 429 and — given #1's absence of a deadline and the
 gate's treatment of a settle failure — the caller still gets its data and we
 still eat the loss. Watch `X-Subcent-Quota` from the first MainNet day rather
 than the day it bites.
+
+### 8. Get every published example right BEFORE the first paid call on a route
+
+New, and it comes out of §4h. The GoPlausible Bazaar index snapshots a
+resource's `discoveryInfo` — including our `output.example` — at the moment of
+its **first settlement**, and never refreshes it. `/metric/tinyman/tvl` is
+still listed with the `value: 6300000, confidence: 0.95` example that §4f
+corrected, because that is what was on the wire the first time somebody paid for
+it, and there is no update or delete endpoint to fix it with.
+
+On TestNet this is one stale row. On MainNet the index is built fresh from the
+first paid call, so the examples that are correct at cutover are the examples an
+agent sees permanently. That makes "verify every `ROUTE_DOCS` example against
+the live route" a **pre-cutover** step rather than a tidy-up, and it makes
+adding a paid route later a step that has to be done in the right order: publish
+the right example, *then* let it be bought.
+
+### 9. Redeploy — the running build predates the handler deadline
+
+Also from §4h. The live 402 quotes `maxTimeoutSeconds: 60`; `gate/routes.ts`
+derives it from `QUOTED_TIMEOUT_SECONDS`, which commit `ce83e31` set to 30. The
+deployed image therefore does not carry the deadline that #1 above calls
+BLOCKING. #1 is fixed in the repository and **not** fixed in production. Redeploy
+and re-read the 402 before treating it as closed.
+
+---
+
+## 4h. The Bazaar listing, verified end to end — 2026-09-10
+
+§4f decoded our own 402s and confirmed the discovery blocks were well-formed on
+the wire. What it did **not** establish is the thing that actually matters:
+whether an agent querying the Bazaar index finds us. That is checked here, by
+querying the index rather than by inspecting what we publish into it.
+
+**AlgoTerminal appears in the index.** Five TestNet resources, live.
+
+### How a Bazaar client queries the index
+
+There is no separate Bazaar service. The index lives on the **facilitator**, and
+`@x402/extensions/bazaar` reaches it by decorating the facilitator client:
+`withBazaar(new HTTPFacilitatorClient({url}))` adds `bazaar.listResources()` and
+`bazaar.search()`, which are `GET {facilitator}/discovery/resources` and
+`GET {facilitator}/discovery/search`. So the index we are listed in is
+GoPlausible's, at `https://facilitator.goplausible.xyz` — the same facilitator
+we settle through. Being listed is a consequence of settling there, not of
+registering anywhere.
+
+The exact query, run from the repo root against `@x402/extensions@2.25.0`:
+
+```js
+import { HTTPFacilitatorClient } from '@x402/core/server';
+import { withBazaar } from '@x402/extensions/bazaar';
+
+const client = withBazaar(
+  new HTTPFacilitatorClient({ url: 'https://facilitator.goplausible.xyz' }),
+);
+
+await client.extensions.bazaar.listResources({
+  type: 'http',
+  network: 'algorand:SGO1GKSzyE7IEPItTxCByw9x8FmnrCDexi9/cOUJOiI=',
+  limit: 100,
+});
+```
+
+Equivalent by hand:
+
+```
+curl -s 'https://facilitator.goplausible.xyz/discovery/resources?limit=100'
+```
+
+### The result
+
+`pagination.total` = **144** resources on Algorand TestNet (1,792 on MainNet;
+1,949 across all chains). Ours, filtered from that page:
+
+| Resource | Amount | settleCount | firstSeen | lastSeen |
+|---|---|---|---|---|
+| `GET /metric/tinyman/tvl` | 5000 | 17 | 2026-09-09T07:36:07Z | 2026-09-09T15:15:30Z |
+| `GET /compare` | 50000 | 7 | 2026-09-09T11:52:52Z | 2026-09-10T14:49:04Z |
+| `GET /metric/folks/tvl` | 5000 | 2 | 2026-09-09T16:52:33Z | 2026-09-09T16:55:26Z |
+| `GET /metric/pact/tvl` | 5000 | 1 | 2026-09-09T17:09:27Z | 2026-09-09T17:09:27Z |
+| `GET /metric/folks/utilization` | 5000 | 1 | 2026-09-10T14:48:53Z | 2026-09-10T14:48:53Z |
+
+Each carries `description`, `mimeType`, `accepts[]` (scheme, network, amount,
+asset, payTo, `extra.feePayer`) and a `discoveryInfo` block with our `input` and
+`output` examples. The listing is real and it is callable: everything an agent
+needs to construct a paid request is in it.
+
+### Four things the index does that our own 402s do not say
+
+Recorded because each changes what "being listed" is worth, and none is visible
+from inspecting our own responses.
+
+**1. The index is keyed by RESOLVED URL, and populated by SETTLEMENT.** There is
+no route-template entry. `/metric/tinyman/tvl` and `/metric/pact/tvl` are two
+separate rows, and a `(protocol, kpi)` pair appears only once somebody has
+**paid** for it. Three of a possible 29 `/metric` combinations are listed,
+because those are the three that have been bought. `settleCount` is on the
+record, which is the giveaway.
+
+The obvious way to fill the index — one payment per route — is **exactly the
+self-generated volume `PRD.md` §7.1/§7.3 forbids**, and on MainNet it would be
+disqualifying. It is deliberately not done. The honest version of "improve our
+listing coverage" is "sell more distinct KPIs to third parties", which is the
+same thing as succeeding. Noted here so the temptation is on the record as
+considered and refused, rather than rediscovered later as a clever idea.
+
+**2. `serviceName` and `tags` are dropped.** We publish
+`serviceName: "AlgoTerminal"` and `tags: ["x402-global-challenge", "defi",
+"algorand", "analytics", "kpi"]` in the `resource` block of every 402 — verified
+by decoding the live `PAYMENT-REQUIRED` header — and `DiscoveryResource` in the
+SDK declares both fields. The GoPlausible index returns **neither**, on our rows
+or anyone's. `schema` and `routeTemplate` are dropped the same way.
+
+Consequence worth stating plainly: **the `x402-global-challenge` tag is not
+queryable through this index.** It costs nothing to keep publishing and it is
+correct on the wire, so it stays — but it should not be relied on as the
+mechanism by which the challenge finds us. This is facilitator-side; there is
+nothing to fix on ours.
+
+**3. `/discovery/search` is not implemented.** All four natural-language queries
+(`"Algorand DeFi KPI"`, `"standardized financial KPIs Algorand"`,
+`"AlgoTerminal"`, `"capital efficiency DEX lending comparison"`) return
+**404 Not Found**. `listResources` + client-side filtering is the only query
+path that works today. An agent discovering us through the Bazaar is therefore
+enumerating and filtering, not searching — which makes `description` the field
+that has to carry the pitch, and it does.
+
+**4. `payTo` filtering is broken.** `listResources({payTo: '<our payTo>'})`
+returns `total: 1949` — the unfiltered total, including every other merchant.
+`network` filtering **is** honoured (144 TestNet vs 1,792 MainNet). Also
+facilitator-side. It matters for us only in that payer/merchant reconciliation
+cannot be done through this API; the `payments` ledger remains the record.
+
+### One defect that IS ours, and it is not fixable from here
+
+`/metric/tinyman/tvl`, first seen 2026-09-09T07:36, still publishes:
+
+```json
+"output": { "example": { "metric": "tvl", "protocol": "tinyman",
+                         "value": 6300000, "confidence": 0.95 } }
+```
+
+That is the **superseded** example §4f corrected. The live 402 has read
+`value: 5344337, confidence: 0.70` since that fix; every index row created after
+it (`/metric/folks/utilization`, first seen today) carries the corrected one.
+
+So **the index snapshots `discoveryInfo` at first sight and never refreshes it**,
+even though `lastSeen` keeps advancing. Our correction propagated to every new
+resource and to none of the existing ones. There is no update or delete endpoint
+in the client extension, and re-registering is not a thing — the row is keyed by
+the URL, which has not changed.
+
+The practical size of it: one row, on our most-listed KPI, overstating TVL by
+~18% and confidence by 0.25 — and §6.1's whole warning is that an agent may plan
+against a published example. It cannot be corrected by us. What can be done, and
+what this means going forward:
+
+- **On MainNet the index will be built fresh.** Different URLs, different rows,
+  and the corrected examples are what will be captured. The blast radius of this
+  defect is TestNet only, which is why it is recorded rather than escalated.
+- **Get the examples right before the first paid call on any new route**, because
+  the first settle is what freezes them. That is now a cutover checklist item
+  rather than a thing to notice afterwards (§4g #8 below).
+
+### Deployment lag found while doing this
+
+The live 402 quotes `maxTimeoutSeconds: 60`. `src/gate/routes.ts` sets it from
+`QUOTED_TIMEOUT_SECONDS`, which commit `ce83e31` moved to **30**. So the
+deployed build predates `ce83e31` and does not carry the handler deadline that
+§4g #1 called BLOCKING. The fix is merged; it is not deployed. Redeploy before
+reading §4g #1 as closed.
+
+## 4i. `examples/quickstart.py` — written and run on TestNet, 2026-09-10
+
+`PRD.md` §3.1/§3.2/§3.5 name treasury rebalancers, yield routers and risk
+monitors as the primary paying segments, and those are Python shops. `examples/`
+had only `quickstart.mjs`. There is now a line-for-line Python twin.
+
+**The client library question, checked rather than assumed.** `x402-avm` 2.0.2
+on PyPI is GoPlausible's Python SDK — the same vendor as our facilitator, and the
+package `ARCHITECTURE.md` §7 already names. It is a full client, not just the
+FastAPI server middleware: `x402.mechanisms.avm.exact.ExactAvmClientScheme`,
+`x402.client.x402ClientSync`, and `x402.http.clients.requests.x402_requests`,
+which returns a `requests.Session` that pays — the direct analogue of
+`wrapFetchWithPayment`. It speaks x402 v2 with `PAYMENT-SIGNATURE`. Stock, no
+wrapper, no AlgoTerminal SDK (`PRD.md` §8).
+
+The one thing it does not ship is a concrete signer: `ClientAvmSigner` is a
+Protocol the integrator implements, where TypeScript has `toClientAvmSigner`.
+That is fifteen lines in the example, and they are the lines that keep the
+caller's key in the caller's own process.
+
+### The run
+
+Against `https://api-testnet-production-a3ec.up.railway.app`, payer
+`P6ZZ5IFTPP6YZ5NMI2WMVFZBQGVGBDSX4RMJXDPMNOQSHEG3WTHPE53APA`, exit 0, no
+warnings. Total spent 0.055 TestNet USDC.
+
+```
+0. What is for sale (free — no payment)
+───────────────────────────────────────
+  AlgoTerminal, methodology 1.2.0, algorand-testnet
+  folks    lending  12 KPIs
+  pact     dex      6 KPIs
+           declines protocol_revenue_24h: Pact does not publish the protocol's share …
+           declines supply_side_revenue_24h: Derived from a fee split Pact does not publish …
+           declines take_rate: take_rate is protocol_revenue_24h / gross_fees_24h, and Pact …
+           declines fee_apr: fee_apr is supply_side_revenue_24h * 365 / tvl, and the supply-side …
+           declines active_users_24h: DATA_SCHEMA.md §4.1 counts distinct addresses transacting …
+  tinyman  dex      11 KPIs
+  GET  /metric/{protocol}/{kpi}         $0.005
+  GET  /compare                         $0.05
+  POST /ask                             $0.15   (not available on this deployment)
+
+1. The price quote (still free — we just do not pay it)
+───────────────────────────────────────────────────────
+  HTTP 402
+  5000 atomic units of ASA 10458941 on algorand:SGO1GKSzyE7IEPItTxCByw9x8FmnrCDexi9/cOUJOiI=
+  to BKRGZZ32PRF6XV7PFJAFM47MF37FPWG6YTT5ONM3OJEUE2HUYZHBZA55UQ, within 60s
+  network fee sponsored by ZMFK2OI7ZBD2U27ISERZC4S6LKM6WMFJPZQ4MYNJDZ2VNBNMBA67RA22AA
+
+2. GET /metric/tinyman/tvl — $0.005
+───────────────────────────────────
+  tinyman/tvl = $1,805,759 USD
+    confidence 0.66 · hit · as_of 2026-09-10T14:55:09.768Z · methodology 1.2.0
+    coverage: 219 entities, 14373 excluded, basis all_pools_usd_priced
+    note: 219 pools included: 21 V1.1 ($156917), 198 V2 ($1648842); 17 verified, 202 unverified or unknown (§3.6.4).
+    note: V2 TVL is computed on-chain: (asset_1_reserves / 10^dec1) x price_1 + … from app 1002541853 local state.
+    note: Reserves are read on-chain (§5: 0.95) but the fact is denominated in USD, so §5's usd_conversion row
+          governs: 0.90 x a TVL-weighted price confidence of 0.820 across the V2 pools.
+    note: Snapshot is partial: at least one upstream page or pool could not be fetched, so this aggregate covers
+          less than the full protocol.
+  sources: nodely-indexer, tinyman-analytics (43 refs)
+  paid · txid VSWQZ644AJIQPAZIJOZKXLXSL6L2KHXTM27XHMUILZK4YN7TDTCA
+
+3. GET /compare — capital efficiency across all three — $0.05
+─────────────────────────────────────────────────────────────
+  metric: capital_efficiency (RATIO)
+  #1 folks    0.029259711959483813
+  #2 tinyman  0.02870457594978755
+  #3 pact     0.02562705527005832
+  spread: 0.02562705527005832 … 0.029259711959483813 (1.1418x)
+  comparability: 0.65 (the MINIMUM across legs)
+    caveat: tinyman and pact are class 'dex'; folks is class 'lending'; capital_efficiency is comparable
+            because §3.1 defines gross_fees identically for both …
+    caveat: The legs do not share one coverage basis: tinyman and pact are measured on
+            'all_pools_usd_priced', while folks is measured on 'total_deposits' …
+    caveat: folks is estimated rather than directly reported by its source
+            (estimation_method: annualized_rate_to_daily_simple) …
+    caveat: tinyman has confidence 0.66, below the 0.7 line …
+    caveat: folks has confidence 0.65, below the 0.7 line …
+
+  every leg, including any that failed
+──────────────────────────────────────
+  tinyman/capital_efficiency = 0.02870457594978755 RATIO
+    confidence 0.66 · hit · coverage: 219 entities, 14756 excluded, basis all_pools_usd_priced
+  pact/capital_efficiency    = 0.02562705527005832 RATIO
+    confidence 0.81 · hit · coverage: 88 entities, 3873 excluded, basis all_pools_usd_priced
+  folks/capital_efficiency   = 0.029259711959483813 RATIO
+    confidence 0.65 (ESTIMATED) · hit · coverage: 21 entities, 4 excluded, basis total_deposits
+  paid · txid QOX2KNTLO5GTSRD373VXGGPTX5LLJ4L434AN3J2LXBDLJ5QEWUWA
+
+4. A KPI Pact declines — 404, and NOT charged
+─────────────────────────────────────────────
+  HTTP 404 KPI_NOT_APPLICABLE
+  "pact" declines "take_rate": take_rate is protocol_revenue_24h / gross_fees_24h, and Pact does not
+  publish the numerator: `pact_fee_bps` is null on all 3,961 pools …
+  settlement receipt: none — you were not charged
+
+Done. Total spent: 0.055 TestNet USDC.
+```
+
+*(Caveats and notes truncated for width where marked `…`; nothing else edited.)*
+
+### Both settlements confirmed on chain
+
+Read from the indexer, not from our own receipt:
+
+| Call | TxID | Round | Asset | Amount | From → To |
+|---|---|---|---|---|---|
+| `GET /metric/tinyman/tvl` | `VSWQZ644AJIQPAZIJOZKXLXSL6L2KHXTM27XHMUILZK4YN7TDTCA` | 67171785 | 10458941 | 5000 | `P6ZZ5IFT…` → `BKRGZZ32…` |
+| `GET /compare?protocols=tinyman,pact,folks&metric=capital_efficiency` | `QOX2KNTLO5GTSRD373VXGGPTX5LLJ4L434AN3J2LXBDLJ5QEWUWA` | 67171787 | 10458941 | 50000 | `P6ZZ5IFT…` → `BKRGZZ32…` |
+
+`GET /metric/pact/take_rate` returned 404 `KPI_NOT_APPLICABLE` with Pact's
+decline reason and **no settlement receipt** — the same demonstration the Node
+example gives, now reproduced by a second, independently written client.
+
+### One failed run, and why it is recorded
+
+An intermediate version of the signer returned `SignedTransaction` objects where
+the SDK wanted msgpack bytes, and the run died inside
+`create_payment_payload` — after the 402 was received and before anything was
+signed or sent. **Nothing was charged and no transaction exists**, which is the
+settle-after-success guarantee observed from the failing side rather than
+asserted. Worth one line here because it is the only failure mode this example
+has produced, and it produced the right outcome.
+
+### Note on TVL between the two runs
+
+$5,080,644 in an earlier run and $1,805,759 in the recorded one, minutes apart,
+both `cache: hit`. That is not the pool set moving — it is the "snapshot is
+partial" note on both facts doing its job: the included-pool count went 361 → 219
+as Tinyman's analytics API shed pages under throttling (§4g #2). The number is
+correctly labelled each time, the confidence moved with it (0.70 → 0.66), and
+`coverage.entities` says exactly how much of the protocol each figure covers.
+The mechanism is working; the underlying throttling is still §4g #2.
+
+---
+
+## 4j. The `KpiFact` schema and the version policy — built, tested, NOT yet deployed
+
+Two contract artefacts landed on 2026-09-10. Both are verified against a locally
+constructed app and the full suite; **neither is on the deployed service yet**,
+because the running image predates them (and predates `ce83e31` — §4g #9). This
+section is marked accordingly rather than written as if it were live, per this
+file's own rule.
+
+### `GET /schema/kpi-fact.json`
+
+The envelope is the product (`PRD.md` §4), and it was defined only in zod, which
+is unreadable to a buyer writing an agent in Python, Go or Rust. It is now
+emitted as JSON Schema draft 2020-12 from that same zod — `src/standardize/
+jsonschema.ts` — served free, listed in `/catalog` (`schemas.kpi_fact`), in
+`/llms.txt`, and as an operation in `/openapi.json`. Stamped
+`x-methodology-version`, which is what lets a cached copy identify itself; the
+URL is deliberately unversioned, so there is one path that is always current
+rather than a shelf of archived ones we would not maintain.
+
+It is a **contract artefact, not a client library** (`PRD.md` §8). It says what a
+response *is*; fetching one remains the stock x402 client's job.
+
+**The finding worth recording: `z.toJSONSchema` silently drops every
+`superRefine`.** The generated document described the envelope's *shape* and
+none of its rules — so it would have told a buyer that `{"value": null}` with no
+`error` is a response we might send, that an estimate need not name its
+`estimation_method`, and that a fact with a value need not carry provenance.
+Those are `DATA_SCHEMA.md` §1.2 and §1.5, the honesty guarantees that are the
+reason to buy this data at all. Publishing that document would have been a
+weakening of the product dressed as an addition to it.
+
+The invariants are therefore hand-written as JSON Schema `allOf` conditionals,
+and the drift risk that creates is bought off by
+`test/standardize/jsonschema.test.ts`: 18 facts — valid ones and one per
+guarantee, deliberately invalid — run through **both** the zod and the published
+schema, with the two required to agree on every verdict. That test earned its
+place immediately: it caught `minLength: 1` accepting an `estimation_method` of
+`"   "` where the zod requires `.trim().length > 0`. A hand-written rule that was
+already subtly wrong on the day it was written.
+
+Plus a snapshot test against the checked-in `docs/kpi-fact.schema.json`
+(`npm run schema:emit` regenerates it), so a change to the envelope cannot reach
+production without a reviewable diff in the file whose whole job is to be the
+contract.
+
+### `DATA_SCHEMA.md` §7 — the version policy
+
+`src/standardize/confidence.ts` publishes a ladder bots gate on (`>= 0.9` safe to
+act, `>= 0.7` directional). A bot gating at 0.9 has coupled its risk policy to
+our accounting policy, and that is only defensible if it can find out what we may
+change under it. §7 now states it: what patch, minor and major may each change;
+30 days' notice before a major takes effect, announced in the changelog, in
+`/methodology`, and in a `notes[]` entry on every affected fact; and one narrow
+exception for correcting a number we know to be wrong. Published as structure at
+`/methodology` (`versioning`), not only as prose, so an agent reads
+`notice_days: 30` rather than parsing a sentence.
+
+**What changed in the writing of it, and why it matters.** The first draft
+promised that the previous version stays served during the transition, pinnable
+by header. Nothing implements that, and nothing cheaply can: §3's formulas are
+code, so serving two policies means maintaining two implementations of every KPI
+against upstreams that keep changing shape. The draft was replaced with §7.3's
+honest answer — **one live methodology at a time**, with the current version held
+unchanged for the full notice period, every response stamped so a bot can halt on
+the change, and the changelog carrying the before/after of every affected KPI.
+
+The same promise was already in two places and is now corrected in both:
+`API_SPEC.md` §6 and `/methodology`'s old `versioning` string both advertised
+"pinnable via `?methodology=1.0.0` for one quarter" for a parameter no handler
+has ever read. A pin we could not honour under stress is worse than no pin,
+because it would be relied on.
 
 ---
 

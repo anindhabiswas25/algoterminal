@@ -20,7 +20,8 @@
     "migrate:prod": "node dist/db/migrate-cli.js",
     "ask:smoke": "tsx --env-file-if-exists=.env scripts/ask-smoke.ts",
     "compare:smoke": "tsx --env-file-if-exists=.env scripts/compare-smoke.ts",
-    "og:assets": "tsx --env-file-if-exists=.env scripts/og-assets.ts"
+    "og:assets": "tsx --env-file-if-exists=.env scripts/og-assets.ts",
+    "schema:emit": "tsx --env-file-if-exists=.env scripts/emit-schema.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.124.0",

@@ -1,0 +1,6 @@
+# The client half of x402 on Algorand. `x402-avm` is GoPlausible's Python SDK —
+# the same vendor as the facilitator this endpoint settles through — and it is
+# the canonical Python x402 client for the AVM. The `[avm]` extra pulls
+# py-algorand-sdk for transaction building; `[requests]` provides the paying
+# Session. Pinned, because a payment client is not a dependency to float.
+x402-avm[avm,requests]==2.0.2

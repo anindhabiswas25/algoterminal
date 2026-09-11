@@ -7,6 +7,7 @@ import { gatedRoutes } from '../gate/routes.js';
 import { listConnectors, registry } from '../connectors/registry.js';
 import type { Connector } from '../connectors/types.js';
 import type { KpiId, ProtocolClass } from '../standardize/schema.js';
+import { KPI_FACT_SCHEMA_PATH } from '../standardize/jsonschema.js';
 
 /**
  * GET /catalog — API_SPEC.md §3.4. Free (API_SPEC.md §1).
@@ -60,11 +61,37 @@ export interface CatalogProtocol {
   declined?: Record<string, string>;
 }
 
+/**
+ * Where the contract artefacts live, as URLs an agent can fetch without asking
+ * a human what the base URL is.
+ *
+ * `kpi_fact` is the one that matters: PRD.md §4's promise is that "every metric
+ * arrives in the same envelope", and this is that envelope in a form any
+ * language can generate types from and any bot can validate a response against.
+ * It is named here rather than left to be discovered in `/openapi.json`'s
+ * components because a buyer looking for the contract should not have to parse
+ * a 600-line spec to find it, and because the two are not the same artefact:
+ * the OpenAPI document describes the ROUTES, this describes the OBJECT.
+ */
+export interface CatalogSchemas {
+  /** JSON Schema draft 2020-12 for the KpiFact envelope. Free. */
+  kpi_fact: string;
+  /** The accounting policy the schema's fields are defined by. Free. */
+  methodology: string;
+  /**
+   * The version both are stamped with. Repeated from the top level so a client
+   * caching the schema can tell, from this block alone, whether its copy is
+   * current — see DATA_SCHEMA.md §7 for what a bump may change.
+   */
+  methodology_version: string;
+}
+
 export interface CatalogBody {
   service: string;
   methodology_version: string;
   network: string;
   payment: CatalogPayment;
+  schemas: CatalogSchemas;
   protocols: CatalogProtocol[];
   routes: CatalogRoute[];
 }
@@ -145,6 +172,11 @@ export function buildCatalog(
     methodology_version: env.METHODOLOGY_VERSION,
     network: networkLabel(net.network),
     payment: catalogPayment(net),
+    schemas: {
+      kpi_fact: `${env.PUBLIC_BASE_URL}${KPI_FACT_SCHEMA_PATH}`,
+      methodology: `${env.PUBLIC_BASE_URL}/methodology`,
+      methodology_version: env.METHODOLOGY_VERSION,
+    },
     // Empty registry -> `[]`, and the route still returns valid JSON: an agent
     // discovering us mid-deploy learns we sell nothing yet, rather than getting
     // a 500 or a list of protocols we cannot serve.

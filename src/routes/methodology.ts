@@ -19,6 +19,7 @@ import {
 import { KPI_IDS, KPI_REGISTRY } from '../standardize/kpis.js';
 import { MIN_BILLABLE_CONFIDENCE } from './metric.js';
 import { SERVICE_NAME } from './catalog.js';
+import { KPI_FACT_SCHEMA_PATH, SCHEMA_VERSION_KEY } from '../standardize/jsonschema.js';
 import {
   DEFILLAMA_DIVERGENCE_THRESHOLD,
   MAX_EXCLUSION_RATIO,
@@ -71,6 +72,17 @@ import {
  * machine-readable: an agent told "this fact is below the 0.7 line" must be
  * able to look up what that line is without reading English.
  */
+
+/**
+ * DATA_SCHEMA.md §7.2 — how long a major bump is announced before it applies.
+ *
+ * A constant rather than a number typed into the policy text, because the
+ * policy is published in two renderings (this route's JSON and the markdown)
+ * and a buyer gating on it must find the same figure in both. Thirty days is
+ * chosen to be short enough that we will actually wait it out and long enough
+ * that an operator on holiday still sees it.
+ */
+export const MAJOR_BUMP_NOTICE_DAYS = 30;
 
 /** `?format=` on this route. */
 export const METHODOLOGY_FORMATS = ['json', 'markdown'] as const;
@@ -266,11 +278,92 @@ export function buildMethodology() {
     /** Generated from the live registry, so it cannot advertise a stale policy. */
     protocols: listConnectors().map(protocolPolicy),
 
-    versioning:
-      'A change to a FORMULA is a methodology_version bump, announced here, with the previous ' +
-      'version pinnable for one quarter. A breaking change to the envelope ships under /v2. ' +
-      'Numbers never change silently. The version is part of every cache key, so a bump makes ' +
-      'pre-bump entries unreachable rather than merely stale.',
+    /**
+     * DATA_SCHEMA.md §7 — the deprecation policy, as structure rather than as a
+     * sentence.
+     *
+     * This block exists because of `src/standardize/confidence.ts`: a bot that
+     * gates at `confidence >= 0.9` has coupled its own risk policy to our
+     * accounting policy, and that coupling is only defensible if the bot can
+     * find out, mechanically, what we are allowed to change under it and how
+     * much warning it gets. Prose would make every consumer write a parser for
+     * our English, and a misparsed notice period fails silently.
+     *
+     * The previous text here promised "the previous version pinnable for one
+     * quarter." Nothing implements that, and nothing can cheaply: §3's formulas
+     * are code, so serving two policies means carrying two implementations of
+     * every KPI. §7.3 now says so, and this block says the same thing — a pin
+     * we could not honour under stress would be worse than none, because it
+     * would be relied on.
+     */
+    versioning: {
+      scope:
+        'methodology_version is semver over the ACCOUNTING POLICY (DATA_SCHEMA.md §3 and §4), ' +
+        'not over the code and not over the HTTP surface. A new route, a rewritten connector or ' +
+        'a latency fix is not a bump.',
+      /** §7.1. What each component is allowed to move. */
+      levels: [
+        {
+          level: 'patch',
+          may_change:
+            'An arithmetic or scaling defect fixed so a KPI matches what §3 already says it ' +
+            'should be. Prose, examples, notes[] wording.',
+          may_not_change:
+            'Any §3 or §4 formula, any field meaning, the confidence ladder, KPI coverage.',
+          notice_days: 0,
+        },
+        {
+          level: 'minor',
+          may_change:
+            'A new protocol, KPI, notes[] entry or optional envelope field. A confidence going ' +
+            'UP because a number is now measured where it was estimated.',
+          may_not_change:
+            'The definition or units of an existing KPI, any removal, the §5 thresholds.',
+          notice_days: 0,
+        },
+        {
+          level: 'major',
+          may_change:
+            'A §3 or §4 formula, and therefore a published value. A unit or coverage.basis. A §5 ' +
+            'derivation or threshold. Withdrawing a KPI or protocol. A required envelope field.',
+          may_not_change: null,
+          notice_days: MAJOR_BUMP_NOTICE_DAYS,
+        },
+      ],
+      /** §7.2. Where a bump is announced, in the order a bot would see it. */
+      announced_in: [
+        `${base}/methodology (this block, and the changelog in the markdown rendering)`,
+        'a notes[] entry on every affected fact, for the whole notice period',
+        `${base}/schema/kpi-fact.json (${SCHEMA_VERSION_KEY})`,
+      ],
+      /**
+       * §7.2's one exception. Stated as a field rather than buried in prose
+       * because it is the only case where a number moves without warning, and
+       * a buyer is entitled to know that the case exists.
+       */
+      correction_exception:
+        'A published KPI we find to be materially misstated is corrected as soon as the ' +
+        'correction is verified, without the notice period. We would rather serve a corrected ' +
+        'number late than a wrong number on schedule. Every such correction is recorded in the ' +
+        'changelog with what was wrong, for how long, and by how much.',
+      /** §7.3. The honest answer, and what stands in for a pin. */
+      previous_version_served: false,
+      previous_version_note:
+        'There is one live methodology at a time. §3 formulas are code, not configuration, so ' +
+        'serving a retired version would mean maintaining a second implementation of every KPI ' +
+        'against upstreams that keep changing. Instead: the current version is served unchanged ' +
+        `for the full ${MAJOR_BUMP_NOTICE_DAYS}-day notice period, every response is stamped ` +
+        'with methodology_version so a bot can halt on the change, and the changelog carries the ' +
+        'old and new value of every affected KPI.',
+      /** §7.4. What this policy explicitly does not govern. */
+      out_of_scope:
+        'Route paths, status codes and error shapes are API_SPEC.md\'s contract; a breaking ' +
+        'change there ships under /v2. Coverage lost because a SOURCE went away is not a bump — ' +
+        'the policy did not change, our ability to apply it did — and shows up as ' +
+        'available: false on /catalog with the reason.',
+      policy_url: `${base}/methodology?format=markdown#7-version-policy`,
+      schema_url: `${base}${KPI_FACT_SCHEMA_PATH}`,
+    },
 
     spec_url: `${base}/openapi.json`,
   };

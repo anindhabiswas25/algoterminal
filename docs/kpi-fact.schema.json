@@ -1,0 +1,370 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-testnet-production-a3ec.up.railway.app/schema/kpi-fact.json",
+  "title": "KpiFact",
+  "description": "The single envelope every AlgoTerminal number arrives in — from /metric, inside /compare, and in /ask's facts[]. A fact carries either a value with its full provenance block or an error with value null, and the `allOf` conditionals enforce that split along with the rest of the DATA_SCHEMA.md §2 rules. RATIO values are decimal fractions, never percentages: 0.0369 means 3.69%. See https://api-testnet-production-a3ec.up.railway.app/methodology for what each field means and §7 for what a version bump may change.",
+  "x-methodology-version": "1.2.0",
+  "type": "object",
+  "properties": {
+    "metric": {
+      "type": "string",
+      "enum": [
+        "tvl",
+        "volume_24h",
+        "gross_fees_24h",
+        "supply_side_revenue_24h",
+        "protocol_revenue_24h",
+        "take_rate",
+        "capital_efficiency",
+        "fee_apr",
+        "volume_to_tvl",
+        "supply_apr",
+        "borrow_apr",
+        "utilization",
+        "total_borrows",
+        "active_users_24h",
+        "pool_count"
+      ]
+    },
+    "protocol": {
+      "type": "string",
+      "minLength": 1
+    },
+    "value": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "unit": {
+      "anyOf": [
+        {
+          "type": "string",
+          "enum": [
+            "USD",
+            "RATIO",
+            "COUNT",
+            "ASSET_UNITS"
+          ]
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d:[0-5]\\d(?:\\.\\d+)?(?:Z))$"
+    },
+    "confidence": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "methodology_version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "error": {
+      "$ref": "#/$defs/FactError"
+    },
+    "as_of": {
+      "type": "string",
+      "format": "date-time",
+      "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d:[0-5]\\d(?:\\.\\d+)?(?:Z))$"
+    },
+    "source": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/SourceRef"
+      }
+    },
+    "is_estimated": {
+      "type": "boolean"
+    },
+    "estimation_method": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "cache": {
+      "type": "string",
+      "enum": [
+        "hit",
+        "miss",
+        "stale"
+      ]
+    },
+    "stale": {
+      "type": "boolean"
+    },
+    "coverage": {
+      "$ref": "#/$defs/Coverage"
+    },
+    "notes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "metric",
+    "protocol",
+    "value",
+    "unit",
+    "timestamp",
+    "confidence",
+    "methodology_version"
+  ],
+  "additionalProperties": false,
+  "allOf": [
+    {
+      "$comment": "§2: value is null ONLY on a fact carrying an error. A null with no error is the plausible-looking zero §1.5 exists to forbid, and it must not be representable.",
+      "if": {
+        "properties": {
+          "value": {
+            "type": "null"
+          }
+        },
+        "required": [
+          "value"
+        ]
+      },
+      "then": {
+        "required": [
+          "error"
+        ]
+      }
+    },
+    {
+      "$comment": "The error variant: no value, no unit, and confidence exactly 0 — there is no number here to be confident about.",
+      "if": {
+        "required": [
+          "error"
+        ]
+      },
+      "then": {
+        "properties": {
+          "value": {
+            "type": "null"
+          },
+          "unit": {
+            "type": "null"
+          },
+          "confidence": {
+            "const": 0
+          }
+        }
+      },
+      "else": {
+        "$comment": "The success variant: every §2 provenance field is present, and `source` is non-empty because §1.4 makes every number reproducible.",
+        "required": [
+          "unit",
+          "as_of",
+          "source",
+          "cache",
+          "stale",
+          "coverage",
+          "notes",
+          "is_estimated"
+        ],
+        "properties": {
+          "unit": {
+            "not": {
+              "type": "null"
+            }
+          },
+          "source": {
+            "minItems": 1
+          }
+        }
+      }
+    },
+    {
+      "$comment": "§1.2 — an estimate is never laundered as a reported value: is_estimated true and a documented estimation_method are inseparable.",
+      "if": {
+        "properties": {
+          "is_estimated": {
+            "const": true
+          }
+        },
+        "required": [
+          "is_estimated"
+        ]
+      },
+      "then": {
+        "required": [
+          "estimation_method"
+        ],
+        "properties": {
+          "estimation_method": {
+            "type": "string",
+            "pattern": "\\S"
+          }
+        }
+      }
+    },
+    {
+      "$comment": "§2 — and the converse: a reported value must not carry an estimation_method.",
+      "if": {
+        "properties": {
+          "is_estimated": {
+            "const": false
+          }
+        },
+        "required": [
+          "is_estimated"
+        ]
+      },
+      "then": {
+        "properties": {
+          "estimation_method": {
+            "type": "null"
+          }
+        }
+      }
+    },
+    {
+      "$comment": "§2.1 — a COUNT is a non-negative integer.",
+      "if": {
+        "properties": {
+          "unit": {
+            "const": "COUNT"
+          }
+        },
+        "required": [
+          "unit"
+        ]
+      },
+      "then": {
+        "properties": {
+          "value": {
+            "type": "integer",
+            "minimum": 0
+          }
+        }
+      }
+    },
+    {
+      "$comment": "§2.1 — an ASSET_UNITS fact must name its asset, because a raw asset amount without its asset id is not a number anyone can use.",
+      "if": {
+        "properties": {
+          "unit": {
+            "const": "ASSET_UNITS"
+          }
+        },
+        "required": [
+          "unit"
+        ]
+      },
+      "then": {
+        "properties": {
+          "notes": {
+            "contains": {
+              "type": "string",
+              "pattern": "^asset_id:\\s*(\\d+)$"
+            }
+          }
+        },
+        "required": [
+          "notes"
+        ]
+      }
+    }
+  ],
+  "$defs": {
+    "SourceRef": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        },
+        "kind": {
+          "type": "string",
+          "enum": [
+            "rest",
+            "onchain",
+            "derived"
+          ]
+        },
+        "retrieved_at": {
+          "type": "string",
+          "format": "date-time",
+          "pattern": "^(?:(?:\\d\\d[2468][048]|\\d\\d[13579][26]|\\d\\d0[48]|[02468][048]00|[13579][26]00)-02-29|\\d{4}-(?:(?:0[13578]|1[02])-(?:0[1-9]|[12]\\d|3[01])|(?:0[469]|11)-(?:0[1-9]|[12]\\d|30)|(?:02)-(?:0[1-9]|1\\d|2[0-8])))T(?:(?:[01]\\d|2[0-3]):[0-5]\\d:[0-5]\\d(?:\\.\\d+)?(?:Z))$"
+        },
+        "app_id": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "round": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        }
+      },
+      "required": [
+        "name",
+        "url",
+        "kind",
+        "retrieved_at"
+      ],
+      "additionalProperties": false
+    },
+    "Coverage": {
+      "type": "object",
+      "properties": {
+        "entities": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "excluded": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 9007199254740991
+        },
+        "basis": {
+          "type": "string",
+          "enum": [
+            "all_pools_usd_priced",
+            "verified_only",
+            "total_deposits"
+          ]
+        }
+      },
+      "required": [
+        "entities",
+        "excluded",
+        "basis"
+      ],
+      "additionalProperties": false
+    },
+    "FactError": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "pattern": "^[A-Z][A-Z0-9_]*$"
+        },
+        "message": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "code",
+        "message"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

@@ -18,6 +18,7 @@ This table is the contract. It is generated from `src/pricing.ts`, which is also
 | GET | `/openapi.json` | free | — | Machine-readable spec |
 | GET | `/llms.txt` | free | — | Agent discovery (llmstxt.org) |
 | GET | `/methodology` | free | — | Published accounting policy (`DATA_SCHEMA.md`) |
+| GET | `/schema/kpi-fact.json` | free | — | The `KpiFact` envelope as JSON Schema — generate types, validate a response |
 | GET | `/metric/{protocol}/{kpi}` | **paid** | **$0.005** | Cache-backed lookup; >99% gross margin |
 | GET | `/metric/{protocol}/{kpi}?fresh=true` | **paid** | **$0.02** | Forces an upstream round-trip; we sell recency honestly |
 | GET | `/metric/{protocol}/{kpi}?kpi=active_users_24h` | **paid** | **$0.03** | Indexer aggregation is materially more expensive |
@@ -622,4 +623,4 @@ components:
 - **Numbers** are JSON numbers, never strings — upstream sources emit decimal strings and normalizing that away is part of what the caller is paying for.
 - **Rate limiting** applies to free routes only (60 req/min/IP). Paid routes are self-limiting by cost; adding a rate limit on top of a payment gate would be charging for a request we then refuse.
 - **CORS:** `*` on free routes. Paid routes are for server-side agents; browsers are not the target and a permissive CORS policy there would only invite confused clients.
-- **Versioning:** breaking changes to the envelope ship under `/v2/...`. Changes to a *formula* ship as a `methodology_version` bump, announced at `/methodology`, with the previous version pinnable via `?methodology=1.0.0` for one quarter. A data product whose numbers change silently is not a data product.
+- **Versioning:** breaking changes to the envelope ship under `/v2/...`. Changes to a *formula* ship as a `methodology_version` bump, announced at `/methodology` **30 days before it takes effect**, with the current version served unchanged for the whole notice period. There is deliberately **no** `?methodology=` pin — `DATA_SCHEMA.md` §7.3 says why, and what stands in for it. A data product whose numbers change silently is not a data product; one that promises a pin it cannot maintain is not either.

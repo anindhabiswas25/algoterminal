@@ -13,6 +13,7 @@ import { formatUsdc, freeRoutes, paidRoutes } from '../pricing.js';
 import { gatedRoutes, MAX_TIMEOUT_SECONDS } from '../gate/routes.js';
 import { STALE_SERVE_POLICY } from './metric.js';
 import { SERVICE_NAME } from './catalog.js';
+import { KPI_FACT_SCHEMA_PATH, SCHEMA_VERSION_KEY } from '../standardize/jsonschema.js';
 
 /**
  * `GET /llms.txt` — API_SPEC.md §3.6, content per DEPLOYMENT.md §6.2. Free.
@@ -185,6 +186,17 @@ Every \`/metric\` response is one \`KpiFact\`:
 
 \`timestamp\` is when we computed; \`as_of\` is the moment the data describes.
 They are never the same field.
+
+**The envelope has a machine-readable contract.** \`${base}${KPI_FACT_SCHEMA_PATH}\`
+is that object as JSON Schema (draft 2020-12), free and stamped
+\`${SCHEMA_VERSION_KEY}: "${env.METHODOLOGY_VERSION}"\`. Generate types from it in
+your language, or validate what you received before you act on it — including
+the rules that are not obvious from the example above: a \`value\` may be
+\`null\` only alongside an \`error\`, an \`is_estimated: true\` fact always carries
+a non-empty \`estimation_method\`, and a RATIO is a decimal fraction rather than
+a percentage. It is a contract, not a client library: we publish what a
+response IS, and leave fetching it to your stock x402 client.
+See \`${base}/methodology\` §7 for what a version bump is allowed to change.
 
 Those are real values from this route, not illustrative ones. Note the 0.70:
 \`tvl\` is denominated in USD, so it is capped by the price confidence of the

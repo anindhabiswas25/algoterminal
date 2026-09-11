@@ -603,3 +603,49 @@ Folks (lending)
 Two protocols with entirely different mechanics, one number, honestly comparable — because `gross_fees` was defined once (§3.1), mapped per class (§3.2), and computed with the same filters (§3.6) and the same USD ladder (§3.7). Every step is visible in `source[]`, `notes[]`, and `confidence`.
 
 That is the product.
+
+---
+
+## 7. Version policy — what a `methodology_version` bump may change, and what you get warned about
+
+Bots gate on `confidence`. `src/standardize/confidence.ts` publishes the ladder — `>= 0.9` safe to act on, `>= 0.7` directional, below that informational — and a treasury rebalancer that acts at `>= 0.9` has coupled its own risk policy to our accounting policy. That coupling is the product working as intended, and it is also a debt: if we can change what `0.9` means without telling anyone, the number was never worth gating on.
+
+So this section is a promise, deliberately small enough to keep.
+
+### 7.1 What each component means
+
+`methodology_version` is semver over the **accounting policy**, not over the code and not over the HTTP surface. A route added, a connector's internals rewritten, a latency improvement: none of those are a bump.
+
+| Bump | May change | May **not** change |
+|---|---|---|
+| **Patch** (`1.2.0` → `1.2.1`) | An arithmetic or scaling defect fixed so a KPI's published value matches what §3 already says it should be. Prose, examples and `notes[]` wording. | Any formula in §3 or §4. Any field's meaning. The confidence ladder. Coverage of any KPI. |
+| **Minor** (`1.2.0` → `1.3.0`) | A new protocol, a new KPI, a new `notes[]` entry, a new optional field on the envelope. A confidence going **up** because a number is now measured where it was estimated. | The definition or units of an existing KPI. The removal of anything. The `confidence` thresholds in §5. |
+| **Major** (`1.2.0` → `2.0.0`) | A §3 or §4 formula, and therefore the value of a published KPI. A KPI's unit or `coverage.basis`. A §5 confidence derivation or threshold. Withdrawing a KPI or a protocol. A required field on the envelope. | — |
+
+The 1.1.0 and 1.2.0 entries in the changelog above are, under this table, **major** changes: both altered a §3 formula and moved published numbers. They are numbered as minors because they landed before anything was published and there was nobody to notify. That is stated rather than quietly renumbered, and the table governs from 1.2.0 onward.
+
+### 7.2 What you are warned about, and when
+
+- **Patch and minor: no notice.** By construction neither can move a number you are already acting on or invalidate a comparison you have already made. They appear in the changelog above and in `/methodology`.
+- **Major: 30 days' notice before it takes effect.** Announced in the changelog above, in the `versioning` block of `/methodology`, and in a `notes[]` entry on every affected fact for the whole notice period, naming the new version and the date it becomes the default. A bot that reads `notes[]` — which it should, because the caveats are the product — finds out without doing anything, and a bot that only asserts on `methodology_version` finds out on the switch date. Nothing moves during the 30 days.
+- **One exception, and it is narrow: a number we know to be wrong.** If a published KPI is materially misstated — an upstream source changed shape, or we find a defect like the one §3.5's retention cross-check caught — we correct it as fast as we can verify the correction, and the notice becomes an announcement rather than a warning. We would rather serve you a corrected number late than a wrong number on schedule. Every such correction is recorded in the changelog with what was wrong, for how long, and by how much.
+
+### 7.3 Whether the old version stays served
+
+**No. There is one live methodology at a time, and this section says so plainly rather than promising a pin we do not have.**
+
+The honest reason: the service computes under exactly one accounting policy. §3's formulas are code, not configuration, so "serve 1.2.0 alongside 2.0.0" would mean carrying two implementations of every KPI, two sets of connector arithmetic and two confidence tables — and keeping the retired one correct against upstream sources that keep changing shape. We would be maintaining a policy nobody is improving, and the first time Tinyman changed a field we would either break the pinned version silently or stop serving it anyway. A pin we cannot honour under stress is worse than no pin, because it is relied upon.
+
+What you get instead, and what makes the absence of a pin survivable:
+
+- **30 days to migrate**, during which the current version keeps being served unchanged. The bump is announced but not applied; nothing under you moves while you read the diff.
+- **Every response is stamped.** `methodology_version` is on every `KpiFact` and in the `X-AlgoTerminal-Methodology` header on `/methodology` and `/schema/kpi-fact.json`. A bot that asserts on it halts on the change rather than silently acting on numbers computed under a policy it never read — which is the actual failure a pin exists to prevent, and it is available today with one comparison.
+- **The changelog above is the diff**, with the old and new values of every affected KPI side by side, as the 1.1.0 and 1.2.0 entries already do. That is what a migration needs: not the old numbers on tap, but the ability to see exactly how far they moved and decide whether it matters to you.
+
+If a buyer's integration ever genuinely needs a pinned policy, that is a `/v2` conversation and a priced one, not a promise made in advance to nobody.
+
+### 7.4 What is out of scope of this policy
+
+- **The HTTP surface.** Route paths, status codes and error shapes are `API_SPEC.md`'s contract; a breaking change there ships under `/v2`, independently of `methodology_version`.
+- **The envelope's structure.** `KpiFact` is published as JSON Schema at `/schema/kpi-fact.json`, stamped `x-methodology-version`. Adding an optional field is a minor; making one required, or removing one, is a major and follows §7.2.
+- **Coverage that a source takes away from us.** If Tinyman turns its analytics API off, the affected KPIs become `available: false` on `/catalog` immediately, with the reason. That is not a version bump — the policy did not change, our ability to apply it did — and it is announced the same way.

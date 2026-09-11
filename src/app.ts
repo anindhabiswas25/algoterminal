@@ -10,6 +10,7 @@ import { llms } from './routes/llms.js';
 import { metric } from './routes/metric.js';
 import { methodology } from './routes/methodology.js';
 import { openapi } from './routes/openapi.js';
+import { schema } from './routes/schema.js';
 import { compare } from './routes/compare.js';
 import { ask } from './routes/ask.js';
 import { landing } from './routes/landing.js';
@@ -41,6 +42,7 @@ export function createApp(gateDeps?: GateDeps) {
   app.use('/llms.txt', cors());
   app.use('/openapi.json', cors());
   app.use('/methodology', cors());
+  app.use('/schema/*', cors());
   app.use('/', cors());
 
   // The x402 gate (ARCHITECTURE.md §4.1). Mounted on '*' rather than on a list
@@ -59,6 +61,7 @@ export function createApp(gateDeps?: GateDeps) {
   app.route('/', catalog);
   app.route('/', llms);
   app.route('/', openapi);
+  app.route('/', schema);
   app.route('/', methodology);
   app.route('/', metric);
   app.route('/', compare);

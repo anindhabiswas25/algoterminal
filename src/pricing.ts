@@ -94,6 +94,18 @@ export const ROUTES = [
     variants: [],
   },
   {
+    // The KpiFact envelope as JSON Schema. Free for the same reason /openapi.json
+    // is: PRD.md §7.5 requires that an agent be able to evaluate us completely
+    // without paying, and the envelope is the thing it most needs to evaluate.
+    // Listed here rather than only in the router so `isFreeRoute` keeps having
+    // one answer in one place.
+    path: '/schema/kpi-fact.json',
+    method: 'GET',
+    paid: false,
+    rationale: 'The KpiFact envelope as JSON Schema — generate types, validate a response',
+    variants: [],
+  },
+  {
     path: '/metric/{protocol}/{kpi}',
     method: 'GET',
     paid: true,
