@@ -16,3 +16,4 @@ next-env.d.ts
 
 # Local MCP client config; the example lives in mcp/README.md
 .mcp.json
+web/tsconfig.tsbuildinfo
