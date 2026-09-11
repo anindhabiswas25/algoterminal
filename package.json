@@ -16,6 +16,8 @@
     "migrate": "tsx --env-file-if-exists=.env src/db/migrate-cli.ts",
     "cache:bench": "tsx --env-file-if-exists=.env scripts/cache-bench.ts",
     "testnet:accounts": "tsx --env-file-if-exists=.env scripts/testnet-accounts.ts",
+    "mainnet:accounts": "tsx --env-file-if-exists=.env scripts/mainnet-accounts.ts",
+    "mainnet:verify": "tsx --env-file-if-exists=.env scripts/mainnet-verify-once.ts",
     "testnet:smoke": "tsx --env-file-if-exists=.env scripts/testnet-smoke.ts",
     "migrate:prod": "node dist/db/migrate-cli.js",
     "ask:smoke": "tsx --env-file-if-exists=.env scripts/ask-smoke.ts",
