@@ -14,21 +14,21 @@ const COLUMNS: Testimonial[][] = [
       company: "Theia",
       avatar: "avatar-TheiaResearch.jpg",
       quote:
-        "Even though the industry is open source and most of the information is publicly available on the blockchain, it can still be a lot of work to get accurate and actionable data. We\u2019ve found that Token Terminal is consistently putting out high quality data, with everything clearly documented.\n\nThey\u2019ve really changed the way we think about onchain data internally, since we don\u2019t need to build our data pipelines from scratch anymore.",
+        "Even though the industry is open source and most of the information is publicly available on the blockchain, it can still be a lot of work to get accurate and actionable data. We\u2019ve found that Algo Terminal is consistently putting out high quality data, with everything clearly documented.\n\nThey\u2019ve really changed the way we think about onchain data internally, since we don\u2019t need to build our data pipelines from scratch anymore.",
     },
     {
       name: "Cosmo Jiang",
       company: "Pantera",
       avatar: "avatar-cosmo_jiang.png",
       quote:
-        "We\u2019re frequent and happy users of the data and dashboards available on Token Terminal. Token Terminal has done a great job focusing on standardizing KPIs that make fundamental analysis of digital assets faster and easier.",
+        "We\u2019re frequent and happy users of the data and dashboards available on Algo Terminal. Algo Terminal has done a great job focusing on standardizing KPIs that make fundamental analysis of digital assets faster and easier.",
     },
     {
       name: "Ryan Rasmussen",
       company: "Bitwise",
       avatar: "avatar-RasterlyRock.jpg",
       quote:
-        "Token Terminal has been an invaluable tool in my crypto research, offering deep insights into on-chain metrics and token economics. Its user-friendly interface and robust data sets streamline my analysis, ensuring I stay ahead in the rapidly evolving crypto landscape. A must-have for anyone serious about crypto analysis.",
+        "Algo Terminal has been an invaluable tool in my crypto research, offering deep insights into on-chain metrics and token economics. Its user-friendly interface and robust data sets streamline my analysis, ensuring I stay ahead in the rapidly evolving crypto landscape. A must-have for anyone serious about crypto analysis.",
     },
   ],
   [
@@ -37,28 +37,28 @@ const COLUMNS: Testimonial[][] = [
       company: "Google",
       avatar: "avatar-devan-mitchem.png",
       quote:
-        "Token Terminal's decoders turn raw onchain chaos into structured, instruction-level insights\u2014giving every builder the deep microstructure transparency once reserved for sophisticated teams. I look forward to seeing how the Solana community uses these powerful new primitives.",
+        "Algo Terminal's decoders turn raw onchain chaos into structured, instruction-level insights\u2014giving every builder the deep microstructure transparency once reserved for sophisticated teams. I look forward to seeing how the Solana community uses these powerful new primitives.",
     },
     {
       name: "Sui Chung",
       company: "CF Benchmarks",
       avatar: "avatar-CFBenchmarks.jpg",
       quote:
-        "At CF Benchmarks we have found Token Terminal to be the best of breed of blockchain data providers. First and foremost their data is accurate and comprehensive, of imperative importance to a UK FCA regulated benchmark administrator like ourselves. On top of that the data interrogation tools and APIs across all their products are reliable, intuitive and performant. Hard to ask for more.",
+        "At CF Benchmarks we have found Algo Terminal to be the best of breed of blockchain data providers. First and foremost their data is accurate and comprehensive, of imperative importance to a UK FCA regulated benchmark administrator like ourselves. On top of that the data interrogation tools and APIs across all their products are reliable, intuitive and performant. Hard to ask for more.",
     },
     {
       name: "Sanat Kapur",
       company: "Dragonfly Capital",
       avatar: "avatar-kapursanat.png",
       quote:
-        "As a crypto investor, I spend a lot of time trying to understand the financial performance of crypto protocols. Before Token Terminal, this meant a lot of manual work across different platforms, whereas now I\u2019m able to access comparable metrics for hundreds of protocols all in one place. At this point, I can\u2019t imagine doing due diligence without the Terminal.",
+        "As a crypto investor, I spend a lot of time trying to understand the financial performance of crypto protocols. Before Algo Terminal, this meant a lot of manual work across different platforms, whereas now I\u2019m able to access comparable metrics for hundreds of protocols all in one place. At this point, I can\u2019t imagine doing due diligence without the Terminal.",
     },
     {
       name: "Katie Talati",
       company: "Arca",
       avatar: "avatar-KatieTalati.jpg",
       quote:
-        "Token Terminal saves my team hours of work by aggregating information across multiple data sources. Having revenue data for projects across multiple sectors and chains all in one place is invaluable.",
+        "Algo Terminal saves my team hours of work by aggregating information across multiple data sources. Having revenue data for projects across multiple sectors and chains all in one place is invaluable.",
     },
   ],
   [
@@ -67,21 +67,21 @@ const COLUMNS: Testimonial[][] = [
       company: "Accolade Partners",
       avatar: "avatar-marcos-vernemis.jpg",
       quote:
-        "Token Terminal gives me clean, accurate, and up-to-date data to quickly understand what\u2019s happening in the markets and how to think about valuing assets. If you\u2019re interested or working in investing, it\u2019s invaluable.",
+        "Algo Terminal gives me clean, accurate, and up-to-date data to quickly understand what\u2019s happening in the markets and how to think about valuing assets. If you\u2019re interested or working in investing, it\u2019s invaluable.",
     },
     {
       name: "Martin Leinweber",
       company: "MarketVector Indexes",
       avatar: "avatar-mleinweber2.jpg",
       quote:
-        "Token Terminal has been instrumental in revolutionizing the way we approach on-chain data for our index business. Their commitment to delivering high-quality, actionable insights has made a significant impact on our joint project to create the first fundamental indexes for crypto.\n\nWhat stands out most is their ability to distill complex data into comprehensible formats, enabling portfolio managers to make informed decisions with ease. The clarity and precision that Token Terminal brings to the table are unparalleled, making them an invaluable partner in navigating the ever-evolving blockchain landscape.",
+        "Algo Terminal has been instrumental in revolutionizing the way we approach on-chain data for our index business. Their commitment to delivering high-quality, actionable insights has made a significant impact on our joint project to create the first fundamental indexes for crypto.\n\nWhat stands out most is their ability to distill complex data into comprehensible formats, enabling portfolio managers to make informed decisions with ease. The clarity and precision that Algo Terminal brings to the table are unparalleled, making them an invaluable partner in navigating the ever-evolving blockchain landscape.",
     },
     {
       name: "Matt Maximo",
       company: "Van Eck",
       avatar: "avatar-matt-maximo.jpg",
       quote:
-        "Token Terminal gives me access to high quality and well documented metrics for a broad range of projects and networks allowing me to go straight to analyzing data.",
+        "Algo Terminal gives me access to high quality and well documented metrics for a broad range of projects and networks allowing me to go straight to analyzing data.",
     },
   ],
 ];

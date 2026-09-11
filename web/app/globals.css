@@ -79,8 +79,8 @@ body{background:transparent;
 .nav-inner{width:1240px;max-width:100%;margin:0 auto;padding:0 20px;}
 .nav-spacer{height:70px;}
 .nav{display:flex;gap:8px;align-items:center;justify-content:space-between;padding:16px 20px;margin:0 -20px;}
-.logo{flex:1;display:flex;justify-content:flex-start;color:var(--fg-default);text-decoration:none;}
-.logo svg{display:block;height:18px;width:auto;}
+.logo{flex:1;display:flex;justify-content:flex-start;align-items:center;color:var(--fg-default);text-decoration:none;font-size:18px;line-height:18px;font-weight:700;letter-spacing:-.01em;}
+.logo-accent{color:#00CF9D;}
 .nav-links{display:flex;gap:32px;align-items:center;padding:8px;}
 .nav-links a{
   color:var(--fg-secondary);text-decoration:none;font-size:14px;line-height:20px;font-weight:500;

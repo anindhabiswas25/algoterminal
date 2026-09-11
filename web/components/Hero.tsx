@@ -384,7 +384,7 @@ export default function Hero() {
 
       <div className="shell">
         <div className="hero-content-section">
-          <p>Token Terminal transforms raw blockchain data into institutional-grade intelligence. We provide standardized metrics and comparable data across 100+ chains, 1,200+ applications, and 7,000+ tokenized assets.</p>
+          <p>Algo Terminal transforms raw blockchain data into institutional-grade intelligence. We provide standardized metrics and comparable data across 100+ chains, 1,200+ applications, and 7,000+ tokenized assets.</p>
           <a className="cta" href="#" id="ctaLink">
             <span>{SLIDES[index].cta}</span>
             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 256 256"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z" /></svg>
