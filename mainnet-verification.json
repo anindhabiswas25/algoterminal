@@ -1,0 +1,16 @@
+{
+  "date": "2026-09-11T18:42:55.253Z",
+  "route": "GET /metric/tinyman/tvl",
+  "amount_usdc": "0.005000",
+  "amount_atomic": 5000,
+  "asa": 31566704,
+  "payer": "DAIV62JQ6N3SOHB4FIKMIDZQOF24AQHKQK6IJPUBBUHX66MVAV5KJWBLSA",
+  "payTo": "36AZ3YZGHLUFFVU4STAQGSQMRB2W3TK5VVTKZVN6L2LH7NRCK7X27TMEJM",
+  "txid": "VR5MYGDARUPDHLS5CVOKNNGOHRORH4Z3FSOXP2BO7XCPGFOCEKOQ",
+  "base_url": "https://api-production-36692.up.railway.app",
+  "purpose": "submission requirement \u2014 confirm USDC receipt and trigger Bazaar cataloging",
+  "note": "This is the ONLY self-originated mainnet payment for this project.",
+  "confirmed_round": 64949473,
+  "explorer": "https://explorer.perawallet.app/tx/VR5MYGDARUPDHLS5CVOKNNGOHRORH4Z3FSOXP2BO7XCPGFOCEKOQ",
+  "network_fee_paid_by_us": "0 \u2014 sponsored by the facilitator fee-payer"
+}
