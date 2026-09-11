@@ -1,0 +1,4197 @@
+[
+ {
+  "protocol": "tinyman",
+  "timestamp": "2026-09-08T14:30:00.000Z",
+  "as_of": "2026-09-08T14:30:00.000Z",
+  "source": [
+   {
+    "name": "nodely-indexer",
+    "url": "https://mainnet-idx.4160.nodely.dev/v2/accounts?application-id=1002541853&limit=1000&exclude=assets%2Ccreated-assets%2Ccreated-apps",
+    "kind": "onchain",
+    "retrieved_at": "2026-09-08T14:30:00.000Z",
+    "app_id": 1002541853,
+    "round": 64855600
+   },
+   {
+    "name": "nodely-indexer",
+    "url": "https://mainnet-idx.4160.nodely.dev/v2/accounts?application-id=1002541853&limit=1000&exclude=assets%2Ccreated-assets%2Ccreated-apps&next=1",
+    "kind": "onchain",
+    "retrieved_at": "2026-09-08T14:30:00.000Z",
+    "app_id": 1002541853,
+    "round": 64855600
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/?limit=1000&offset=0",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/?limit=1000&offset=1000",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/assets/?ids=2537013734,1134696561,3203964481,2726252423,1237529510,2494786278,3160000000,2200000000,1821328783,1868885560,507472097,3081853135,2507779296,3109829078,2611535339,3581842047,2158527144,700965019,2611139760,3045159053,796425061,940424110,2155822658,3495558025,3214347764,1185173782,246516580,2582294183,3121954282,958277442,958280887,958279733,958278659,1194470385,923640017,2656265475,2578650960,1127347774,908935728,2217970766,1034994881,3616156711,2561491694,2933499000,3196313859,2935126632,2563959048,2290945144,757039174,2450411553&limit=50",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/assets/?ids=3122010543,3032713424,1294383366,1709999153,2211824164,1882181253,3451065491,2290771151,1069525391,2663780228,3622148694,2698002005,557264326,1055710698,1055700240,1639491796,1010838509,1821123863,1110901083,1096302088,2342621554,511028589,1285683351,3148132803,401752010,2972980000,1790688562,251014570,772212313,665182012,1110926942,1096015467,1189970332,1138500612,230946361,3178895177,797798846,2368676403,1272918363,2200421096,2154668640,2466866698,1453520040,408898501,1691271561,1065092715,1268830233,1377252601,583878846,553937591&limit=50",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/assets/?ids=582932609,1291176442,1248226674,1448358943,1306013327,1130414707,760037151,1448363298,1812382524,689171215,287867876,1138709032,758448815&limit=13",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/2PIFZW53RHCSFSYMCFUBW4XOCXOMB7XOYQSQ6KGT3KVGJTL4HM6COZRNMM/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/XE2VD23URF632SDAHABF4VDYLZ54UGLSNSURQWB7PI3XJUN55DY64RLWXQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/VVBWRAJ3YSZGXBGJ2K654J3WA2VZOJW5U4SJCZWLM634H572WTGWTT53EE/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/FKMV6GSU57764TQ5NLSBEDXNPUXL7OAOKANVDP2A6FSB77BHI3GTWHQAZA/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/GRBADGJPWTG5LRGEICN3OJJ3PHNCY5Y5DV3D5LF4C2WJWLLZFCCWRW7ECA/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/J7CN6WTMUWXY2KODKAMM5BLZ42FEIQLM4D32FRQ23VOOJC2SEUHKE565T4/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/2XY23CF5I7E7DA7S56DOBQFIZR7AIFCS6P6TM275QADCZVWNJCDSE37AUM/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/LIHQGEOPOTMQKAJMXUJP2BT4R4AX4FPUC2SLBLYT27K536CA3XUQJVXE3Y/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/PFILVNLKQHTY47ODLTO5QF4CTMV534U5LBZLT3YOHOJNHHOLHS2H725LKY/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/EGXXS23IL5H34OOVBIAU4OU73GF3U425SLVQ6A66DABPU2JG4MH7WGV374/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/VBZKJBZ327JB6KYCEDTJU5GORANNRLP6XVGVDXPBIP34IDVLELUEWDVE3A/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/HHDWSEYBFMKLEUC6ZNHUK4AAKXJMSVK4NQFKO7JFB4OEHRAS4SJ32LOTVA/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/A7GGOADGPDSO4TN3FQGWJHTHX2X3SUPOPNN2BWL4FOVWMONBREAAJL7FTM/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/MEMMHYXM4B2GLYNA4PJXOPIO3SMKMFVX62UK5Y7ZKQXZXCPCIGEEEH7YBQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/E3ZI374FPIVWED6VEXPGQQW7IGSDTMW3ES5S2FQF2NBPS4K3KXTT2IFM7Y/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/LUFKONGMUEUBBBSB4VAU7TFSZYTR5MFQRKKRPNVINYXL2HKYDGEQ2HPOFI/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/DJIP7MVWAAJKTPDG7SEH64OD4QIZMRHOH5LYHY4YXWRZRG6YMD2ERJ4C2Q/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/6NAKH5IVZGBDTDEETKV6SLBJNDHZZASX2YO2CUPESH2IPRBN3LSKCH4E2M/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/SCONGCDJWPZ7U5TN5BQRWVRFWX4AO37YAS7QNGZWW6637P247IE6ZT7QHQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/RASMRI2TS7OQWKBDSGV6ERIQOQDQUAZ45R4TZ4BJOHRNNXXH6LWWEXJ2SQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/IR6B7DJTTXWWWT63ZXU2V5DQTVFFKGFTBVGGYUNVHFUONWWPQEYL3QKGQQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/AIR4CSC54U33WCX4JTMJA4X6PHBVG7OGX7XVV2MCACYSSDULZNJ2KNGRZI/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/JZOICSITVDITWATNW7Z43TFRJV2PGOBKAIJOJDPZXSYQZZOJY2WEOY7IC4/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/4K4FPT5MXWIAZZOA75P7GC5UY6BKUBLYPULO6Y3JQL3QJVLYT2DN7EY3KI/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/YULJFZDZ542FXZGFO6KY5T4MS2BAWOJPHNS5M3CKQ5GQXATI6LSIAPYYEY/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/P3OYRTHNLAL6E6IKVOGKHKQBUCKC2W3JHCL3ITYI2OULSXC6QQTJOONITA/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/2ISUNTWI35PNSDZDCIDLIEWBUSKWNPOPKORAIZL7MGLY7REHZTL6IKKXIQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/EWBJXKHQJM5Z5PYZG5BKXMD2AF3HKTFN7JLCI2HEGEOWO7KMBGGDW4ANXQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/DXNPQA2OFO2PKGP4LOY2GLMYZP4X6TZNXJEJKSJAKAGOUV7I2XGETEBVRY/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/J52F73O4RVX3ZLOZZ7DCRXSTLUJJ56TMRQKDNCEUKGVNUEFSTS7VEGH4YE/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/L6CDM74YQEZ7RABX7AGTD32ZJEMDOJ5OGY4QNGZUS35S5VPIGC5UNHZTPA/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/DZHNWHVP35VGQRW4VTZXFU2JWZIIK2ZSNHHO7L77QGI2SX6G3YRKAPH6BQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/K244PBQOOZHZGVRWCDXX5UX5UN23QJREGOOWIKNWZWCEO7CMSQQ27CM5MM/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/XU52VUYYL2424DZDAVT5K2NNJWPVNMYQNHZ5KINM3ITJPHCAVQVDTQIZDA/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/ZC6BRSVD2YASAQTWGZVOWJDUOJL2FYFJXRSSC3KRWP4YTTP3XMFN2FTFYQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/EPDKFJM7ACQQLCIRNFVFOFZW37UYU7W7LJJU5MNPETJUP4CRF7TTVIOZ2Y/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/TPQ3BVPA6NQMZN5HVSWZ7TXOUGK6THGCJQWUKM4XFPZJWEL4UQUNQTCGVM/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/KSDRZKHMWVPHMXZSJFEXGQB5NA4YVTLTOEDZAHOSOU5JW4JRSQTGH4QEEY/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/DJQQXVY2OZ5SDER6ZNXAZVE6F7ENKP7R3RAOWYCW5EDFDNXOWWFL5XRCCQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/TPF2JRESH3S5LY2J52QADV5ORVTWX5HZ4OXUN4XO6Q6NLOG2T4REG7PP2I/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/7GCG2OV2XQ6QCYDNYRD43SKNYMVDFLVMLLMZTJIZLOFQXP6IK5K5BY4WNQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/5T5VBTBOPW2ZRJX6QJYCBMZ24VAW7IWFGV7GHCBKFNKIN2XYHP5OLOSQJQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/Q5FH5X3MOK5E3NCBKVU673NE6LDGENDJZJZC6UMJADXX63SJU2SL45MGUY/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/57UPDJSEZ7PNKKO4QRA5RP5XUHAS246AO2ZDKKBDAJQ2UBRINQFVPQZAKY/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/YTNZHXAVJRPY2OQNCBLNLDWO7HCD4CQSQRJLI3T32V7TXFSVD4HS6DGBAE/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/VBQX2YMRK5DPVZOMCOXPU4ISU2YO45KFJ435PCRYANPPXYPWVAJCXSBDTE/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/QMDBN5Y6Z7PWHYZKKHPQKTIUJXIOQMIHQGZR3QLDYEJS2Z7WT2SWHIB46U/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/ED57RDPEG53HHJKAHQGFBF74GUZ5JHH464424OZ4NSOJVV5VAL5YLZXQ5U/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/KZSAEVY42K6SUBWHFRRPR72VQEFKKKFJUD2ZKTP2E4XTZT3EYFLIAO7TFY/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "nodely-indexer",
+    "url": "https://mainnet-idx.4160.nodely.dev/v2/transactions?application-id=552635992&min-round=64824112&max-round=64855612&limit=1000",
+    "kind": "onchain",
+    "retrieved_at": "2026-09-08T14:30:00.000Z",
+    "app_id": 552635992,
+    "round": 64855612
+   },
+   {
+    "name": "nodely-indexer",
+    "url": "https://mainnet-idx.4160.nodely.dev/v2/transactions?application-id=1002541853&min-round=64824112&max-round=64855612&limit=1000",
+    "kind": "onchain",
+    "retrieved_at": "2026-09-08T14:30:00.000Z",
+    "app_id": 1002541853,
+    "round": 64855612
+   }
+  ],
+  "methodology_version": "1.1.0",
+  "cache": "miss",
+  "stale": false,
+  "coverage": {
+   "entities": 70,
+   "excluded": 150,
+   "basis": "all_pools_usd_priced"
+  },
+  "metric": "tvl",
+  "value": 4317591.097585633,
+  "unit": "USD",
+  "confidence": 0.71,
+  "is_estimated": false,
+  "estimation_method": null,
+  "notes": [
+   "70 pools included: 21 V1.1 ($157507), 49 V2 ($4160084); 63 verified, 7 unverified or unknown (§3.6.4).",
+   "V2 TVL is computed on-chain: (asset_1_reserves / 10^dec1) x price_1 + (asset_2_reserves / 10^dec2) x price_2, with prices from the §3.7 ladder and reserves from app 1002541853 local state. V1.1 TVL is the analytics API's reported liquidity_in_usd (§3.3, methodology_version 1.1.0).",
+   "Reserves are read on-chain (§5: 0.95) but the fact is denominated in USD, so §5's usd_conversion row governs: 0.90 x a TVL-weighted price confidence of 0.881 across the V2 pools.",
+   "Cross-check: across the 49 V2 pools whose analytics record was also read, our on-chain TVL differs from the source's own liquidity_in_usd by a mean 1.46%. A signal, never a value (§3.3)."
+  ]
+ },
+ {
+  "protocol": "tinyman",
+  "timestamp": "2026-09-08T14:30:00.000Z",
+  "as_of": "2026-09-08T14:30:00.000Z",
+  "source": [
+   {
+    "name": "nodely-indexer",
+    "url": "https://mainnet-idx.4160.nodely.dev/v2/accounts?application-id=1002541853&limit=1000&exclude=assets%2Ccreated-assets%2Ccreated-apps",
+    "kind": "onchain",
+    "retrieved_at": "2026-09-08T14:30:00.000Z",
+    "app_id": 1002541853,
+    "round": 64855600
+   },
+   {
+    "name": "nodely-indexer",
+    "url": "https://mainnet-idx.4160.nodely.dev/v2/accounts?application-id=1002541853&limit=1000&exclude=assets%2Ccreated-assets%2Ccreated-apps&next=1",
+    "kind": "onchain",
+    "retrieved_at": "2026-09-08T14:30:00.000Z",
+    "app_id": 1002541853,
+    "round": 64855600
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/?limit=1000&offset=0",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/?limit=1000&offset=1000",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/assets/?ids=2537013734,1134696561,3203964481,2726252423,1237529510,2494786278,3160000000,2200000000,1821328783,1868885560,507472097,3081853135,2507779296,3109829078,2611535339,3581842047,2158527144,700965019,2611139760,3045159053,796425061,940424110,2155822658,3495558025,3214347764,1185173782,246516580,2582294183,3121954282,958277442,958280887,958279733,958278659,1194470385,923640017,2656265475,2578650960,1127347774,908935728,2217970766,1034994881,3616156711,2561491694,2933499000,3196313859,2935126632,2563959048,2290945144,757039174,2450411553&limit=50",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/assets/?ids=3122010543,3032713424,1294383366,1709999153,2211824164,1882181253,3451065491,2290771151,1069525391,2663780228,3622148694,2698002005,557264326,1055710698,1055700240,1639491796,1010838509,1821123863,1110901083,1096302088,2342621554,511028589,1285683351,3148132803,401752010,2972980000,1790688562,251014570,772212313,665182012,1110926942,1096015467,1189970332,1138500612,230946361,3178895177,797798846,2368676403,1272918363,2200421096,2154668640,2466866698,1453520040,408898501,1691271561,1065092715,1268830233,1377252601,583878846,553937591&limit=50",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/assets/?ids=582932609,1291176442,1248226674,1448358943,1306013327,1130414707,760037151,1448363298,1812382524,689171215,287867876,1138709032,758448815&limit=13",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/2PIFZW53RHCSFSYMCFUBW4XOCXOMB7XOYQSQ6KGT3KVGJTL4HM6COZRNMM/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/XE2VD23URF632SDAHABF4VDYLZ54UGLSNSURQWB7PI3XJUN55DY64RLWXQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/VVBWRAJ3YSZGXBGJ2K654J3WA2VZOJW5U4SJCZWLM634H572WTGWTT53EE/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/FKMV6GSU57764TQ5NLSBEDXNPUXL7OAOKANVDP2A6FSB77BHI3GTWHQAZA/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/GRBADGJPWTG5LRGEICN3OJJ3PHNCY5Y5DV3D5LF4C2WJWLLZFCCWRW7ECA/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/J7CN6WTMUWXY2KODKAMM5BLZ42FEIQLM4D32FRQ23VOOJC2SEUHKE565T4/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/2XY23CF5I7E7DA7S56DOBQFIZR7AIFCS6P6TM275QADCZVWNJCDSE37AUM/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/LIHQGEOPOTMQKAJMXUJP2BT4R4AX4FPUC2SLBLYT27K536CA3XUQJVXE3Y/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/PFILVNLKQHTY47ODLTO5QF4CTMV534U5LBZLT3YOHOJNHHOLHS2H725LKY/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/EGXXS23IL5H34OOVBIAU4OU73GF3U425SLVQ6A66DABPU2JG4MH7WGV374/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/VBZKJBZ327JB6KYCEDTJU5GORANNRLP6XVGVDXPBIP34IDVLELUEWDVE3A/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/HHDWSEYBFMKLEUC6ZNHUK4AAKXJMSVK4NQFKO7JFB4OEHRAS4SJ32LOTVA/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/A7GGOADGPDSO4TN3FQGWJHTHX2X3SUPOPNN2BWL4FOVWMONBREAAJL7FTM/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/MEMMHYXM4B2GLYNA4PJXOPIO3SMKMFVX62UK5Y7ZKQXZXCPCIGEEEH7YBQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/E3ZI374FPIVWED6VEXPGQQW7IGSDTMW3ES5S2FQF2NBPS4K3KXTT2IFM7Y/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/LUFKONGMUEUBBBSB4VAU7TFSZYTR5MFQRKKRPNVINYXL2HKYDGEQ2HPOFI/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/DJIP7MVWAAJKTPDG7SEH64OD4QIZMRHOH5LYHY4YXWRZRG6YMD2ERJ4C2Q/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/6NAKH5IVZGBDTDEETKV6SLBJNDHZZASX2YO2CUPESH2IPRBN3LSKCH4E2M/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/SCONGCDJWPZ7U5TN5BQRWVRFWX4AO37YAS7QNGZWW6637P247IE6ZT7QHQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/RASMRI2TS7OQWKBDSGV6ERIQOQDQUAZ45R4TZ4BJOHRNNXXH6LWWEXJ2SQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/IR6B7DJTTXWWWT63ZXU2V5DQTVFFKGFTBVGGYUNVHFUONWWPQEYL3QKGQQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/AIR4CSC54U33WCX4JTMJA4X6PHBVG7OGX7XVV2MCACYSSDULZNJ2KNGRZI/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/JZOICSITVDITWATNW7Z43TFRJV2PGOBKAIJOJDPZXSYQZZOJY2WEOY7IC4/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/4K4FPT5MXWIAZZOA75P7GC5UY6BKUBLYPULO6Y3JQL3QJVLYT2DN7EY3KI/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/YULJFZDZ542FXZGFO6KY5T4MS2BAWOJPHNS5M3CKQ5GQXATI6LSIAPYYEY/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/P3OYRTHNLAL6E6IKVOGKHKQBUCKC2W3JHCL3ITYI2OULSXC6QQTJOONITA/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/2ISUNTWI35PNSDZDCIDLIEWBUSKWNPOPKORAIZL7MGLY7REHZTL6IKKXIQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/EWBJXKHQJM5Z5PYZG5BKXMD2AF3HKTFN7JLCI2HEGEOWO7KMBGGDW4ANXQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/DXNPQA2OFO2PKGP4LOY2GLMYZP4X6TZNXJEJKSJAKAGOUV7I2XGETEBVRY/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/J52F73O4RVX3ZLOZZ7DCRXSTLUJJ56TMRQKDNCEUKGVNUEFSTS7VEGH4YE/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/L6CDM74YQEZ7RABX7AGTD32ZJEMDOJ5OGY4QNGZUS35S5VPIGC5UNHZTPA/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/DZHNWHVP35VGQRW4VTZXFU2JWZIIK2ZSNHHO7L77QGI2SX6G3YRKAPH6BQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/K244PBQOOZHZGVRWCDXX5UX5UN23QJREGOOWIKNWZWCEO7CMSQQ27CM5MM/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/XU52VUYYL2424DZDAVT5K2NNJWPVNMYQNHZ5KINM3ITJPHCAVQVDTQIZDA/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/ZC6BRSVD2YASAQTWGZVOWJDUOJL2FYFJXRSSC3KRWP4YTTP3XMFN2FTFYQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/EPDKFJM7ACQQLCIRNFVFOFZW37UYU7W7LJJU5MNPETJUP4CRF7TTVIOZ2Y/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/TPQ3BVPA6NQMZN5HVSWZ7TXOUGK6THGCJQWUKM4XFPZJWEL4UQUNQTCGVM/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/KSDRZKHMWVPHMXZSJFEXGQB5NA4YVTLTOEDZAHOSOU5JW4JRSQTGH4QEEY/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/DJQQXVY2OZ5SDER6ZNXAZVE6F7ENKP7R3RAOWYCW5EDFDNXOWWFL5XRCCQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/TPF2JRESH3S5LY2J52QADV5ORVTWX5HZ4OXUN4XO6Q6NLOG2T4REG7PP2I/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/7GCG2OV2XQ6QCYDNYRD43SKNYMVDFLVMLLMZTJIZLOFQXP6IK5K5BY4WNQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/5T5VBTBOPW2ZRJX6QJYCBMZ24VAW7IWFGV7GHCBKFNKIN2XYHP5OLOSQJQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/Q5FH5X3MOK5E3NCBKVU673NE6LDGENDJZJZC6UMJADXX63SJU2SL45MGUY/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/57UPDJSEZ7PNKKO4QRA5RP5XUHAS246AO2ZDKKBDAJQ2UBRINQFVPQZAKY/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/YTNZHXAVJRPY2OQNCBLNLDWO7HCD4CQSQRJLI3T32V7TXFSVD4HS6DGBAE/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/VBQX2YMRK5DPVZOMCOXPU4ISU2YO45KFJ435PCRYANPPXYPWVAJCXSBDTE/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/QMDBN5Y6Z7PWHYZKKHPQKTIUJXIOQMIHQGZR3QLDYEJS2Z7WT2SWHIB46U/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/ED57RDPEG53HHJKAHQGFBF74GUZ5JHH464424OZ4NSOJVV5VAL5YLZXQ5U/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/KZSAEVY42K6SUBWHFRRPR72VQEFKKKFJUD2ZKTP2E4XTZT3EYFLIAO7TFY/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "nodely-indexer",
+    "url": "https://mainnet-idx.4160.nodely.dev/v2/transactions?application-id=552635992&min-round=64824112&max-round=64855612&limit=1000",
+    "kind": "onchain",
+    "retrieved_at": "2026-09-08T14:30:00.000Z",
+    "app_id": 552635992,
+    "round": 64855612
+   },
+   {
+    "name": "nodely-indexer",
+    "url": "https://mainnet-idx.4160.nodely.dev/v2/transactions?application-id=1002541853&min-round=64824112&max-round=64855612&limit=1000",
+    "kind": "onchain",
+    "retrieved_at": "2026-09-08T14:30:00.000Z",
+    "app_id": 1002541853,
+    "round": 64855612
+   }
+  ],
+  "methodology_version": "1.1.0",
+  "cache": "miss",
+  "stale": false,
+  "coverage": {
+   "entities": 70,
+   "excluded": 150,
+   "basis": "all_pools_usd_priced"
+  },
+  "metric": "volume_24h",
+  "value": 286536.5952252954,
+  "unit": "USD",
+  "confidence": 0.86,
+  "is_estimated": false,
+  "estimation_method": null,
+  "notes": [
+   "last_day_volume_in_usd is reported in USD by the source; no conversion applied.",
+   "24h flows cover 70 of 70 included pools, 100.0% of included TVL. On-chain pool state has no 24h window, so V2 volume and fees come from per-pool analytics lookups while V2 TVL comes from on-chain reserves (§3.3): the two have different coverage, and this KPI describes the narrower one."
+  ]
+ },
+ {
+  "protocol": "tinyman",
+  "timestamp": "2026-09-08T14:30:00.000Z",
+  "as_of": "2026-09-08T14:30:00.000Z",
+  "source": [
+   {
+    "name": "nodely-indexer",
+    "url": "https://mainnet-idx.4160.nodely.dev/v2/accounts?application-id=1002541853&limit=1000&exclude=assets%2Ccreated-assets%2Ccreated-apps",
+    "kind": "onchain",
+    "retrieved_at": "2026-09-08T14:30:00.000Z",
+    "app_id": 1002541853,
+    "round": 64855600
+   },
+   {
+    "name": "nodely-indexer",
+    "url": "https://mainnet-idx.4160.nodely.dev/v2/accounts?application-id=1002541853&limit=1000&exclude=assets%2Ccreated-assets%2Ccreated-apps&next=1",
+    "kind": "onchain",
+    "retrieved_at": "2026-09-08T14:30:00.000Z",
+    "app_id": 1002541853,
+    "round": 64855600
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/?limit=1000&offset=0",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/?limit=1000&offset=1000",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/assets/?ids=2537013734,1134696561,3203964481,2726252423,1237529510,2494786278,3160000000,2200000000,1821328783,1868885560,507472097,3081853135,2507779296,3109829078,2611535339,3581842047,2158527144,700965019,2611139760,3045159053,796425061,940424110,2155822658,3495558025,3214347764,1185173782,246516580,2582294183,3121954282,958277442,958280887,958279733,958278659,1194470385,923640017,2656265475,2578650960,1127347774,908935728,2217970766,1034994881,3616156711,2561491694,2933499000,3196313859,2935126632,2563959048,2290945144,757039174,2450411553&limit=50",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/assets/?ids=3122010543,3032713424,1294383366,1709999153,2211824164,1882181253,3451065491,2290771151,1069525391,2663780228,3622148694,2698002005,557264326,1055710698,1055700240,1639491796,1010838509,1821123863,1110901083,1096302088,2342621554,511028589,1285683351,3148132803,401752010,2972980000,1790688562,251014570,772212313,665182012,1110926942,1096015467,1189970332,1138500612,230946361,3178895177,797798846,2368676403,1272918363,2200421096,2154668640,2466866698,1453520040,408898501,1691271561,1065092715,1268830233,1377252601,583878846,553937591&limit=50",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/assets/?ids=582932609,1291176442,1248226674,1448358943,1306013327,1130414707,760037151,1448363298,1812382524,689171215,287867876,1138709032,758448815&limit=13",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/2PIFZW53RHCSFSYMCFUBW4XOCXOMB7XOYQSQ6KGT3KVGJTL4HM6COZRNMM/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/XE2VD23URF632SDAHABF4VDYLZ54UGLSNSURQWB7PI3XJUN55DY64RLWXQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/VVBWRAJ3YSZGXBGJ2K654J3WA2VZOJW5U4SJCZWLM634H572WTGWTT53EE/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/FKMV6GSU57764TQ5NLSBEDXNPUXL7OAOKANVDP2A6FSB77BHI3GTWHQAZA/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/GRBADGJPWTG5LRGEICN3OJJ3PHNCY5Y5DV3D5LF4C2WJWLLZFCCWRW7ECA/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/J7CN6WTMUWXY2KODKAMM5BLZ42FEIQLM4D32FRQ23VOOJC2SEUHKE565T4/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/2XY23CF5I7E7DA7S56DOBQFIZR7AIFCS6P6TM275QADCZVWNJCDSE37AUM/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/LIHQGEOPOTMQKAJMXUJP2BT4R4AX4FPUC2SLBLYT27K536CA3XUQJVXE3Y/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/PFILVNLKQHTY47ODLTO5QF4CTMV534U5LBZLT3YOHOJNHHOLHS2H725LKY/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/EGXXS23IL5H34OOVBIAU4OU73GF3U425SLVQ6A66DABPU2JG4MH7WGV374/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/VBZKJBZ327JB6KYCEDTJU5GORANNRLP6XVGVDXPBIP34IDVLELUEWDVE3A/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/HHDWSEYBFMKLEUC6ZNHUK4AAKXJMSVK4NQFKO7JFB4OEHRAS4SJ32LOTVA/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/A7GGOADGPDSO4TN3FQGWJHTHX2X3SUPOPNN2BWL4FOVWMONBREAAJL7FTM/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/MEMMHYXM4B2GLYNA4PJXOPIO3SMKMFVX62UK5Y7ZKQXZXCPCIGEEEH7YBQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/E3ZI374FPIVWED6VEXPGQQW7IGSDTMW3ES5S2FQF2NBPS4K3KXTT2IFM7Y/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/LUFKONGMUEUBBBSB4VAU7TFSZYTR5MFQRKKRPNVINYXL2HKYDGEQ2HPOFI/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/DJIP7MVWAAJKTPDG7SEH64OD4QIZMRHOH5LYHY4YXWRZRG6YMD2ERJ4C2Q/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/6NAKH5IVZGBDTDEETKV6SLBJNDHZZASX2YO2CUPESH2IPRBN3LSKCH4E2M/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/SCONGCDJWPZ7U5TN5BQRWVRFWX4AO37YAS7QNGZWW6637P247IE6ZT7QHQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/RASMRI2TS7OQWKBDSGV6ERIQOQDQUAZ45R4TZ4BJOHRNNXXH6LWWEXJ2SQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/IR6B7DJTTXWWWT63ZXU2V5DQTVFFKGFTBVGGYUNVHFUONWWPQEYL3QKGQQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/AIR4CSC54U33WCX4JTMJA4X6PHBVG7OGX7XVV2MCACYSSDULZNJ2KNGRZI/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/JZOICSITVDITWATNW7Z43TFRJV2PGOBKAIJOJDPZXSYQZZOJY2WEOY7IC4/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/4K4FPT5MXWIAZZOA75P7GC5UY6BKUBLYPULO6Y3JQL3QJVLYT2DN7EY3KI/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/YULJFZDZ542FXZGFO6KY5T4MS2BAWOJPHNS5M3CKQ5GQXATI6LSIAPYYEY/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/P3OYRTHNLAL6E6IKVOGKHKQBUCKC2W3JHCL3ITYI2OULSXC6QQTJOONITA/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/2ISUNTWI35PNSDZDCIDLIEWBUSKWNPOPKORAIZL7MGLY7REHZTL6IKKXIQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/EWBJXKHQJM5Z5PYZG5BKXMD2AF3HKTFN7JLCI2HEGEOWO7KMBGGDW4ANXQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/DXNPQA2OFO2PKGP4LOY2GLMYZP4X6TZNXJEJKSJAKAGOUV7I2XGETEBVRY/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/J52F73O4RVX3ZLOZZ7DCRXSTLUJJ56TMRQKDNCEUKGVNUEFSTS7VEGH4YE/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/L6CDM74YQEZ7RABX7AGTD32ZJEMDOJ5OGY4QNGZUS35S5VPIGC5UNHZTPA/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/DZHNWHVP35VGQRW4VTZXFU2JWZIIK2ZSNHHO7L77QGI2SX6G3YRKAPH6BQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/K244PBQOOZHZGVRWCDXX5UX5UN23QJREGOOWIKNWZWCEO7CMSQQ27CM5MM/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/XU52VUYYL2424DZDAVT5K2NNJWPVNMYQNHZ5KINM3ITJPHCAVQVDTQIZDA/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/ZC6BRSVD2YASAQTWGZVOWJDUOJL2FYFJXRSSC3KRWP4YTTP3XMFN2FTFYQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/EPDKFJM7ACQQLCIRNFVFOFZW37UYU7W7LJJU5MNPETJUP4CRF7TTVIOZ2Y/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/TPQ3BVPA6NQMZN5HVSWZ7TXOUGK6THGCJQWUKM4XFPZJWEL4UQUNQTCGVM/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/KSDRZKHMWVPHMXZSJFEXGQB5NA4YVTLTOEDZAHOSOU5JW4JRSQTGH4QEEY/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/DJQQXVY2OZ5SDER6ZNXAZVE6F7ENKP7R3RAOWYCW5EDFDNXOWWFL5XRCCQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/TPF2JRESH3S5LY2J52QADV5ORVTWX5HZ4OXUN4XO6Q6NLOG2T4REG7PP2I/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/7GCG2OV2XQ6QCYDNYRD43SKNYMVDFLVMLLMZTJIZLOFQXP6IK5K5BY4WNQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/5T5VBTBOPW2ZRJX6QJYCBMZ24VAW7IWFGV7GHCBKFNKIN2XYHP5OLOSQJQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/Q5FH5X3MOK5E3NCBKVU673NE6LDGENDJZJZC6UMJADXX63SJU2SL45MGUY/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/57UPDJSEZ7PNKKO4QRA5RP5XUHAS246AO2ZDKKBDAJQ2UBRINQFVPQZAKY/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/YTNZHXAVJRPY2OQNCBLNLDWO7HCD4CQSQRJLI3T32V7TXFSVD4HS6DGBAE/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/VBQX2YMRK5DPVZOMCOXPU4ISU2YO45KFJ435PCRYANPPXYPWVAJCXSBDTE/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/QMDBN5Y6Z7PWHYZKKHPQKTIUJXIOQMIHQGZR3QLDYEJS2Z7WT2SWHIB46U/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/ED57RDPEG53HHJKAHQGFBF74GUZ5JHH464424OZ4NSOJVV5VAL5YLZXQ5U/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/KZSAEVY42K6SUBWHFRRPR72VQEFKKKFJUD2ZKTP2E4XTZT3EYFLIAO7TFY/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "nodely-indexer",
+    "url": "https://mainnet-idx.4160.nodely.dev/v2/transactions?application-id=552635992&min-round=64824112&max-round=64855612&limit=1000",
+    "kind": "onchain",
+    "retrieved_at": "2026-09-08T14:30:00.000Z",
+    "app_id": 552635992,
+    "round": 64855612
+   },
+   {
+    "name": "nodely-indexer",
+    "url": "https://mainnet-idx.4160.nodely.dev/v2/transactions?application-id=1002541853&min-round=64824112&max-round=64855612&limit=1000",
+    "kind": "onchain",
+    "retrieved_at": "2026-09-08T14:30:00.000Z",
+    "app_id": 1002541853,
+    "round": 64855612
+   }
+  ],
+  "methodology_version": "1.1.0",
+  "cache": "miss",
+  "stale": false,
+  "coverage": {
+   "entities": 70,
+   "excluded": 150,
+   "basis": "all_pools_usd_priced"
+  },
+  "metric": "gross_fees_24h",
+  "value": 1028.0095342990505,
+  "unit": "USD",
+  "confidence": 0.86,
+  "is_estimated": false,
+  "estimation_method": null,
+  "notes": [
+   "last_day_fees_in_usd is the TOTAL swap fee paid by users (LP + protocol) and is never reported as protocol_revenue (§3.3).",
+   "24h flows cover 70 of 70 included pools, 100.0% of included TVL. On-chain pool state has no 24h window, so V2 volume and fees come from per-pool analytics lookups while V2 TVL comes from on-chain reserves (§3.3): the two have different coverage, and this KPI describes the narrower one."
+  ]
+ },
+ {
+  "protocol": "tinyman",
+  "timestamp": "2026-09-08T14:30:00.000Z",
+  "as_of": "2026-09-08T14:30:00.000Z",
+  "source": [
+   {
+    "name": "nodely-indexer",
+    "url": "https://mainnet-idx.4160.nodely.dev/v2/accounts?application-id=1002541853&limit=1000&exclude=assets%2Ccreated-assets%2Ccreated-apps",
+    "kind": "onchain",
+    "retrieved_at": "2026-09-08T14:30:00.000Z",
+    "app_id": 1002541853,
+    "round": 64855600
+   },
+   {
+    "name": "nodely-indexer",
+    "url": "https://mainnet-idx.4160.nodely.dev/v2/accounts?application-id=1002541853&limit=1000&exclude=assets%2Ccreated-assets%2Ccreated-apps&next=1",
+    "kind": "onchain",
+    "retrieved_at": "2026-09-08T14:30:00.000Z",
+    "app_id": 1002541853,
+    "round": 64855600
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/?limit=1000&offset=0",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/?limit=1000&offset=1000",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/assets/?ids=2537013734,1134696561,3203964481,2726252423,1237529510,2494786278,3160000000,2200000000,1821328783,1868885560,507472097,3081853135,2507779296,3109829078,2611535339,3581842047,2158527144,700965019,2611139760,3045159053,796425061,940424110,2155822658,3495558025,3214347764,1185173782,246516580,2582294183,3121954282,958277442,958280887,958279733,958278659,1194470385,923640017,2656265475,2578650960,1127347774,908935728,2217970766,1034994881,3616156711,2561491694,2933499000,3196313859,2935126632,2563959048,2290945144,757039174,2450411553&limit=50",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/assets/?ids=3122010543,3032713424,1294383366,1709999153,2211824164,1882181253,3451065491,2290771151,1069525391,2663780228,3622148694,2698002005,557264326,1055710698,1055700240,1639491796,1010838509,1821123863,1110901083,1096302088,2342621554,511028589,1285683351,3148132803,401752010,2972980000,1790688562,251014570,772212313,665182012,1110926942,1096015467,1189970332,1138500612,230946361,3178895177,797798846,2368676403,1272918363,2200421096,2154668640,2466866698,1453520040,408898501,1691271561,1065092715,1268830233,1377252601,583878846,553937591&limit=50",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/assets/?ids=582932609,1291176442,1248226674,1448358943,1306013327,1130414707,760037151,1448363298,1812382524,689171215,287867876,1138709032,758448815&limit=13",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/2PIFZW53RHCSFSYMCFUBW4XOCXOMB7XOYQSQ6KGT3KVGJTL4HM6COZRNMM/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/XE2VD23URF632SDAHABF4VDYLZ54UGLSNSURQWB7PI3XJUN55DY64RLWXQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/VVBWRAJ3YSZGXBGJ2K654J3WA2VZOJW5U4SJCZWLM634H572WTGWTT53EE/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/FKMV6GSU57764TQ5NLSBEDXNPUXL7OAOKANVDP2A6FSB77BHI3GTWHQAZA/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/GRBADGJPWTG5LRGEICN3OJJ3PHNCY5Y5DV3D5LF4C2WJWLLZFCCWRW7ECA/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/J7CN6WTMUWXY2KODKAMM5BLZ42FEIQLM4D32FRQ23VOOJC2SEUHKE565T4/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/2XY23CF5I7E7DA7S56DOBQFIZR7AIFCS6P6TM275QADCZVWNJCDSE37AUM/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/LIHQGEOPOTMQKAJMXUJP2BT4R4AX4FPUC2SLBLYT27K536CA3XUQJVXE3Y/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/PFILVNLKQHTY47ODLTO5QF4CTMV534U5LBZLT3YOHOJNHHOLHS2H725LKY/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/EGXXS23IL5H34OOVBIAU4OU73GF3U425SLVQ6A66DABPU2JG4MH7WGV374/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/VBZKJBZ327JB6KYCEDTJU5GORANNRLP6XVGVDXPBIP34IDVLELUEWDVE3A/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/HHDWSEYBFMKLEUC6ZNHUK4AAKXJMSVK4NQFKO7JFB4OEHRAS4SJ32LOTVA/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/A7GGOADGPDSO4TN3FQGWJHTHX2X3SUPOPNN2BWL4FOVWMONBREAAJL7FTM/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/MEMMHYXM4B2GLYNA4PJXOPIO3SMKMFVX62UK5Y7ZKQXZXCPCIGEEEH7YBQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/E3ZI374FPIVWED6VEXPGQQW7IGSDTMW3ES5S2FQF2NBPS4K3KXTT2IFM7Y/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/LUFKONGMUEUBBBSB4VAU7TFSZYTR5MFQRKKRPNVINYXL2HKYDGEQ2HPOFI/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/DJIP7MVWAAJKTPDG7SEH64OD4QIZMRHOH5LYHY4YXWRZRG6YMD2ERJ4C2Q/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/6NAKH5IVZGBDTDEETKV6SLBJNDHZZASX2YO2CUPESH2IPRBN3LSKCH4E2M/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/SCONGCDJWPZ7U5TN5BQRWVRFWX4AO37YAS7QNGZWW6637P247IE6ZT7QHQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/RASMRI2TS7OQWKBDSGV6ERIQOQDQUAZ45R4TZ4BJOHRNNXXH6LWWEXJ2SQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/IR6B7DJTTXWWWT63ZXU2V5DQTVFFKGFTBVGGYUNVHFUONWWPQEYL3QKGQQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/AIR4CSC54U33WCX4JTMJA4X6PHBVG7OGX7XVV2MCACYSSDULZNJ2KNGRZI/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/JZOICSITVDITWATNW7Z43TFRJV2PGOBKAIJOJDPZXSYQZZOJY2WEOY7IC4/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/4K4FPT5MXWIAZZOA75P7GC5UY6BKUBLYPULO6Y3JQL3QJVLYT2DN7EY3KI/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/YULJFZDZ542FXZGFO6KY5T4MS2BAWOJPHNS5M3CKQ5GQXATI6LSIAPYYEY/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/P3OYRTHNLAL6E6IKVOGKHKQBUCKC2W3JHCL3ITYI2OULSXC6QQTJOONITA/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/2ISUNTWI35PNSDZDCIDLIEWBUSKWNPOPKORAIZL7MGLY7REHZTL6IKKXIQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/EWBJXKHQJM5Z5PYZG5BKXMD2AF3HKTFN7JLCI2HEGEOWO7KMBGGDW4ANXQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/DXNPQA2OFO2PKGP4LOY2GLMYZP4X6TZNXJEJKSJAKAGOUV7I2XGETEBVRY/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/J52F73O4RVX3ZLOZZ7DCRXSTLUJJ56TMRQKDNCEUKGVNUEFSTS7VEGH4YE/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/L6CDM74YQEZ7RABX7AGTD32ZJEMDOJ5OGY4QNGZUS35S5VPIGC5UNHZTPA/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/DZHNWHVP35VGQRW4VTZXFU2JWZIIK2ZSNHHO7L77QGI2SX6G3YRKAPH6BQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/K244PBQOOZHZGVRWCDXX5UX5UN23QJREGOOWIKNWZWCEO7CMSQQ27CM5MM/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/XU52VUYYL2424DZDAVT5K2NNJWPVNMYQNHZ5KINM3ITJPHCAVQVDTQIZDA/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/ZC6BRSVD2YASAQTWGZVOWJDUOJL2FYFJXRSSC3KRWP4YTTP3XMFN2FTFYQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/EPDKFJM7ACQQLCIRNFVFOFZW37UYU7W7LJJU5MNPETJUP4CRF7TTVIOZ2Y/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/TPQ3BVPA6NQMZN5HVSWZ7TXOUGK6THGCJQWUKM4XFPZJWEL4UQUNQTCGVM/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/KSDRZKHMWVPHMXZSJFEXGQB5NA4YVTLTOEDZAHOSOU5JW4JRSQTGH4QEEY/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/DJQQXVY2OZ5SDER6ZNXAZVE6F7ENKP7R3RAOWYCW5EDFDNXOWWFL5XRCCQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/TPF2JRESH3S5LY2J52QADV5ORVTWX5HZ4OXUN4XO6Q6NLOG2T4REG7PP2I/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/7GCG2OV2XQ6QCYDNYRD43SKNYMVDFLVMLLMZTJIZLOFQXP6IK5K5BY4WNQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/5T5VBTBOPW2ZRJX6QJYCBMZ24VAW7IWFGV7GHCBKFNKIN2XYHP5OLOSQJQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/Q5FH5X3MOK5E3NCBKVU673NE6LDGENDJZJZC6UMJADXX63SJU2SL45MGUY/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/57UPDJSEZ7PNKKO4QRA5RP5XUHAS246AO2ZDKKBDAJQ2UBRINQFVPQZAKY/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/YTNZHXAVJRPY2OQNCBLNLDWO7HCD4CQSQRJLI3T32V7TXFSVD4HS6DGBAE/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/VBQX2YMRK5DPVZOMCOXPU4ISU2YO45KFJ435PCRYANPPXYPWVAJCXSBDTE/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/QMDBN5Y6Z7PWHYZKKHPQKTIUJXIOQMIHQGZR3QLDYEJS2Z7WT2SWHIB46U/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/ED57RDPEG53HHJKAHQGFBF74GUZ5JHH464424OZ4NSOJVV5VAL5YLZXQ5U/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/KZSAEVY42K6SUBWHFRRPR72VQEFKKKFJUD2ZKTP2E4XTZT3EYFLIAO7TFY/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "nodely-indexer",
+    "url": "https://mainnet-idx.4160.nodely.dev/v2/transactions?application-id=552635992&min-round=64824112&max-round=64855612&limit=1000",
+    "kind": "onchain",
+    "retrieved_at": "2026-09-08T14:30:00.000Z",
+    "app_id": 552635992,
+    "round": 64855612
+   },
+   {
+    "name": "nodely-indexer",
+    "url": "https://mainnet-idx.4160.nodely.dev/v2/transactions?application-id=1002541853&min-round=64824112&max-round=64855612&limit=1000",
+    "kind": "onchain",
+    "retrieved_at": "2026-09-08T14:30:00.000Z",
+    "app_id": 1002541853,
+    "round": 64855612
+   }
+  ],
+  "methodology_version": "1.1.0",
+  "cache": "miss",
+  "stale": false,
+  "coverage": {
+   "entities": 70,
+   "excluded": 150,
+   "basis": "all_pools_usd_priced"
+  },
+  "metric": "protocol_revenue_24h",
+  "value": 255.63108658794172,
+  "unit": "USD",
+  "confidence": 0.81,
+  "is_estimated": false,
+  "estimation_method": null,
+  "notes": [
+   "protocol_share is per-pool, not a protocol-wide constant: V1.1 pools use the documented 5/30, V2 pools use 1 / protocol_fee_ratio read on-chain (§3.3).",
+   "24h flows cover 70 of 70 included pools, 100.0% of included TVL. On-chain pool state has no 24h window, so V2 volume and fees come from per-pool analytics lookups while V2 TVL comes from on-chain reserves (§3.3): the two have different coverage, and this KPI describes the narrower one."
+  ]
+ },
+ {
+  "protocol": "tinyman",
+  "timestamp": "2026-09-08T14:30:00.000Z",
+  "as_of": "2026-09-08T14:30:00.000Z",
+  "source": [
+   {
+    "name": "nodely-indexer",
+    "url": "https://mainnet-idx.4160.nodely.dev/v2/accounts?application-id=1002541853&limit=1000&exclude=assets%2Ccreated-assets%2Ccreated-apps",
+    "kind": "onchain",
+    "retrieved_at": "2026-09-08T14:30:00.000Z",
+    "app_id": 1002541853,
+    "round": 64855600
+   },
+   {
+    "name": "nodely-indexer",
+    "url": "https://mainnet-idx.4160.nodely.dev/v2/accounts?application-id=1002541853&limit=1000&exclude=assets%2Ccreated-assets%2Ccreated-apps&next=1",
+    "kind": "onchain",
+    "retrieved_at": "2026-09-08T14:30:00.000Z",
+    "app_id": 1002541853,
+    "round": 64855600
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/?limit=1000&offset=0",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/?limit=1000&offset=1000",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/assets/?ids=2537013734,1134696561,3203964481,2726252423,1237529510,2494786278,3160000000,2200000000,1821328783,1868885560,507472097,3081853135,2507779296,3109829078,2611535339,3581842047,2158527144,700965019,2611139760,3045159053,796425061,940424110,2155822658,3495558025,3214347764,1185173782,246516580,2582294183,3121954282,958277442,958280887,958279733,958278659,1194470385,923640017,2656265475,2578650960,1127347774,908935728,2217970766,1034994881,3616156711,2561491694,2933499000,3196313859,2935126632,2563959048,2290945144,757039174,2450411553&limit=50",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/assets/?ids=3122010543,3032713424,1294383366,1709999153,2211824164,1882181253,3451065491,2290771151,1069525391,2663780228,3622148694,2698002005,557264326,1055710698,1055700240,1639491796,1010838509,1821123863,1110901083,1096302088,2342621554,511028589,1285683351,3148132803,401752010,2972980000,1790688562,251014570,772212313,665182012,1110926942,1096015467,1189970332,1138500612,230946361,3178895177,797798846,2368676403,1272918363,2200421096,2154668640,2466866698,1453520040,408898501,1691271561,1065092715,1268830233,1377252601,583878846,553937591&limit=50",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/assets/?ids=582932609,1291176442,1248226674,1448358943,1306013327,1130414707,760037151,1448363298,1812382524,689171215,287867876,1138709032,758448815&limit=13",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/2PIFZW53RHCSFSYMCFUBW4XOCXOMB7XOYQSQ6KGT3KVGJTL4HM6COZRNMM/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/XE2VD23URF632SDAHABF4VDYLZ54UGLSNSURQWB7PI3XJUN55DY64RLWXQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/VVBWRAJ3YSZGXBGJ2K654J3WA2VZOJW5U4SJCZWLM634H572WTGWTT53EE/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/FKMV6GSU57764TQ5NLSBEDXNPUXL7OAOKANVDP2A6FSB77BHI3GTWHQAZA/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/GRBADGJPWTG5LRGEICN3OJJ3PHNCY5Y5DV3D5LF4C2WJWLLZFCCWRW7ECA/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/J7CN6WTMUWXY2KODKAMM5BLZ42FEIQLM4D32FRQ23VOOJC2SEUHKE565T4/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/2XY23CF5I7E7DA7S56DOBQFIZR7AIFCS6P6TM275QADCZVWNJCDSE37AUM/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/LIHQGEOPOTMQKAJMXUJP2BT4R4AX4FPUC2SLBLYT27K536CA3XUQJVXE3Y/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/PFILVNLKQHTY47ODLTO5QF4CTMV534U5LBZLT3YOHOJNHHOLHS2H725LKY/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/EGXXS23IL5H34OOVBIAU4OU73GF3U425SLVQ6A66DABPU2JG4MH7WGV374/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/VBZKJBZ327JB6KYCEDTJU5GORANNRLP6XVGVDXPBIP34IDVLELUEWDVE3A/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/HHDWSEYBFMKLEUC6ZNHUK4AAKXJMSVK4NQFKO7JFB4OEHRAS4SJ32LOTVA/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/A7GGOADGPDSO4TN3FQGWJHTHX2X3SUPOPNN2BWL4FOVWMONBREAAJL7FTM/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/MEMMHYXM4B2GLYNA4PJXOPIO3SMKMFVX62UK5Y7ZKQXZXCPCIGEEEH7YBQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/E3ZI374FPIVWED6VEXPGQQW7IGSDTMW3ES5S2FQF2NBPS4K3KXTT2IFM7Y/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/LUFKONGMUEUBBBSB4VAU7TFSZYTR5MFQRKKRPNVINYXL2HKYDGEQ2HPOFI/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/DJIP7MVWAAJKTPDG7SEH64OD4QIZMRHOH5LYHY4YXWRZRG6YMD2ERJ4C2Q/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/6NAKH5IVZGBDTDEETKV6SLBJNDHZZASX2YO2CUPESH2IPRBN3LSKCH4E2M/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/SCONGCDJWPZ7U5TN5BQRWVRFWX4AO37YAS7QNGZWW6637P247IE6ZT7QHQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/RASMRI2TS7OQWKBDSGV6ERIQOQDQUAZ45R4TZ4BJOHRNNXXH6LWWEXJ2SQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/IR6B7DJTTXWWWT63ZXU2V5DQTVFFKGFTBVGGYUNVHFUONWWPQEYL3QKGQQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/AIR4CSC54U33WCX4JTMJA4X6PHBVG7OGX7XVV2MCACYSSDULZNJ2KNGRZI/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/JZOICSITVDITWATNW7Z43TFRJV2PGOBKAIJOJDPZXSYQZZOJY2WEOY7IC4/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/4K4FPT5MXWIAZZOA75P7GC5UY6BKUBLYPULO6Y3JQL3QJVLYT2DN7EY3KI/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/YULJFZDZ542FXZGFO6KY5T4MS2BAWOJPHNS5M3CKQ5GQXATI6LSIAPYYEY/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/P3OYRTHNLAL6E6IKVOGKHKQBUCKC2W3JHCL3ITYI2OULSXC6QQTJOONITA/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/2ISUNTWI35PNSDZDCIDLIEWBUSKWNPOPKORAIZL7MGLY7REHZTL6IKKXIQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/EWBJXKHQJM5Z5PYZG5BKXMD2AF3HKTFN7JLCI2HEGEOWO7KMBGGDW4ANXQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/DXNPQA2OFO2PKGP4LOY2GLMYZP4X6TZNXJEJKSJAKAGOUV7I2XGETEBVRY/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/J52F73O4RVX3ZLOZZ7DCRXSTLUJJ56TMRQKDNCEUKGVNUEFSTS7VEGH4YE/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/L6CDM74YQEZ7RABX7AGTD32ZJEMDOJ5OGY4QNGZUS35S5VPIGC5UNHZTPA/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/DZHNWHVP35VGQRW4VTZXFU2JWZIIK2ZSNHHO7L77QGI2SX6G3YRKAPH6BQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/K244PBQOOZHZGVRWCDXX5UX5UN23QJREGOOWIKNWZWCEO7CMSQQ27CM5MM/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/XU52VUYYL2424DZDAVT5K2NNJWPVNMYQNHZ5KINM3ITJPHCAVQVDTQIZDA/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/ZC6BRSVD2YASAQTWGZVOWJDUOJL2FYFJXRSSC3KRWP4YTTP3XMFN2FTFYQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/EPDKFJM7ACQQLCIRNFVFOFZW37UYU7W7LJJU5MNPETJUP4CRF7TTVIOZ2Y/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/TPQ3BVPA6NQMZN5HVSWZ7TXOUGK6THGCJQWUKM4XFPZJWEL4UQUNQTCGVM/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/KSDRZKHMWVPHMXZSJFEXGQB5NA4YVTLTOEDZAHOSOU5JW4JRSQTGH4QEEY/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/DJQQXVY2OZ5SDER6ZNXAZVE6F7ENKP7R3RAOWYCW5EDFDNXOWWFL5XRCCQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/TPF2JRESH3S5LY2J52QADV5ORVTWX5HZ4OXUN4XO6Q6NLOG2T4REG7PP2I/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/7GCG2OV2XQ6QCYDNYRD43SKNYMVDFLVMLLMZTJIZLOFQXP6IK5K5BY4WNQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/5T5VBTBOPW2ZRJX6QJYCBMZ24VAW7IWFGV7GHCBKFNKIN2XYHP5OLOSQJQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/Q5FH5X3MOK5E3NCBKVU673NE6LDGENDJZJZC6UMJADXX63SJU2SL45MGUY/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/57UPDJSEZ7PNKKO4QRA5RP5XUHAS246AO2ZDKKBDAJQ2UBRINQFVPQZAKY/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/YTNZHXAVJRPY2OQNCBLNLDWO7HCD4CQSQRJLI3T32V7TXFSVD4HS6DGBAE/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/VBQX2YMRK5DPVZOMCOXPU4ISU2YO45KFJ435PCRYANPPXYPWVAJCXSBDTE/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/QMDBN5Y6Z7PWHYZKKHPQKTIUJXIOQMIHQGZR3QLDYEJS2Z7WT2SWHIB46U/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/ED57RDPEG53HHJKAHQGFBF74GUZ5JHH464424OZ4NSOJVV5VAL5YLZXQ5U/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/KZSAEVY42K6SUBWHFRRPR72VQEFKKKFJUD2ZKTP2E4XTZT3EYFLIAO7TFY/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "nodely-indexer",
+    "url": "https://mainnet-idx.4160.nodely.dev/v2/transactions?application-id=552635992&min-round=64824112&max-round=64855612&limit=1000",
+    "kind": "onchain",
+    "retrieved_at": "2026-09-08T14:30:00.000Z",
+    "app_id": 552635992,
+    "round": 64855612
+   },
+   {
+    "name": "nodely-indexer",
+    "url": "https://mainnet-idx.4160.nodely.dev/v2/transactions?application-id=1002541853&min-round=64824112&max-round=64855612&limit=1000",
+    "kind": "onchain",
+    "retrieved_at": "2026-09-08T14:30:00.000Z",
+    "app_id": 1002541853,
+    "round": 64855612
+   }
+  ],
+  "methodology_version": "1.1.0",
+  "cache": "miss",
+  "stale": false,
+  "coverage": {
+   "entities": 70,
+   "excluded": 150,
+   "basis": "all_pools_usd_priced"
+  },
+  "metric": "supply_side_revenue_24h",
+  "value": 772.3784477111088,
+  "unit": "USD",
+  "confidence": 0.81,
+  "is_estimated": false,
+  "estimation_method": null,
+  "notes": [
+   "Residual of the §3.1 identity: gross_fees_24h - protocol_revenue_24h.",
+   "protocol_share is per-pool, not a protocol-wide constant: V1.1 pools use the documented 5/30, V2 pools use 1 / protocol_fee_ratio read on-chain (§3.3).",
+   "24h flows cover 70 of 70 included pools, 100.0% of included TVL. On-chain pool state has no 24h window, so V2 volume and fees come from per-pool analytics lookups while V2 TVL comes from on-chain reserves (§3.3): the two have different coverage, and this KPI describes the narrower one."
+  ]
+ },
+ {
+  "protocol": "tinyman",
+  "timestamp": "2026-09-08T14:30:00.000Z",
+  "as_of": "2026-09-08T14:30:00.000Z",
+  "source": [
+   {
+    "name": "nodely-indexer",
+    "url": "https://mainnet-idx.4160.nodely.dev/v2/accounts?application-id=1002541853&limit=1000&exclude=assets%2Ccreated-assets%2Ccreated-apps",
+    "kind": "onchain",
+    "retrieved_at": "2026-09-08T14:30:00.000Z",
+    "app_id": 1002541853,
+    "round": 64855600
+   },
+   {
+    "name": "nodely-indexer",
+    "url": "https://mainnet-idx.4160.nodely.dev/v2/accounts?application-id=1002541853&limit=1000&exclude=assets%2Ccreated-assets%2Ccreated-apps&next=1",
+    "kind": "onchain",
+    "retrieved_at": "2026-09-08T14:30:00.000Z",
+    "app_id": 1002541853,
+    "round": 64855600
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/?limit=1000&offset=0",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/?limit=1000&offset=1000",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/assets/?ids=2537013734,1134696561,3203964481,2726252423,1237529510,2494786278,3160000000,2200000000,1821328783,1868885560,507472097,3081853135,2507779296,3109829078,2611535339,3581842047,2158527144,700965019,2611139760,3045159053,796425061,940424110,2155822658,3495558025,3214347764,1185173782,246516580,2582294183,3121954282,958277442,958280887,958279733,958278659,1194470385,923640017,2656265475,2578650960,1127347774,908935728,2217970766,1034994881,3616156711,2561491694,2933499000,3196313859,2935126632,2563959048,2290945144,757039174,2450411553&limit=50",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/assets/?ids=3122010543,3032713424,1294383366,1709999153,2211824164,1882181253,3451065491,2290771151,1069525391,2663780228,3622148694,2698002005,557264326,1055710698,1055700240,1639491796,1010838509,1821123863,1110901083,1096302088,2342621554,511028589,1285683351,3148132803,401752010,2972980000,1790688562,251014570,772212313,665182012,1110926942,1096015467,1189970332,1138500612,230946361,3178895177,797798846,2368676403,1272918363,2200421096,2154668640,2466866698,1453520040,408898501,1691271561,1065092715,1268830233,1377252601,583878846,553937591&limit=50",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/assets/?ids=582932609,1291176442,1248226674,1448358943,1306013327,1130414707,760037151,1448363298,1812382524,689171215,287867876,1138709032,758448815&limit=13",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/2PIFZW53RHCSFSYMCFUBW4XOCXOMB7XOYQSQ6KGT3KVGJTL4HM6COZRNMM/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/XE2VD23URF632SDAHABF4VDYLZ54UGLSNSURQWB7PI3XJUN55DY64RLWXQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/VVBWRAJ3YSZGXBGJ2K654J3WA2VZOJW5U4SJCZWLM634H572WTGWTT53EE/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/FKMV6GSU57764TQ5NLSBEDXNPUXL7OAOKANVDP2A6FSB77BHI3GTWHQAZA/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/GRBADGJPWTG5LRGEICN3OJJ3PHNCY5Y5DV3D5LF4C2WJWLLZFCCWRW7ECA/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/J7CN6WTMUWXY2KODKAMM5BLZ42FEIQLM4D32FRQ23VOOJC2SEUHKE565T4/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/2XY23CF5I7E7DA7S56DOBQFIZR7AIFCS6P6TM275QADCZVWNJCDSE37AUM/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/LIHQGEOPOTMQKAJMXUJP2BT4R4AX4FPUC2SLBLYT27K536CA3XUQJVXE3Y/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/PFILVNLKQHTY47ODLTO5QF4CTMV534U5LBZLT3YOHOJNHHOLHS2H725LKY/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/EGXXS23IL5H34OOVBIAU4OU73GF3U425SLVQ6A66DABPU2JG4MH7WGV374/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/VBZKJBZ327JB6KYCEDTJU5GORANNRLP6XVGVDXPBIP34IDVLELUEWDVE3A/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/HHDWSEYBFMKLEUC6ZNHUK4AAKXJMSVK4NQFKO7JFB4OEHRAS4SJ32LOTVA/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/A7GGOADGPDSO4TN3FQGWJHTHX2X3SUPOPNN2BWL4FOVWMONBREAAJL7FTM/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/MEMMHYXM4B2GLYNA4PJXOPIO3SMKMFVX62UK5Y7ZKQXZXCPCIGEEEH7YBQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/E3ZI374FPIVWED6VEXPGQQW7IGSDTMW3ES5S2FQF2NBPS4K3KXTT2IFM7Y/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/LUFKONGMUEUBBBSB4VAU7TFSZYTR5MFQRKKRPNVINYXL2HKYDGEQ2HPOFI/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/DJIP7MVWAAJKTPDG7SEH64OD4QIZMRHOH5LYHY4YXWRZRG6YMD2ERJ4C2Q/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/6NAKH5IVZGBDTDEETKV6SLBJNDHZZASX2YO2CUPESH2IPRBN3LSKCH4E2M/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/SCONGCDJWPZ7U5TN5BQRWVRFWX4AO37YAS7QNGZWW6637P247IE6ZT7QHQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/RASMRI2TS7OQWKBDSGV6ERIQOQDQUAZ45R4TZ4BJOHRNNXXH6LWWEXJ2SQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/IR6B7DJTTXWWWT63ZXU2V5DQTVFFKGFTBVGGYUNVHFUONWWPQEYL3QKGQQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/AIR4CSC54U33WCX4JTMJA4X6PHBVG7OGX7XVV2MCACYSSDULZNJ2KNGRZI/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/JZOICSITVDITWATNW7Z43TFRJV2PGOBKAIJOJDPZXSYQZZOJY2WEOY7IC4/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/4K4FPT5MXWIAZZOA75P7GC5UY6BKUBLYPULO6Y3JQL3QJVLYT2DN7EY3KI/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/YULJFZDZ542FXZGFO6KY5T4MS2BAWOJPHNS5M3CKQ5GQXATI6LSIAPYYEY/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/P3OYRTHNLAL6E6IKVOGKHKQBUCKC2W3JHCL3ITYI2OULSXC6QQTJOONITA/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/2ISUNTWI35PNSDZDCIDLIEWBUSKWNPOPKORAIZL7MGLY7REHZTL6IKKXIQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/EWBJXKHQJM5Z5PYZG5BKXMD2AF3HKTFN7JLCI2HEGEOWO7KMBGGDW4ANXQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/DXNPQA2OFO2PKGP4LOY2GLMYZP4X6TZNXJEJKSJAKAGOUV7I2XGETEBVRY/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/J52F73O4RVX3ZLOZZ7DCRXSTLUJJ56TMRQKDNCEUKGVNUEFSTS7VEGH4YE/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/L6CDM74YQEZ7RABX7AGTD32ZJEMDOJ5OGY4QNGZUS35S5VPIGC5UNHZTPA/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/DZHNWHVP35VGQRW4VTZXFU2JWZIIK2ZSNHHO7L77QGI2SX6G3YRKAPH6BQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/K244PBQOOZHZGVRWCDXX5UX5UN23QJREGOOWIKNWZWCEO7CMSQQ27CM5MM/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/XU52VUYYL2424DZDAVT5K2NNJWPVNMYQNHZ5KINM3ITJPHCAVQVDTQIZDA/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/ZC6BRSVD2YASAQTWGZVOWJDUOJL2FYFJXRSSC3KRWP4YTTP3XMFN2FTFYQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/EPDKFJM7ACQQLCIRNFVFOFZW37UYU7W7LJJU5MNPETJUP4CRF7TTVIOZ2Y/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/TPQ3BVPA6NQMZN5HVSWZ7TXOUGK6THGCJQWUKM4XFPZJWEL4UQUNQTCGVM/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/KSDRZKHMWVPHMXZSJFEXGQB5NA4YVTLTOEDZAHOSOU5JW4JRSQTGH4QEEY/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/DJQQXVY2OZ5SDER6ZNXAZVE6F7ENKP7R3RAOWYCW5EDFDNXOWWFL5XRCCQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/TPF2JRESH3S5LY2J52QADV5ORVTWX5HZ4OXUN4XO6Q6NLOG2T4REG7PP2I/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/7GCG2OV2XQ6QCYDNYRD43SKNYMVDFLVMLLMZTJIZLOFQXP6IK5K5BY4WNQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/5T5VBTBOPW2ZRJX6QJYCBMZ24VAW7IWFGV7GHCBKFNKIN2XYHP5OLOSQJQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/Q5FH5X3MOK5E3NCBKVU673NE6LDGENDJZJZC6UMJADXX63SJU2SL45MGUY/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/57UPDJSEZ7PNKKO4QRA5RP5XUHAS246AO2ZDKKBDAJQ2UBRINQFVPQZAKY/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/YTNZHXAVJRPY2OQNCBLNLDWO7HCD4CQSQRJLI3T32V7TXFSVD4HS6DGBAE/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/VBQX2YMRK5DPVZOMCOXPU4ISU2YO45KFJ435PCRYANPPXYPWVAJCXSBDTE/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/QMDBN5Y6Z7PWHYZKKHPQKTIUJXIOQMIHQGZR3QLDYEJS2Z7WT2SWHIB46U/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/ED57RDPEG53HHJKAHQGFBF74GUZ5JHH464424OZ4NSOJVV5VAL5YLZXQ5U/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/KZSAEVY42K6SUBWHFRRPR72VQEFKKKFJUD2ZKTP2E4XTZT3EYFLIAO7TFY/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "nodely-indexer",
+    "url": "https://mainnet-idx.4160.nodely.dev/v2/transactions?application-id=552635992&min-round=64824112&max-round=64855612&limit=1000",
+    "kind": "onchain",
+    "retrieved_at": "2026-09-08T14:30:00.000Z",
+    "app_id": 552635992,
+    "round": 64855612
+   },
+   {
+    "name": "nodely-indexer",
+    "url": "https://mainnet-idx.4160.nodely.dev/v2/transactions?application-id=1002541853&min-round=64824112&max-round=64855612&limit=1000",
+    "kind": "onchain",
+    "retrieved_at": "2026-09-08T14:30:00.000Z",
+    "app_id": 1002541853,
+    "round": 64855612
+   }
+  ],
+  "methodology_version": "1.1.0",
+  "cache": "miss",
+  "stale": false,
+  "coverage": {
+   "entities": 70,
+   "excluded": 150,
+   "basis": "all_pools_usd_priced"
+  },
+  "metric": "take_rate",
+  "value": 0.2486660658864843,
+  "unit": "RATIO",
+  "confidence": 0.81,
+  "is_estimated": false,
+  "estimation_method": null,
+  "notes": [
+   "protocol_revenue_24h / gross_fees_24h. A dimensionless fraction: 0.25 means the protocol keeps 25% of what swappers paid.",
+   "protocol_share is per-pool, not a protocol-wide constant: V1.1 pools use the documented 5/30, V2 pools use 1 / protocol_fee_ratio read on-chain (§3.3)."
+  ]
+ },
+ {
+  "protocol": "tinyman",
+  "timestamp": "2026-09-08T14:30:00.000Z",
+  "as_of": "2026-09-08T14:30:00.000Z",
+  "source": [
+   {
+    "name": "nodely-indexer",
+    "url": "https://mainnet-idx.4160.nodely.dev/v2/accounts?application-id=1002541853&limit=1000&exclude=assets%2Ccreated-assets%2Ccreated-apps",
+    "kind": "onchain",
+    "retrieved_at": "2026-09-08T14:30:00.000Z",
+    "app_id": 1002541853,
+    "round": 64855600
+   },
+   {
+    "name": "nodely-indexer",
+    "url": "https://mainnet-idx.4160.nodely.dev/v2/accounts?application-id=1002541853&limit=1000&exclude=assets%2Ccreated-assets%2Ccreated-apps&next=1",
+    "kind": "onchain",
+    "retrieved_at": "2026-09-08T14:30:00.000Z",
+    "app_id": 1002541853,
+    "round": 64855600
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/?limit=1000&offset=0",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/?limit=1000&offset=1000",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/assets/?ids=2537013734,1134696561,3203964481,2726252423,1237529510,2494786278,3160000000,2200000000,1821328783,1868885560,507472097,3081853135,2507779296,3109829078,2611535339,3581842047,2158527144,700965019,2611139760,3045159053,796425061,940424110,2155822658,3495558025,3214347764,1185173782,246516580,2582294183,3121954282,958277442,958280887,958279733,958278659,1194470385,923640017,2656265475,2578650960,1127347774,908935728,2217970766,1034994881,3616156711,2561491694,2933499000,3196313859,2935126632,2563959048,2290945144,757039174,2450411553&limit=50",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/assets/?ids=3122010543,3032713424,1294383366,1709999153,2211824164,1882181253,3451065491,2290771151,1069525391,2663780228,3622148694,2698002005,557264326,1055710698,1055700240,1639491796,1010838509,1821123863,1110901083,1096302088,2342621554,511028589,1285683351,3148132803,401752010,2972980000,1790688562,251014570,772212313,665182012,1110926942,1096015467,1189970332,1138500612,230946361,3178895177,797798846,2368676403,1272918363,2200421096,2154668640,2466866698,1453520040,408898501,1691271561,1065092715,1268830233,1377252601,583878846,553937591&limit=50",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/assets/?ids=582932609,1291176442,1248226674,1448358943,1306013327,1130414707,760037151,1448363298,1812382524,689171215,287867876,1138709032,758448815&limit=13",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/2PIFZW53RHCSFSYMCFUBW4XOCXOMB7XOYQSQ6KGT3KVGJTL4HM6COZRNMM/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/XE2VD23URF632SDAHABF4VDYLZ54UGLSNSURQWB7PI3XJUN55DY64RLWXQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/VVBWRAJ3YSZGXBGJ2K654J3WA2VZOJW5U4SJCZWLM634H572WTGWTT53EE/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/FKMV6GSU57764TQ5NLSBEDXNPUXL7OAOKANVDP2A6FSB77BHI3GTWHQAZA/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/GRBADGJPWTG5LRGEICN3OJJ3PHNCY5Y5DV3D5LF4C2WJWLLZFCCWRW7ECA/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/J7CN6WTMUWXY2KODKAMM5BLZ42FEIQLM4D32FRQ23VOOJC2SEUHKE565T4/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/2XY23CF5I7E7DA7S56DOBQFIZR7AIFCS6P6TM275QADCZVWNJCDSE37AUM/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/LIHQGEOPOTMQKAJMXUJP2BT4R4AX4FPUC2SLBLYT27K536CA3XUQJVXE3Y/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/PFILVNLKQHTY47ODLTO5QF4CTMV534U5LBZLT3YOHOJNHHOLHS2H725LKY/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/EGXXS23IL5H34OOVBIAU4OU73GF3U425SLVQ6A66DABPU2JG4MH7WGV374/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/VBZKJBZ327JB6KYCEDTJU5GORANNRLP6XVGVDXPBIP34IDVLELUEWDVE3A/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/HHDWSEYBFMKLEUC6ZNHUK4AAKXJMSVK4NQFKO7JFB4OEHRAS4SJ32LOTVA/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/A7GGOADGPDSO4TN3FQGWJHTHX2X3SUPOPNN2BWL4FOVWMONBREAAJL7FTM/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/MEMMHYXM4B2GLYNA4PJXOPIO3SMKMFVX62UK5Y7ZKQXZXCPCIGEEEH7YBQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/E3ZI374FPIVWED6VEXPGQQW7IGSDTMW3ES5S2FQF2NBPS4K3KXTT2IFM7Y/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/LUFKONGMUEUBBBSB4VAU7TFSZYTR5MFQRKKRPNVINYXL2HKYDGEQ2HPOFI/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/DJIP7MVWAAJKTPDG7SEH64OD4QIZMRHOH5LYHY4YXWRZRG6YMD2ERJ4C2Q/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/6NAKH5IVZGBDTDEETKV6SLBJNDHZZASX2YO2CUPESH2IPRBN3LSKCH4E2M/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/SCONGCDJWPZ7U5TN5BQRWVRFWX4AO37YAS7QNGZWW6637P247IE6ZT7QHQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/RASMRI2TS7OQWKBDSGV6ERIQOQDQUAZ45R4TZ4BJOHRNNXXH6LWWEXJ2SQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/IR6B7DJTTXWWWT63ZXU2V5DQTVFFKGFTBVGGYUNVHFUONWWPQEYL3QKGQQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/AIR4CSC54U33WCX4JTMJA4X6PHBVG7OGX7XVV2MCACYSSDULZNJ2KNGRZI/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/JZOICSITVDITWATNW7Z43TFRJV2PGOBKAIJOJDPZXSYQZZOJY2WEOY7IC4/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/4K4FPT5MXWIAZZOA75P7GC5UY6BKUBLYPULO6Y3JQL3QJVLYT2DN7EY3KI/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/YULJFZDZ542FXZGFO6KY5T4MS2BAWOJPHNS5M3CKQ5GQXATI6LSIAPYYEY/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/P3OYRTHNLAL6E6IKVOGKHKQBUCKC2W3JHCL3ITYI2OULSXC6QQTJOONITA/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/2ISUNTWI35PNSDZDCIDLIEWBUSKWNPOPKORAIZL7MGLY7REHZTL6IKKXIQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/EWBJXKHQJM5Z5PYZG5BKXMD2AF3HKTFN7JLCI2HEGEOWO7KMBGGDW4ANXQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/DXNPQA2OFO2PKGP4LOY2GLMYZP4X6TZNXJEJKSJAKAGOUV7I2XGETEBVRY/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/J52F73O4RVX3ZLOZZ7DCRXSTLUJJ56TMRQKDNCEUKGVNUEFSTS7VEGH4YE/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/L6CDM74YQEZ7RABX7AGTD32ZJEMDOJ5OGY4QNGZUS35S5VPIGC5UNHZTPA/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/DZHNWHVP35VGQRW4VTZXFU2JWZIIK2ZSNHHO7L77QGI2SX6G3YRKAPH6BQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/K244PBQOOZHZGVRWCDXX5UX5UN23QJREGOOWIKNWZWCEO7CMSQQ27CM5MM/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/XU52VUYYL2424DZDAVT5K2NNJWPVNMYQNHZ5KINM3ITJPHCAVQVDTQIZDA/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/ZC6BRSVD2YASAQTWGZVOWJDUOJL2FYFJXRSSC3KRWP4YTTP3XMFN2FTFYQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/EPDKFJM7ACQQLCIRNFVFOFZW37UYU7W7LJJU5MNPETJUP4CRF7TTVIOZ2Y/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/TPQ3BVPA6NQMZN5HVSWZ7TXOUGK6THGCJQWUKM4XFPZJWEL4UQUNQTCGVM/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/KSDRZKHMWVPHMXZSJFEXGQB5NA4YVTLTOEDZAHOSOU5JW4JRSQTGH4QEEY/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/DJQQXVY2OZ5SDER6ZNXAZVE6F7ENKP7R3RAOWYCW5EDFDNXOWWFL5XRCCQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/TPF2JRESH3S5LY2J52QADV5ORVTWX5HZ4OXUN4XO6Q6NLOG2T4REG7PP2I/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/7GCG2OV2XQ6QCYDNYRD43SKNYMVDFLVMLLMZTJIZLOFQXP6IK5K5BY4WNQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/5T5VBTBOPW2ZRJX6QJYCBMZ24VAW7IWFGV7GHCBKFNKIN2XYHP5OLOSQJQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/Q5FH5X3MOK5E3NCBKVU673NE6LDGENDJZJZC6UMJADXX63SJU2SL45MGUY/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/57UPDJSEZ7PNKKO4QRA5RP5XUHAS246AO2ZDKKBDAJQ2UBRINQFVPQZAKY/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/YTNZHXAVJRPY2OQNCBLNLDWO7HCD4CQSQRJLI3T32V7TXFSVD4HS6DGBAE/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/VBQX2YMRK5DPVZOMCOXPU4ISU2YO45KFJ435PCRYANPPXYPWVAJCXSBDTE/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/QMDBN5Y6Z7PWHYZKKHPQKTIUJXIOQMIHQGZR3QLDYEJS2Z7WT2SWHIB46U/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/ED57RDPEG53HHJKAHQGFBF74GUZ5JHH464424OZ4NSOJVV5VAL5YLZXQ5U/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/KZSAEVY42K6SUBWHFRRPR72VQEFKKKFJUD2ZKTP2E4XTZT3EYFLIAO7TFY/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "nodely-indexer",
+    "url": "https://mainnet-idx.4160.nodely.dev/v2/transactions?application-id=552635992&min-round=64824112&max-round=64855612&limit=1000",
+    "kind": "onchain",
+    "retrieved_at": "2026-09-08T14:30:00.000Z",
+    "app_id": 552635992,
+    "round": 64855612
+   },
+   {
+    "name": "nodely-indexer",
+    "url": "https://mainnet-idx.4160.nodely.dev/v2/transactions?application-id=1002541853&min-round=64824112&max-round=64855612&limit=1000",
+    "kind": "onchain",
+    "retrieved_at": "2026-09-08T14:30:00.000Z",
+    "app_id": 1002541853,
+    "round": 64855612
+   }
+  ],
+  "methodology_version": "1.1.0",
+  "cache": "miss",
+  "stale": false,
+  "coverage": {
+   "entities": 70,
+   "excluded": 150,
+   "basis": "all_pools_usd_priced"
+  },
+  "metric": "capital_efficiency",
+  "value": 0.08690574710258593,
+  "unit": "RATIO",
+  "confidence": 0.71,
+  "is_estimated": false,
+  "estimation_method": null,
+  "notes": [
+   "Annualized gross fees per dollar of pooled capital. Comparable across protocol classes by construction (§4).",
+   "Denominator is total included TVL; 24h flows cover every included pool."
+  ]
+ },
+ {
+  "protocol": "tinyman",
+  "timestamp": "2026-09-08T14:30:00.000Z",
+  "as_of": "2026-09-08T14:30:00.000Z",
+  "source": [
+   {
+    "name": "nodely-indexer",
+    "url": "https://mainnet-idx.4160.nodely.dev/v2/accounts?application-id=1002541853&limit=1000&exclude=assets%2Ccreated-assets%2Ccreated-apps",
+    "kind": "onchain",
+    "retrieved_at": "2026-09-08T14:30:00.000Z",
+    "app_id": 1002541853,
+    "round": 64855600
+   },
+   {
+    "name": "nodely-indexer",
+    "url": "https://mainnet-idx.4160.nodely.dev/v2/accounts?application-id=1002541853&limit=1000&exclude=assets%2Ccreated-assets%2Ccreated-apps&next=1",
+    "kind": "onchain",
+    "retrieved_at": "2026-09-08T14:30:00.000Z",
+    "app_id": 1002541853,
+    "round": 64855600
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/?limit=1000&offset=0",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/?limit=1000&offset=1000",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/assets/?ids=2537013734,1134696561,3203964481,2726252423,1237529510,2494786278,3160000000,2200000000,1821328783,1868885560,507472097,3081853135,2507779296,3109829078,2611535339,3581842047,2158527144,700965019,2611139760,3045159053,796425061,940424110,2155822658,3495558025,3214347764,1185173782,246516580,2582294183,3121954282,958277442,958280887,958279733,958278659,1194470385,923640017,2656265475,2578650960,1127347774,908935728,2217970766,1034994881,3616156711,2561491694,2933499000,3196313859,2935126632,2563959048,2290945144,757039174,2450411553&limit=50",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/assets/?ids=3122010543,3032713424,1294383366,1709999153,2211824164,1882181253,3451065491,2290771151,1069525391,2663780228,3622148694,2698002005,557264326,1055710698,1055700240,1639491796,1010838509,1821123863,1110901083,1096302088,2342621554,511028589,1285683351,3148132803,401752010,2972980000,1790688562,251014570,772212313,665182012,1110926942,1096015467,1189970332,1138500612,230946361,3178895177,797798846,2368676403,1272918363,2200421096,2154668640,2466866698,1453520040,408898501,1691271561,1065092715,1268830233,1377252601,583878846,553937591&limit=50",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/assets/?ids=582932609,1291176442,1248226674,1448358943,1306013327,1130414707,760037151,1448363298,1812382524,689171215,287867876,1138709032,758448815&limit=13",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/2PIFZW53RHCSFSYMCFUBW4XOCXOMB7XOYQSQ6KGT3KVGJTL4HM6COZRNMM/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/XE2VD23URF632SDAHABF4VDYLZ54UGLSNSURQWB7PI3XJUN55DY64RLWXQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/VVBWRAJ3YSZGXBGJ2K654J3WA2VZOJW5U4SJCZWLM634H572WTGWTT53EE/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/FKMV6GSU57764TQ5NLSBEDXNPUXL7OAOKANVDP2A6FSB77BHI3GTWHQAZA/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/GRBADGJPWTG5LRGEICN3OJJ3PHNCY5Y5DV3D5LF4C2WJWLLZFCCWRW7ECA/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/J7CN6WTMUWXY2KODKAMM5BLZ42FEIQLM4D32FRQ23VOOJC2SEUHKE565T4/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/2XY23CF5I7E7DA7S56DOBQFIZR7AIFCS6P6TM275QADCZVWNJCDSE37AUM/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/LIHQGEOPOTMQKAJMXUJP2BT4R4AX4FPUC2SLBLYT27K536CA3XUQJVXE3Y/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/PFILVNLKQHTY47ODLTO5QF4CTMV534U5LBZLT3YOHOJNHHOLHS2H725LKY/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/EGXXS23IL5H34OOVBIAU4OU73GF3U425SLVQ6A66DABPU2JG4MH7WGV374/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/VBZKJBZ327JB6KYCEDTJU5GORANNRLP6XVGVDXPBIP34IDVLELUEWDVE3A/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/HHDWSEYBFMKLEUC6ZNHUK4AAKXJMSVK4NQFKO7JFB4OEHRAS4SJ32LOTVA/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/A7GGOADGPDSO4TN3FQGWJHTHX2X3SUPOPNN2BWL4FOVWMONBREAAJL7FTM/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/MEMMHYXM4B2GLYNA4PJXOPIO3SMKMFVX62UK5Y7ZKQXZXCPCIGEEEH7YBQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/E3ZI374FPIVWED6VEXPGQQW7IGSDTMW3ES5S2FQF2NBPS4K3KXTT2IFM7Y/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/LUFKONGMUEUBBBSB4VAU7TFSZYTR5MFQRKKRPNVINYXL2HKYDGEQ2HPOFI/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/DJIP7MVWAAJKTPDG7SEH64OD4QIZMRHOH5LYHY4YXWRZRG6YMD2ERJ4C2Q/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/6NAKH5IVZGBDTDEETKV6SLBJNDHZZASX2YO2CUPESH2IPRBN3LSKCH4E2M/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/SCONGCDJWPZ7U5TN5BQRWVRFWX4AO37YAS7QNGZWW6637P247IE6ZT7QHQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/RASMRI2TS7OQWKBDSGV6ERIQOQDQUAZ45R4TZ4BJOHRNNXXH6LWWEXJ2SQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/IR6B7DJTTXWWWT63ZXU2V5DQTVFFKGFTBVGGYUNVHFUONWWPQEYL3QKGQQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/AIR4CSC54U33WCX4JTMJA4X6PHBVG7OGX7XVV2MCACYSSDULZNJ2KNGRZI/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/JZOICSITVDITWATNW7Z43TFRJV2PGOBKAIJOJDPZXSYQZZOJY2WEOY7IC4/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/4K4FPT5MXWIAZZOA75P7GC5UY6BKUBLYPULO6Y3JQL3QJVLYT2DN7EY3KI/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/YULJFZDZ542FXZGFO6KY5T4MS2BAWOJPHNS5M3CKQ5GQXATI6LSIAPYYEY/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/P3OYRTHNLAL6E6IKVOGKHKQBUCKC2W3JHCL3ITYI2OULSXC6QQTJOONITA/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/2ISUNTWI35PNSDZDCIDLIEWBUSKWNPOPKORAIZL7MGLY7REHZTL6IKKXIQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/EWBJXKHQJM5Z5PYZG5BKXMD2AF3HKTFN7JLCI2HEGEOWO7KMBGGDW4ANXQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/DXNPQA2OFO2PKGP4LOY2GLMYZP4X6TZNXJEJKSJAKAGOUV7I2XGETEBVRY/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/J52F73O4RVX3ZLOZZ7DCRXSTLUJJ56TMRQKDNCEUKGVNUEFSTS7VEGH4YE/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/L6CDM74YQEZ7RABX7AGTD32ZJEMDOJ5OGY4QNGZUS35S5VPIGC5UNHZTPA/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/DZHNWHVP35VGQRW4VTZXFU2JWZIIK2ZSNHHO7L77QGI2SX6G3YRKAPH6BQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/K244PBQOOZHZGVRWCDXX5UX5UN23QJREGOOWIKNWZWCEO7CMSQQ27CM5MM/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/XU52VUYYL2424DZDAVT5K2NNJWPVNMYQNHZ5KINM3ITJPHCAVQVDTQIZDA/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/ZC6BRSVD2YASAQTWGZVOWJDUOJL2FYFJXRSSC3KRWP4YTTP3XMFN2FTFYQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/EPDKFJM7ACQQLCIRNFVFOFZW37UYU7W7LJJU5MNPETJUP4CRF7TTVIOZ2Y/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/TPQ3BVPA6NQMZN5HVSWZ7TXOUGK6THGCJQWUKM4XFPZJWEL4UQUNQTCGVM/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/KSDRZKHMWVPHMXZSJFEXGQB5NA4YVTLTOEDZAHOSOU5JW4JRSQTGH4QEEY/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/DJQQXVY2OZ5SDER6ZNXAZVE6F7ENKP7R3RAOWYCW5EDFDNXOWWFL5XRCCQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/TPF2JRESH3S5LY2J52QADV5ORVTWX5HZ4OXUN4XO6Q6NLOG2T4REG7PP2I/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/7GCG2OV2XQ6QCYDNYRD43SKNYMVDFLVMLLMZTJIZLOFQXP6IK5K5BY4WNQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/5T5VBTBOPW2ZRJX6QJYCBMZ24VAW7IWFGV7GHCBKFNKIN2XYHP5OLOSQJQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/Q5FH5X3MOK5E3NCBKVU673NE6LDGENDJZJZC6UMJADXX63SJU2SL45MGUY/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/57UPDJSEZ7PNKKO4QRA5RP5XUHAS246AO2ZDKKBDAJQ2UBRINQFVPQZAKY/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/YTNZHXAVJRPY2OQNCBLNLDWO7HCD4CQSQRJLI3T32V7TXFSVD4HS6DGBAE/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/VBQX2YMRK5DPVZOMCOXPU4ISU2YO45KFJ435PCRYANPPXYPWVAJCXSBDTE/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/QMDBN5Y6Z7PWHYZKKHPQKTIUJXIOQMIHQGZR3QLDYEJS2Z7WT2SWHIB46U/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/ED57RDPEG53HHJKAHQGFBF74GUZ5JHH464424OZ4NSOJVV5VAL5YLZXQ5U/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/KZSAEVY42K6SUBWHFRRPR72VQEFKKKFJUD2ZKTP2E4XTZT3EYFLIAO7TFY/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "nodely-indexer",
+    "url": "https://mainnet-idx.4160.nodely.dev/v2/transactions?application-id=552635992&min-round=64824112&max-round=64855612&limit=1000",
+    "kind": "onchain",
+    "retrieved_at": "2026-09-08T14:30:00.000Z",
+    "app_id": 552635992,
+    "round": 64855612
+   },
+   {
+    "name": "nodely-indexer",
+    "url": "https://mainnet-idx.4160.nodely.dev/v2/transactions?application-id=1002541853&min-round=64824112&max-round=64855612&limit=1000",
+    "kind": "onchain",
+    "retrieved_at": "2026-09-08T14:30:00.000Z",
+    "app_id": 1002541853,
+    "round": 64855612
+   }
+  ],
+  "methodology_version": "1.1.0",
+  "cache": "miss",
+  "stale": false,
+  "coverage": {
+   "entities": 70,
+   "excluded": 150,
+   "basis": "all_pools_usd_priced"
+  },
+  "metric": "fee_apr",
+  "value": 0.06529523686766014,
+  "unit": "RATIO",
+  "confidence": 0.71,
+  "is_estimated": false,
+  "estimation_method": null,
+  "notes": [
+   "LP yield from swap fees only. Staking and governance incentives are excluded (§3.1).",
+   "Denominator is total included TVL; 24h flows cover every included pool."
+  ]
+ },
+ {
+  "protocol": "tinyman",
+  "timestamp": "2026-09-08T14:30:00.000Z",
+  "as_of": "2026-09-08T14:30:00.000Z",
+  "source": [
+   {
+    "name": "nodely-indexer",
+    "url": "https://mainnet-idx.4160.nodely.dev/v2/accounts?application-id=1002541853&limit=1000&exclude=assets%2Ccreated-assets%2Ccreated-apps",
+    "kind": "onchain",
+    "retrieved_at": "2026-09-08T14:30:00.000Z",
+    "app_id": 1002541853,
+    "round": 64855600
+   },
+   {
+    "name": "nodely-indexer",
+    "url": "https://mainnet-idx.4160.nodely.dev/v2/accounts?application-id=1002541853&limit=1000&exclude=assets%2Ccreated-assets%2Ccreated-apps&next=1",
+    "kind": "onchain",
+    "retrieved_at": "2026-09-08T14:30:00.000Z",
+    "app_id": 1002541853,
+    "round": 64855600
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/?limit=1000&offset=0",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/?limit=1000&offset=1000",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/assets/?ids=2537013734,1134696561,3203964481,2726252423,1237529510,2494786278,3160000000,2200000000,1821328783,1868885560,507472097,3081853135,2507779296,3109829078,2611535339,3581842047,2158527144,700965019,2611139760,3045159053,796425061,940424110,2155822658,3495558025,3214347764,1185173782,246516580,2582294183,3121954282,958277442,958280887,958279733,958278659,1194470385,923640017,2656265475,2578650960,1127347774,908935728,2217970766,1034994881,3616156711,2561491694,2933499000,3196313859,2935126632,2563959048,2290945144,757039174,2450411553&limit=50",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/assets/?ids=3122010543,3032713424,1294383366,1709999153,2211824164,1882181253,3451065491,2290771151,1069525391,2663780228,3622148694,2698002005,557264326,1055710698,1055700240,1639491796,1010838509,1821123863,1110901083,1096302088,2342621554,511028589,1285683351,3148132803,401752010,2972980000,1790688562,251014570,772212313,665182012,1110926942,1096015467,1189970332,1138500612,230946361,3178895177,797798846,2368676403,1272918363,2200421096,2154668640,2466866698,1453520040,408898501,1691271561,1065092715,1268830233,1377252601,583878846,553937591&limit=50",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/assets/?ids=582932609,1291176442,1248226674,1448358943,1306013327,1130414707,760037151,1448363298,1812382524,689171215,287867876,1138709032,758448815&limit=13",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/2PIFZW53RHCSFSYMCFUBW4XOCXOMB7XOYQSQ6KGT3KVGJTL4HM6COZRNMM/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/XE2VD23URF632SDAHABF4VDYLZ54UGLSNSURQWB7PI3XJUN55DY64RLWXQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/VVBWRAJ3YSZGXBGJ2K654J3WA2VZOJW5U4SJCZWLM634H572WTGWTT53EE/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/FKMV6GSU57764TQ5NLSBEDXNPUXL7OAOKANVDP2A6FSB77BHI3GTWHQAZA/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/GRBADGJPWTG5LRGEICN3OJJ3PHNCY5Y5DV3D5LF4C2WJWLLZFCCWRW7ECA/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/J7CN6WTMUWXY2KODKAMM5BLZ42FEIQLM4D32FRQ23VOOJC2SEUHKE565T4/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/2XY23CF5I7E7DA7S56DOBQFIZR7AIFCS6P6TM275QADCZVWNJCDSE37AUM/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/LIHQGEOPOTMQKAJMXUJP2BT4R4AX4FPUC2SLBLYT27K536CA3XUQJVXE3Y/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/PFILVNLKQHTY47ODLTO5QF4CTMV534U5LBZLT3YOHOJNHHOLHS2H725LKY/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/EGXXS23IL5H34OOVBIAU4OU73GF3U425SLVQ6A66DABPU2JG4MH7WGV374/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/VBZKJBZ327JB6KYCEDTJU5GORANNRLP6XVGVDXPBIP34IDVLELUEWDVE3A/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/HHDWSEYBFMKLEUC6ZNHUK4AAKXJMSVK4NQFKO7JFB4OEHRAS4SJ32LOTVA/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/A7GGOADGPDSO4TN3FQGWJHTHX2X3SUPOPNN2BWL4FOVWMONBREAAJL7FTM/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/MEMMHYXM4B2GLYNA4PJXOPIO3SMKMFVX62UK5Y7ZKQXZXCPCIGEEEH7YBQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/E3ZI374FPIVWED6VEXPGQQW7IGSDTMW3ES5S2FQF2NBPS4K3KXTT2IFM7Y/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/LUFKONGMUEUBBBSB4VAU7TFSZYTR5MFQRKKRPNVINYXL2HKYDGEQ2HPOFI/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/DJIP7MVWAAJKTPDG7SEH64OD4QIZMRHOH5LYHY4YXWRZRG6YMD2ERJ4C2Q/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/6NAKH5IVZGBDTDEETKV6SLBJNDHZZASX2YO2CUPESH2IPRBN3LSKCH4E2M/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/SCONGCDJWPZ7U5TN5BQRWVRFWX4AO37YAS7QNGZWW6637P247IE6ZT7QHQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/RASMRI2TS7OQWKBDSGV6ERIQOQDQUAZ45R4TZ4BJOHRNNXXH6LWWEXJ2SQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/IR6B7DJTTXWWWT63ZXU2V5DQTVFFKGFTBVGGYUNVHFUONWWPQEYL3QKGQQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/AIR4CSC54U33WCX4JTMJA4X6PHBVG7OGX7XVV2MCACYSSDULZNJ2KNGRZI/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/JZOICSITVDITWATNW7Z43TFRJV2PGOBKAIJOJDPZXSYQZZOJY2WEOY7IC4/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/4K4FPT5MXWIAZZOA75P7GC5UY6BKUBLYPULO6Y3JQL3QJVLYT2DN7EY3KI/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/YULJFZDZ542FXZGFO6KY5T4MS2BAWOJPHNS5M3CKQ5GQXATI6LSIAPYYEY/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/P3OYRTHNLAL6E6IKVOGKHKQBUCKC2W3JHCL3ITYI2OULSXC6QQTJOONITA/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/2ISUNTWI35PNSDZDCIDLIEWBUSKWNPOPKORAIZL7MGLY7REHZTL6IKKXIQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/EWBJXKHQJM5Z5PYZG5BKXMD2AF3HKTFN7JLCI2HEGEOWO7KMBGGDW4ANXQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/DXNPQA2OFO2PKGP4LOY2GLMYZP4X6TZNXJEJKSJAKAGOUV7I2XGETEBVRY/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/J52F73O4RVX3ZLOZZ7DCRXSTLUJJ56TMRQKDNCEUKGVNUEFSTS7VEGH4YE/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/L6CDM74YQEZ7RABX7AGTD32ZJEMDOJ5OGY4QNGZUS35S5VPIGC5UNHZTPA/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/DZHNWHVP35VGQRW4VTZXFU2JWZIIK2ZSNHHO7L77QGI2SX6G3YRKAPH6BQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/K244PBQOOZHZGVRWCDXX5UX5UN23QJREGOOWIKNWZWCEO7CMSQQ27CM5MM/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/XU52VUYYL2424DZDAVT5K2NNJWPVNMYQNHZ5KINM3ITJPHCAVQVDTQIZDA/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/ZC6BRSVD2YASAQTWGZVOWJDUOJL2FYFJXRSSC3KRWP4YTTP3XMFN2FTFYQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/EPDKFJM7ACQQLCIRNFVFOFZW37UYU7W7LJJU5MNPETJUP4CRF7TTVIOZ2Y/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/TPQ3BVPA6NQMZN5HVSWZ7TXOUGK6THGCJQWUKM4XFPZJWEL4UQUNQTCGVM/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/KSDRZKHMWVPHMXZSJFEXGQB5NA4YVTLTOEDZAHOSOU5JW4JRSQTGH4QEEY/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/DJQQXVY2OZ5SDER6ZNXAZVE6F7ENKP7R3RAOWYCW5EDFDNXOWWFL5XRCCQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/TPF2JRESH3S5LY2J52QADV5ORVTWX5HZ4OXUN4XO6Q6NLOG2T4REG7PP2I/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/7GCG2OV2XQ6QCYDNYRD43SKNYMVDFLVMLLMZTJIZLOFQXP6IK5K5BY4WNQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/5T5VBTBOPW2ZRJX6QJYCBMZ24VAW7IWFGV7GHCBKFNKIN2XYHP5OLOSQJQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/Q5FH5X3MOK5E3NCBKVU673NE6LDGENDJZJZC6UMJADXX63SJU2SL45MGUY/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/57UPDJSEZ7PNKKO4QRA5RP5XUHAS246AO2ZDKKBDAJQ2UBRINQFVPQZAKY/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/YTNZHXAVJRPY2OQNCBLNLDWO7HCD4CQSQRJLI3T32V7TXFSVD4HS6DGBAE/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/VBQX2YMRK5DPVZOMCOXPU4ISU2YO45KFJ435PCRYANPPXYPWVAJCXSBDTE/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/QMDBN5Y6Z7PWHYZKKHPQKTIUJXIOQMIHQGZR3QLDYEJS2Z7WT2SWHIB46U/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/ED57RDPEG53HHJKAHQGFBF74GUZ5JHH464424OZ4NSOJVV5VAL5YLZXQ5U/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/KZSAEVY42K6SUBWHFRRPR72VQEFKKKFJUD2ZKTP2E4XTZT3EYFLIAO7TFY/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "nodely-indexer",
+    "url": "https://mainnet-idx.4160.nodely.dev/v2/transactions?application-id=552635992&min-round=64824112&max-round=64855612&limit=1000",
+    "kind": "onchain",
+    "retrieved_at": "2026-09-08T14:30:00.000Z",
+    "app_id": 552635992,
+    "round": 64855612
+   },
+   {
+    "name": "nodely-indexer",
+    "url": "https://mainnet-idx.4160.nodely.dev/v2/transactions?application-id=1002541853&min-round=64824112&max-round=64855612&limit=1000",
+    "kind": "onchain",
+    "retrieved_at": "2026-09-08T14:30:00.000Z",
+    "app_id": 1002541853,
+    "round": 64855612
+   }
+  ],
+  "methodology_version": "1.1.0",
+  "cache": "miss",
+  "stale": false,
+  "coverage": {
+   "entities": 70,
+   "excluded": 150,
+   "basis": "all_pools_usd_priced"
+  },
+  "metric": "volume_to_tvl",
+  "value": 0.06636492172348712,
+  "unit": "RATIO",
+  "confidence": 0.71,
+  "is_estimated": false,
+  "estimation_method": null,
+  "notes": [
+   "Turnover: USD swapped per dollar of pooled capital, trailing 24h.",
+   "Denominator is total included TVL; 24h flows cover every included pool."
+  ]
+ },
+ {
+  "protocol": "tinyman",
+  "timestamp": "2026-09-08T14:30:00.000Z",
+  "as_of": "2026-09-08T14:30:00.000Z",
+  "source": [
+   {
+    "name": "nodely-indexer",
+    "url": "https://mainnet-idx.4160.nodely.dev/v2/accounts?application-id=1002541853&limit=1000&exclude=assets%2Ccreated-assets%2Ccreated-apps",
+    "kind": "onchain",
+    "retrieved_at": "2026-09-08T14:30:00.000Z",
+    "app_id": 1002541853,
+    "round": 64855600
+   },
+   {
+    "name": "nodely-indexer",
+    "url": "https://mainnet-idx.4160.nodely.dev/v2/accounts?application-id=1002541853&limit=1000&exclude=assets%2Ccreated-assets%2Ccreated-apps&next=1",
+    "kind": "onchain",
+    "retrieved_at": "2026-09-08T14:30:00.000Z",
+    "app_id": 1002541853,
+    "round": 64855600
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/?limit=1000&offset=0",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/?limit=1000&offset=1000",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/assets/?ids=2537013734,1134696561,3203964481,2726252423,1237529510,2494786278,3160000000,2200000000,1821328783,1868885560,507472097,3081853135,2507779296,3109829078,2611535339,3581842047,2158527144,700965019,2611139760,3045159053,796425061,940424110,2155822658,3495558025,3214347764,1185173782,246516580,2582294183,3121954282,958277442,958280887,958279733,958278659,1194470385,923640017,2656265475,2578650960,1127347774,908935728,2217970766,1034994881,3616156711,2561491694,2933499000,3196313859,2935126632,2563959048,2290945144,757039174,2450411553&limit=50",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/assets/?ids=3122010543,3032713424,1294383366,1709999153,2211824164,1882181253,3451065491,2290771151,1069525391,2663780228,3622148694,2698002005,557264326,1055710698,1055700240,1639491796,1010838509,1821123863,1110901083,1096302088,2342621554,511028589,1285683351,3148132803,401752010,2972980000,1790688562,251014570,772212313,665182012,1110926942,1096015467,1189970332,1138500612,230946361,3178895177,797798846,2368676403,1272918363,2200421096,2154668640,2466866698,1453520040,408898501,1691271561,1065092715,1268830233,1377252601,583878846,553937591&limit=50",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/assets/?ids=582932609,1291176442,1248226674,1448358943,1306013327,1130414707,760037151,1448363298,1812382524,689171215,287867876,1138709032,758448815&limit=13",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/2PIFZW53RHCSFSYMCFUBW4XOCXOMB7XOYQSQ6KGT3KVGJTL4HM6COZRNMM/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/XE2VD23URF632SDAHABF4VDYLZ54UGLSNSURQWB7PI3XJUN55DY64RLWXQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/VVBWRAJ3YSZGXBGJ2K654J3WA2VZOJW5U4SJCZWLM634H572WTGWTT53EE/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/FKMV6GSU57764TQ5NLSBEDXNPUXL7OAOKANVDP2A6FSB77BHI3GTWHQAZA/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/GRBADGJPWTG5LRGEICN3OJJ3PHNCY5Y5DV3D5LF4C2WJWLLZFCCWRW7ECA/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/J7CN6WTMUWXY2KODKAMM5BLZ42FEIQLM4D32FRQ23VOOJC2SEUHKE565T4/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/2XY23CF5I7E7DA7S56DOBQFIZR7AIFCS6P6TM275QADCZVWNJCDSE37AUM/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/LIHQGEOPOTMQKAJMXUJP2BT4R4AX4FPUC2SLBLYT27K536CA3XUQJVXE3Y/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/PFILVNLKQHTY47ODLTO5QF4CTMV534U5LBZLT3YOHOJNHHOLHS2H725LKY/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/EGXXS23IL5H34OOVBIAU4OU73GF3U425SLVQ6A66DABPU2JG4MH7WGV374/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/VBZKJBZ327JB6KYCEDTJU5GORANNRLP6XVGVDXPBIP34IDVLELUEWDVE3A/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/HHDWSEYBFMKLEUC6ZNHUK4AAKXJMSVK4NQFKO7JFB4OEHRAS4SJ32LOTVA/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/A7GGOADGPDSO4TN3FQGWJHTHX2X3SUPOPNN2BWL4FOVWMONBREAAJL7FTM/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/MEMMHYXM4B2GLYNA4PJXOPIO3SMKMFVX62UK5Y7ZKQXZXCPCIGEEEH7YBQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/E3ZI374FPIVWED6VEXPGQQW7IGSDTMW3ES5S2FQF2NBPS4K3KXTT2IFM7Y/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/LUFKONGMUEUBBBSB4VAU7TFSZYTR5MFQRKKRPNVINYXL2HKYDGEQ2HPOFI/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/DJIP7MVWAAJKTPDG7SEH64OD4QIZMRHOH5LYHY4YXWRZRG6YMD2ERJ4C2Q/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/6NAKH5IVZGBDTDEETKV6SLBJNDHZZASX2YO2CUPESH2IPRBN3LSKCH4E2M/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/SCONGCDJWPZ7U5TN5BQRWVRFWX4AO37YAS7QNGZWW6637P247IE6ZT7QHQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/RASMRI2TS7OQWKBDSGV6ERIQOQDQUAZ45R4TZ4BJOHRNNXXH6LWWEXJ2SQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/IR6B7DJTTXWWWT63ZXU2V5DQTVFFKGFTBVGGYUNVHFUONWWPQEYL3QKGQQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/AIR4CSC54U33WCX4JTMJA4X6PHBVG7OGX7XVV2MCACYSSDULZNJ2KNGRZI/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/JZOICSITVDITWATNW7Z43TFRJV2PGOBKAIJOJDPZXSYQZZOJY2WEOY7IC4/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/4K4FPT5MXWIAZZOA75P7GC5UY6BKUBLYPULO6Y3JQL3QJVLYT2DN7EY3KI/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/YULJFZDZ542FXZGFO6KY5T4MS2BAWOJPHNS5M3CKQ5GQXATI6LSIAPYYEY/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/P3OYRTHNLAL6E6IKVOGKHKQBUCKC2W3JHCL3ITYI2OULSXC6QQTJOONITA/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/2ISUNTWI35PNSDZDCIDLIEWBUSKWNPOPKORAIZL7MGLY7REHZTL6IKKXIQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/EWBJXKHQJM5Z5PYZG5BKXMD2AF3HKTFN7JLCI2HEGEOWO7KMBGGDW4ANXQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/DXNPQA2OFO2PKGP4LOY2GLMYZP4X6TZNXJEJKSJAKAGOUV7I2XGETEBVRY/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/J52F73O4RVX3ZLOZZ7DCRXSTLUJJ56TMRQKDNCEUKGVNUEFSTS7VEGH4YE/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/L6CDM74YQEZ7RABX7AGTD32ZJEMDOJ5OGY4QNGZUS35S5VPIGC5UNHZTPA/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/DZHNWHVP35VGQRW4VTZXFU2JWZIIK2ZSNHHO7L77QGI2SX6G3YRKAPH6BQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/K244PBQOOZHZGVRWCDXX5UX5UN23QJREGOOWIKNWZWCEO7CMSQQ27CM5MM/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/XU52VUYYL2424DZDAVT5K2NNJWPVNMYQNHZ5KINM3ITJPHCAVQVDTQIZDA/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/ZC6BRSVD2YASAQTWGZVOWJDUOJL2FYFJXRSSC3KRWP4YTTP3XMFN2FTFYQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/EPDKFJM7ACQQLCIRNFVFOFZW37UYU7W7LJJU5MNPETJUP4CRF7TTVIOZ2Y/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/TPQ3BVPA6NQMZN5HVSWZ7TXOUGK6THGCJQWUKM4XFPZJWEL4UQUNQTCGVM/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/KSDRZKHMWVPHMXZSJFEXGQB5NA4YVTLTOEDZAHOSOU5JW4JRSQTGH4QEEY/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/DJQQXVY2OZ5SDER6ZNXAZVE6F7ENKP7R3RAOWYCW5EDFDNXOWWFL5XRCCQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/TPF2JRESH3S5LY2J52QADV5ORVTWX5HZ4OXUN4XO6Q6NLOG2T4REG7PP2I/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/7GCG2OV2XQ6QCYDNYRD43SKNYMVDFLVMLLMZTJIZLOFQXP6IK5K5BY4WNQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/5T5VBTBOPW2ZRJX6QJYCBMZ24VAW7IWFGV7GHCBKFNKIN2XYHP5OLOSQJQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/Q5FH5X3MOK5E3NCBKVU673NE6LDGENDJZJZC6UMJADXX63SJU2SL45MGUY/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/57UPDJSEZ7PNKKO4QRA5RP5XUHAS246AO2ZDKKBDAJQ2UBRINQFVPQZAKY/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/YTNZHXAVJRPY2OQNCBLNLDWO7HCD4CQSQRJLI3T32V7TXFSVD4HS6DGBAE/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/VBQX2YMRK5DPVZOMCOXPU4ISU2YO45KFJ435PCRYANPPXYPWVAJCXSBDTE/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/QMDBN5Y6Z7PWHYZKKHPQKTIUJXIOQMIHQGZR3QLDYEJS2Z7WT2SWHIB46U/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/ED57RDPEG53HHJKAHQGFBF74GUZ5JHH464424OZ4NSOJVV5VAL5YLZXQ5U/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/KZSAEVY42K6SUBWHFRRPR72VQEFKKKFJUD2ZKTP2E4XTZT3EYFLIAO7TFY/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "nodely-indexer",
+    "url": "https://mainnet-idx.4160.nodely.dev/v2/transactions?application-id=552635992&min-round=64824112&max-round=64855612&limit=1000",
+    "kind": "onchain",
+    "retrieved_at": "2026-09-08T14:30:00.000Z",
+    "app_id": 552635992,
+    "round": 64855612
+   },
+   {
+    "name": "nodely-indexer",
+    "url": "https://mainnet-idx.4160.nodely.dev/v2/transactions?application-id=1002541853&min-round=64824112&max-round=64855612&limit=1000",
+    "kind": "onchain",
+    "retrieved_at": "2026-09-08T14:30:00.000Z",
+    "app_id": 1002541853,
+    "round": 64855612
+   }
+  ],
+  "methodology_version": "1.1.0",
+  "cache": "miss",
+  "stale": false,
+  "coverage": {
+   "entities": 70,
+   "excluded": 150,
+   "basis": "all_pools_usd_priced"
+  },
+  "metric": "pool_count",
+  "value": 70,
+  "unit": "COUNT",
+  "confidence": 0.81,
+  "is_estimated": false,
+  "estimation_method": null,
+  "notes": [
+   "70 pools included: 21 V1.1 ($157507), 49 V2 ($4160084); 63 verified, 7 unverified or unknown (§3.6.4)."
+  ]
+ },
+ {
+  "protocol": "tinyman",
+  "timestamp": "2026-09-08T14:30:00.000Z",
+  "as_of": "2026-09-08T14:30:00.000Z",
+  "source": [
+   {
+    "name": "nodely-indexer",
+    "url": "https://mainnet-idx.4160.nodely.dev/v2/accounts?application-id=1002541853&limit=1000&exclude=assets%2Ccreated-assets%2Ccreated-apps",
+    "kind": "onchain",
+    "retrieved_at": "2026-09-08T14:30:00.000Z",
+    "app_id": 1002541853,
+    "round": 64855600
+   },
+   {
+    "name": "nodely-indexer",
+    "url": "https://mainnet-idx.4160.nodely.dev/v2/accounts?application-id=1002541853&limit=1000&exclude=assets%2Ccreated-assets%2Ccreated-apps&next=1",
+    "kind": "onchain",
+    "retrieved_at": "2026-09-08T14:30:00.000Z",
+    "app_id": 1002541853,
+    "round": 64855600
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/?limit=1000&offset=0",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/?limit=1000&offset=1000",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/assets/?ids=2537013734,1134696561,3203964481,2726252423,1237529510,2494786278,3160000000,2200000000,1821328783,1868885560,507472097,3081853135,2507779296,3109829078,2611535339,3581842047,2158527144,700965019,2611139760,3045159053,796425061,940424110,2155822658,3495558025,3214347764,1185173782,246516580,2582294183,3121954282,958277442,958280887,958279733,958278659,1194470385,923640017,2656265475,2578650960,1127347774,908935728,2217970766,1034994881,3616156711,2561491694,2933499000,3196313859,2935126632,2563959048,2290945144,757039174,2450411553&limit=50",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/assets/?ids=3122010543,3032713424,1294383366,1709999153,2211824164,1882181253,3451065491,2290771151,1069525391,2663780228,3622148694,2698002005,557264326,1055710698,1055700240,1639491796,1010838509,1821123863,1110901083,1096302088,2342621554,511028589,1285683351,3148132803,401752010,2972980000,1790688562,251014570,772212313,665182012,1110926942,1096015467,1189970332,1138500612,230946361,3178895177,797798846,2368676403,1272918363,2200421096,2154668640,2466866698,1453520040,408898501,1691271561,1065092715,1268830233,1377252601,583878846,553937591&limit=50",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/assets/?ids=582932609,1291176442,1248226674,1448358943,1306013327,1130414707,760037151,1448363298,1812382524,689171215,287867876,1138709032,758448815&limit=13",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/2PIFZW53RHCSFSYMCFUBW4XOCXOMB7XOYQSQ6KGT3KVGJTL4HM6COZRNMM/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/XE2VD23URF632SDAHABF4VDYLZ54UGLSNSURQWB7PI3XJUN55DY64RLWXQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/VVBWRAJ3YSZGXBGJ2K654J3WA2VZOJW5U4SJCZWLM634H572WTGWTT53EE/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/FKMV6GSU57764TQ5NLSBEDXNPUXL7OAOKANVDP2A6FSB77BHI3GTWHQAZA/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/GRBADGJPWTG5LRGEICN3OJJ3PHNCY5Y5DV3D5LF4C2WJWLLZFCCWRW7ECA/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/J7CN6WTMUWXY2KODKAMM5BLZ42FEIQLM4D32FRQ23VOOJC2SEUHKE565T4/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/2XY23CF5I7E7DA7S56DOBQFIZR7AIFCS6P6TM275QADCZVWNJCDSE37AUM/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/LIHQGEOPOTMQKAJMXUJP2BT4R4AX4FPUC2SLBLYT27K536CA3XUQJVXE3Y/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/PFILVNLKQHTY47ODLTO5QF4CTMV534U5LBZLT3YOHOJNHHOLHS2H725LKY/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/EGXXS23IL5H34OOVBIAU4OU73GF3U425SLVQ6A66DABPU2JG4MH7WGV374/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/VBZKJBZ327JB6KYCEDTJU5GORANNRLP6XVGVDXPBIP34IDVLELUEWDVE3A/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/HHDWSEYBFMKLEUC6ZNHUK4AAKXJMSVK4NQFKO7JFB4OEHRAS4SJ32LOTVA/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/A7GGOADGPDSO4TN3FQGWJHTHX2X3SUPOPNN2BWL4FOVWMONBREAAJL7FTM/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/MEMMHYXM4B2GLYNA4PJXOPIO3SMKMFVX62UK5Y7ZKQXZXCPCIGEEEH7YBQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/E3ZI374FPIVWED6VEXPGQQW7IGSDTMW3ES5S2FQF2NBPS4K3KXTT2IFM7Y/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/LUFKONGMUEUBBBSB4VAU7TFSZYTR5MFQRKKRPNVINYXL2HKYDGEQ2HPOFI/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/DJIP7MVWAAJKTPDG7SEH64OD4QIZMRHOH5LYHY4YXWRZRG6YMD2ERJ4C2Q/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/6NAKH5IVZGBDTDEETKV6SLBJNDHZZASX2YO2CUPESH2IPRBN3LSKCH4E2M/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/SCONGCDJWPZ7U5TN5BQRWVRFWX4AO37YAS7QNGZWW6637P247IE6ZT7QHQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/RASMRI2TS7OQWKBDSGV6ERIQOQDQUAZ45R4TZ4BJOHRNNXXH6LWWEXJ2SQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/IR6B7DJTTXWWWT63ZXU2V5DQTVFFKGFTBVGGYUNVHFUONWWPQEYL3QKGQQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/AIR4CSC54U33WCX4JTMJA4X6PHBVG7OGX7XVV2MCACYSSDULZNJ2KNGRZI/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/JZOICSITVDITWATNW7Z43TFRJV2PGOBKAIJOJDPZXSYQZZOJY2WEOY7IC4/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/4K4FPT5MXWIAZZOA75P7GC5UY6BKUBLYPULO6Y3JQL3QJVLYT2DN7EY3KI/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/YULJFZDZ542FXZGFO6KY5T4MS2BAWOJPHNS5M3CKQ5GQXATI6LSIAPYYEY/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/P3OYRTHNLAL6E6IKVOGKHKQBUCKC2W3JHCL3ITYI2OULSXC6QQTJOONITA/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/2ISUNTWI35PNSDZDCIDLIEWBUSKWNPOPKORAIZL7MGLY7REHZTL6IKKXIQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/EWBJXKHQJM5Z5PYZG5BKXMD2AF3HKTFN7JLCI2HEGEOWO7KMBGGDW4ANXQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/DXNPQA2OFO2PKGP4LOY2GLMYZP4X6TZNXJEJKSJAKAGOUV7I2XGETEBVRY/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/J52F73O4RVX3ZLOZZ7DCRXSTLUJJ56TMRQKDNCEUKGVNUEFSTS7VEGH4YE/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/L6CDM74YQEZ7RABX7AGTD32ZJEMDOJ5OGY4QNGZUS35S5VPIGC5UNHZTPA/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/DZHNWHVP35VGQRW4VTZXFU2JWZIIK2ZSNHHO7L77QGI2SX6G3YRKAPH6BQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/K244PBQOOZHZGVRWCDXX5UX5UN23QJREGOOWIKNWZWCEO7CMSQQ27CM5MM/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/XU52VUYYL2424DZDAVT5K2NNJWPVNMYQNHZ5KINM3ITJPHCAVQVDTQIZDA/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/ZC6BRSVD2YASAQTWGZVOWJDUOJL2FYFJXRSSC3KRWP4YTTP3XMFN2FTFYQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/EPDKFJM7ACQQLCIRNFVFOFZW37UYU7W7LJJU5MNPETJUP4CRF7TTVIOZ2Y/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/TPQ3BVPA6NQMZN5HVSWZ7TXOUGK6THGCJQWUKM4XFPZJWEL4UQUNQTCGVM/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/KSDRZKHMWVPHMXZSJFEXGQB5NA4YVTLTOEDZAHOSOU5JW4JRSQTGH4QEEY/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/DJQQXVY2OZ5SDER6ZNXAZVE6F7ENKP7R3RAOWYCW5EDFDNXOWWFL5XRCCQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/TPF2JRESH3S5LY2J52QADV5ORVTWX5HZ4OXUN4XO6Q6NLOG2T4REG7PP2I/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/7GCG2OV2XQ6QCYDNYRD43SKNYMVDFLVMLLMZTJIZLOFQXP6IK5K5BY4WNQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/5T5VBTBOPW2ZRJX6QJYCBMZ24VAW7IWFGV7GHCBKFNKIN2XYHP5OLOSQJQ/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/Q5FH5X3MOK5E3NCBKVU673NE6LDGENDJZJZC6UMJADXX63SJU2SL45MGUY/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/57UPDJSEZ7PNKKO4QRA5RP5XUHAS246AO2ZDKKBDAJQ2UBRINQFVPQZAKY/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/YTNZHXAVJRPY2OQNCBLNLDWO7HCD4CQSQRJLI3T32V7TXFSVD4HS6DGBAE/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/VBQX2YMRK5DPVZOMCOXPU4ISU2YO45KFJ435PCRYANPPXYPWVAJCXSBDTE/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/QMDBN5Y6Z7PWHYZKKHPQKTIUJXIOQMIHQGZR3QLDYEJS2Z7WT2SWHIB46U/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/ED57RDPEG53HHJKAHQGFBF74GUZ5JHH464424OZ4NSOJVV5VAL5YLZXQ5U/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "tinyman-analytics",
+    "url": "https://mainnet.analytics.tinyman.org/api/v1/pools/KZSAEVY42K6SUBWHFRRPR72VQEFKKKFJUD2ZKTP2E4XTZT3EYFLIAO7TFY/",
+    "kind": "rest",
+    "retrieved_at": "2026-09-08T14:30:00.000Z"
+   },
+   {
+    "name": "nodely-indexer",
+    "url": "https://mainnet-idx.4160.nodely.dev/v2/transactions?application-id=552635992&min-round=64824112&max-round=64855612&limit=1000",
+    "kind": "onchain",
+    "retrieved_at": "2026-09-08T14:30:00.000Z",
+    "app_id": 552635992,
+    "round": 64855612
+   },
+   {
+    "name": "nodely-indexer",
+    "url": "https://mainnet-idx.4160.nodely.dev/v2/transactions?application-id=1002541853&min-round=64824112&max-round=64855612&limit=1000",
+    "kind": "onchain",
+    "retrieved_at": "2026-09-08T14:30:00.000Z",
+    "app_id": 1002541853,
+    "round": 64855612
+   }
+  ],
+  "methodology_version": "1.1.0",
+  "cache": "miss",
+  "stale": false,
+  "coverage": {
+   "entities": 70,
+   "excluded": 150,
+   "basis": "all_pools_usd_priced"
+  },
+  "metric": "active_users_24h",
+  "value": 92,
+  "unit": "COUNT",
+  "confidence": 0.72,
+  "is_estimated": true,
+  "estimation_method": "distinct transaction senders to Tinyman validator apps 552635992 and 1002541853 over rounds 64824112-64855612; that window is 31500 rounds at a measured 2.7436 s/round rather than an exact 24h boundary, because neither algod status nor the §1.2 indexer client exposes a block timestamp",
+  "notes": [
+   "Counts ADDRESSES, not humans. One person with three wallets is three; a router batching for many users is one. No de-duplication is attempted, because any heuristic would be unfalsifiable (§4.1).",
+   "Interactions routed through an aggregator are attributed to the aggregator, not to the end user (§4.1).",
+   "Scanned 1551 application transactions; requested rounds 64824112-64855612, and the returned transactions actually spanned 64853616-64855609 (1993 rounds).",
+   "Confidence is capped at 0.80 for this KPI on every protocol: it is the least reliable metric published (§4.1)."
+  ]
+ }
+]
