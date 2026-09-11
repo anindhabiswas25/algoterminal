@@ -1,0 +1,10 @@
+{
+  // Typechecks src/ TOGETHER WITH the TypeScript extracted from
+  // docs/CONNECTOR_GUIDE.md by scripts/verify-docs.ts, which writes it into
+  // src/connectors/__doc_skeleton__/ — a directory tsconfig.json excludes, so
+  // an ordinary `npm run build` never sees it even if a run is interrupted.
+  "extends": "./tsconfig.json",
+  "compilerOptions": { "noEmit": true },
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules", "dist", "test"]
+}
