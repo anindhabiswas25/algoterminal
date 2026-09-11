@@ -1,0 +1,47 @@
+{
+  "name": "algoterminal-mcp",
+  "version": "0.1.0",
+  "description": "MCP server for AlgoTerminal — standardized Algorand DeFi KPIs, paid per query in USDC over x402. Your key, your wallet, your spend caps.",
+  "license": "MIT",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "bin": {
+    "algoterminal-mcp": "./dist/index.js"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "x402",
+    "algorand",
+    "defi",
+    "usdc"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "prepublishOnly": "npm run build",
+    "start": "node dist/index.js",
+    "dev": "tsx src/index.ts",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "1.30.0",
+    "@x402/avm": "2.25.0",
+    "@x402/core": "2.25.0",
+    "@x402/fetch": "2.25.0",
+    "algosdk": "3.5.2",
+    "zod": "3.25.76"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2",
+    "vitest": "5.0.0"
+  }
+}
