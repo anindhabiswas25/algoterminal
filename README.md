@@ -1,5 +1,7 @@
 # AlgoTerminal
 
+<img width="1470" height="834" alt="Screenshot 2026-09-12 at 12 43 57 PM" src="https://github.com/user-attachments/assets/d7dc8fd6-d67e-4708-96da-f3af1f05712f" />
+
 **Standardized financial KPIs for Algorand DeFi, sold per query in USDC over [x402](https://x402.org).**
 
 No API key. No signup. No account. The payment *is* the authentication — an HTTP
