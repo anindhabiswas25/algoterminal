@@ -68,7 +68,7 @@ export interface FacilitatorHealth {
  *
  * Both are deployment-time facts that no other check would catch: a missing
  * `ANTHROPIC_API_KEY` leaves `/ask` ungated and unadvertised (which is correct,
- * and silent), and a build that did not ship `docs/DATA_SCHEMA.md` serves the
+ * and silent), and a build that did not ship `public/methodology.md` serves the
  * structured methodology perfectly and the document itself as a 503. Neither
  * shows up in a connector probe or a cache stat, and both are exactly the kind
  * of thing that is discovered by a buyer rather than by us.

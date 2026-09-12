@@ -95,19 +95,14 @@ export type MethodologyFormat = (typeof METHODOLOGY_FORMATS)[number];
 const here = dirname(fileURLToPath(import.meta.url));
 
 /**
- * Where DATA_SCHEMA.md might be, most-authoritative first.
- *
- * `../../docs/` resolves from both `src/routes/` under tsx and `dist/routes/`
- * in the deployed image, which is why the source tree and the build output have
- * the same depth. `public/methodology.md` is the fallback for a build that
- * ships the landing page but not `docs/` — it is not written by anything today,
- * and exists so that a deployment which loses the docs directory degrades to a
- * missing-document 503 on ONE rendering rather than a broken route.
+ * Where the published accounting policy document lives, most-authoritative
+ * first. `../../public/` resolves from both `src/routes/` under tsx and
+ * `dist/routes/` in the deployed image, which is why the source tree and the
+ * build output have the same depth.
  */
 const DOCUMENT_CANDIDATES = [
-  join(here, '..', '..', 'docs', 'DATA_SCHEMA.md'),
   join(here, '..', '..', 'public', 'methodology.md'),
-  join(process.cwd(), 'docs', 'DATA_SCHEMA.md'),
+  join(process.cwd(), 'public', 'methodology.md'),
 ];
 
 let cached: string | null | undefined;

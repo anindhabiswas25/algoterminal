@@ -1,9 +1,2 @@
 node_modules/
 dist/
-# `docs/` is excluded from the deploy image with ONE exception: DATA_SCHEMA.md
-# is the published accounting policy and `/methodology?format=markdown` serves
-# it at runtime (API_SPEC.md §1). gitignore semantics cannot re-include a file
-# whose parent DIRECTORY is excluded, so the exclusion is written as `docs/*`
-# rather than `docs/` — the negation below only works against the glob form.
-docs/*
-!docs/DATA_SCHEMA.md
