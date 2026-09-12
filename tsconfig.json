@@ -20,5 +20,5 @@
     "sourceMap": true
   },
   "include": ["src/**/*.ts"],
-  "exclude": ["node_modules", "dist", "test", "src/connectors/__doc_skeleton__"]
+  "exclude": ["node_modules", "dist"]
 }

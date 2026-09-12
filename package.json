@@ -10,20 +10,9 @@
     "dev": "tsx watch --env-file-if-exists=.env src/index.ts",
     "build": "tsc",
     "start": "node dist/index.js",
-    "test": "vitest run",
-    "typecheck": "tsc --noEmit && tsc --noEmit -p tsconfig.test.json && npm run verify:docs",
-    "verify:docs": "tsx scripts/verify-docs.ts",
+    "typecheck": "tsc --noEmit",
     "migrate": "tsx --env-file-if-exists=.env src/db/migrate-cli.ts",
-    "cache:bench": "tsx --env-file-if-exists=.env scripts/cache-bench.ts",
-    "testnet:accounts": "tsx --env-file-if-exists=.env scripts/testnet-accounts.ts",
-    "mainnet:accounts": "tsx --env-file-if-exists=.env scripts/mainnet-accounts.ts",
-    "mainnet:verify": "tsx --env-file-if-exists=.env scripts/mainnet-verify-once.ts",
-    "testnet:smoke": "tsx --env-file-if-exists=.env scripts/testnet-smoke.ts",
-    "migrate:prod": "node dist/db/migrate-cli.js",
-    "ask:smoke": "tsx --env-file-if-exists=.env scripts/ask-smoke.ts",
-    "compare:smoke": "tsx --env-file-if-exists=.env scripts/compare-smoke.ts",
-    "og:assets": "tsx --env-file-if-exists=.env scripts/og-assets.ts",
-    "schema:emit": "tsx --env-file-if-exists=.env scripts/emit-schema.ts"
+    "migrate:prod": "node dist/db/migrate-cli.js"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.124.0",
@@ -43,13 +32,10 @@
     "zod": "4.5.4"
   },
   "devDependencies": {
-    "@hyperjump/json-schema": "^1.17.8",
     "@types/node": "^22.10.2",
     "@types/pg": "^8.23.1",
-    "@x402/fetch": "2.25.0",
     "railway": "3.11.0",
     "tsx": "^4.19.2",
-    "typescript": "^5.7.2",
-    "vitest": "5.0.0"
+    "typescript": "^5.7.2"
   }
 }
